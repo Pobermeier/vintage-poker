@@ -1,0 +1,14 @@
+{
+  "name": "poker-app-mail-templates",
+  "version": "1.0.0",
+  "description": "Mail-templates for Vintage Poker app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patrick Obermeier",
+  "license": "ISC",
+  "dependencies": {
+    "mjml": "^4.6.3"
+  }
+}
