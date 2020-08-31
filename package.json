@@ -1,0 +1,11 @@
+{
+  "name": "vintage-poker",
+  "version": "1.0.0",
+  "description": "A full-stack poker web-app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patrick Obermeier",
+  "license": "ISC"
+}
