@@ -4,8 +4,10 @@
   "description": "A full-stack poker web-app",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
-    "dev": "nodemon server"
+    "start:server": "node server",
+    "dev:server": "nodemon server",
+    "start:client": "npm start --prefix client",
+    "dev": "concurrently \"npm run dev:server\" \"npm run start:client\""
   },
   "author": "Patrick Obermeier",
   "license": "ISC",
