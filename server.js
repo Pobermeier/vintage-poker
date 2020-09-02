@@ -1,20 +1,20 @@
 const express = require('express');
 const config = require('./config');
 const connectDB = require('./server/config/db');
+const configMiddleware = require('./server/middleware');
 
 // Connect and get reference to mongodb instance
 let db;
 
-async function connectToDb() {
+(async function () {
   db = await connectDB();
-}
-
-connectToDb();
+})();
 
 // Init express app
 const app = express();
 
-// Config Middleware
+// Config Express-Middleware
+configMiddleware(app);
 
 // Routes
 app.get('/', (req, res) => {
