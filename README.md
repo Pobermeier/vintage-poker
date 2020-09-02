@@ -8,6 +8,7 @@
   MONGO_URI:<YOUR_MONGODB_URI>
   JWT_SECRET:<YOUR_JWT_SECRET>
   PORT:<YOUR_SERVER_PORT>
+  NODE_ENV:development
 ```
 
 ### Install server dependencies
