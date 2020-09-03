@@ -7,7 +7,7 @@ const expressRateLimit = require('express-rate-limit');
 const hpp = require('hpp');
 const cors = require('cors');
 
-const configMiddleware = (app) => {
+const configureMiddleware = (app) => {
   // Body-parser middleware
   app.use(express.json());
 
@@ -38,4 +38,4 @@ const configMiddleware = (app) => {
   app.use(cors());
 };
 
-module.exports = configMiddleware;
+module.exports = configureMiddleware;
