@@ -1,7 +1,8 @@
 const express = require('express');
 const config = require('./config');
 const connectDB = require('./server/config/db');
-const configMiddleware = require('./server/middleware');
+const configureMiddleware = require('./server/middleware');
+const configureRoutes = require('./server/routes');
 
 // Connect and get reference to mongodb instance
 let db;
@@ -14,12 +15,10 @@ let db;
 const app = express();
 
 // Config Express-Middleware
-configMiddleware(app);
+configureMiddleware(app);
 
-// Routes
-app.get('/', (req, res) => {
-  res.status(200).send('Welcome to Vintage Poker!');
-});
+// Set-up Routes
+configureRoutes(app);
 
 // Start server and listen for connections
 const server = app.listen(config.PORT, () => {
@@ -32,7 +31,7 @@ const server = app.listen(config.PORT, () => {
 process.on('unhandledRejection', (err) => {
   db.disconnect();
 
-  console.log(`Error: ${err.message}`);
+  console.error(`Error: ${err.message}`);
   server.close(() => {
     process.exit(1);
   });
