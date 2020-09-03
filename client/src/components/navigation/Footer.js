@@ -41,16 +41,16 @@ const Footer = ({ className, setLang, staticPages }) => {
         {staticPages &&
           staticPages.map((page, index, array) => {
             const component = (
-              <Link key={page} to={`/${page.slug}`}>
+              <Link key={page.slug} to={`/${page.slug}`}>
                 {page.title}
               </Link>
             );
             if (index < array.length - 1)
               return (
-                <>
+                <span key={page.slug}>
                   {component}
                   {' | '}
-                </>
+                </span>
               );
             else return component;
           })}
