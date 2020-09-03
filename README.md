@@ -26,10 +26,14 @@ These features are a must-have for the Minimal Viable Product (MVP) of this app:
 ### Add a local.env file in "./server/config" folder with the following
 
 ```
-  MONGO_URI:<YOUR_MONGODB_URI>
-  JWT_SECRET:<YOUR_JWT_SECRET>
-  PORT:<YOUR_SERVER_PORT>
-  NODE_ENV:development
+  MONGO_URI=<YOUR_MONGODB_URI>
+  JWT_SECRET=<YOUR_JWT_SECRET>
+  PORT=<YOUR_SERVER_PORT>
+  NODE_ENV=development
+  SMTP_HOST=<YOUR_SMTP_HOST>
+  SMTP_PORT=<YOUR_SMTP_USERNAME>
+  SMTP_USER=<YOUR_SMTP_USER>
+  SMTP_PW=<YOUR_SMTP_PASSWORD>
 ```
 
 ### Install server dependencies
