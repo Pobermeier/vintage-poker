@@ -31,7 +31,7 @@ These features are a must-have for the Minimal Viable Product (MVP) of this app:
   PORT=<YOUR_SERVER_PORT>
   NODE_ENV=development
   SMTP_HOST=<YOUR_SMTP_HOST>
-  SMTP_PORT=<YOUR_SMTP_USERNAME>
+  SMTP_PORT=<YOUR_SMTP_PORT>
   SMTP_USER=<YOUR_SMTP_USER>
   SMTP_PW=<YOUR_SMTP_PASSWORD>
 ```
