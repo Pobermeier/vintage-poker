@@ -24,6 +24,7 @@
     "hpp": "^0.2.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.2",
+    "nodemailer": "^6.4.11",
     "xss-clean": "^0.1.1"
   },
   "devDependencies": {
