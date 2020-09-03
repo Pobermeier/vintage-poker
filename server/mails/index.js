@@ -1,4 +1,4 @@
-const MainLayout = require('./components/MainLayout');
+const MainLayout = require('./layout/MainLayout');
 const WelcomeMailContent = require('./content/WelcomeMail');
 
 const WelcomeMail = (username = '{{nickname}}') => ({
