@@ -4,8 +4,10 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('../../../config');
 const { check, validationResult } = require('express-validator');
+const { WelcomeMail } = require('../../mails');
 
 const User = require('../../models/User');
+const sendEmail = require('../../helpers/sendMail');
 
 // @route   POST api/users
 // @desc    Register User
@@ -57,18 +59,24 @@ router.post(
         },
       };
 
+      try {
+        await sendEmail(user.email, WelcomeMail(user.name));
+      } catch (error) {
+        console.log(error);
+      }
+
       jwt.sign(
         payload,
         config.JWT_SECRET,
         { expiresIn: config.JWT_TOKEN_EXPIRES_IN },
         (err, token) => {
           if (err) throw err;
-          res.json({ token });
+          return res.json({ token });
         },
       );
     } catch (err) {
       console.error(err.message);
-      res.status(500).json({ msg: 'Internal server error' });
+      return res.status(500).json({ msg: 'Internal server error' });
     }
   },
 );
