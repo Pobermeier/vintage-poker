@@ -1,5 +1,5 @@
 {
-  "name": "poker-app-design-proto-cra",
+  "name": "vintage-poker-client",
   "version": "1.0.0",
   "private": true,
   "author": "Patrick Obermeier <patrick.obermeier@outlook.com>",
@@ -38,5 +38,6 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "proxy": "http://localhost:5000"
 }
