@@ -10,7 +10,6 @@ import Modal, { initialModalData } from './components/modals/Modal';
 import { checkCookies } from './helpers/cookies';
 import Dashboard from './pages/Dashboard';
 import useContentful from './hooks/useContentful';
-import * as serviceWorker from './serviceWorker';
 import Text from './components/typography/Text';
 import Button from './components/buttons/Button';
 import Play from './pages/Play';
@@ -18,10 +17,9 @@ import ProtectedRoute from './components/routing/ProtectedRoute';
 import Axios from 'axios';
 import setAuthToken from './helpers/setAuthToken';
 import LoadingScreen from './components/loading/LoadingScreen';
+import useServiceWorker from './hooks/useServiceWorker';
 
-if (localStorage.token) {
-  setAuthToken(localStorage.token);
-}
+localStorage.token && setAuthToken(localStorage.token);
 
 const App = ({ location }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -34,9 +32,25 @@ const App = ({ location }) => {
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(initialModalData);
   const [cookiesAccepted, setcookiesAccepted] = useState(true);
-  const [serviceWorkerData, setServiceWorkerData] = useState(null);
 
   const contentfulClient = useContentful();
+  const [updateServiceWorker] = useServiceWorker(() => {
+    openModal(
+      () => (
+        <>
+          <Text>
+            A new update is available. Click the button below to refresh the app
+            and get the latest and greatest stuff!
+          </Text>
+          <Button primary fullWidth onClick={updateServiceWorker}>
+            Update &amp; Refresh
+          </Button>
+        </>
+      ),
+      'Update Available',
+      'Close',
+    );
+  });
 
   useEffect(() => {
     const token = localStorage.token;
@@ -50,32 +64,8 @@ const App = ({ location }) => {
       localStorage.getItem('lang') ||
       'en';
     setLang(lang);
-
-    serviceWorker.register({ onUpdate: onServiceWorkerUpdate });
-
     // eslint-disable-next-line
   }, []);
-
-  useEffect(() => {
-    serviceWorkerData &&
-      serviceWorkerData.newVersionAvailable &&
-      openModal(
-        () => (
-          <>
-            <Text>
-              A new update is available. Click the button below to refresh the
-              app and get the latest and greatest stuff!
-            </Text>
-            <Button primary fullWidth onClick={updateServiceWorker}>
-              Update &amp; Refresh
-            </Button>
-          </>
-        ),
-        'Update Available',
-        'Close',
-      );
-    // eslint-disable-next-line
-  }, [serviceWorkerData]);
 
   useEffect(() => {
     localStorage.setItem('lang', lang);
@@ -94,23 +84,10 @@ const App = ({ location }) => {
     // eslint-disable-next-line
   }, [setLang, lang]);
 
-  const onServiceWorkerUpdate = (registration) =>
-    setServiceWorkerData({
-      waitingWorker: registration && registration.waiting,
-      newVersionAvailable: true,
-    });
-
-  const updateServiceWorker = () => {
-    const { waitingWorker } = serviceWorkerData;
-    waitingWorker && waitingWorker.postMessage({ type: 'SKIP_WAITING' });
-    setServiceWorkerData({ newVersionAvailable: false });
-    window.location.reload();
-  };
-
   const register = async (name, email, password) => {
     setIsLoading(true);
     try {
-      const res = await Axios.post('http://localhost:5000/api/users', {
+      const res = await Axios.post('/api/users', {
         name,
         email,
         password,
@@ -132,7 +109,7 @@ const App = ({ location }) => {
   const login = async (emailAddress, password) => {
     setIsLoading(true);
     try {
-      const res = await Axios.post('http://localhost:5000/api/auth', {
+      const res = await Axios.post('/api/auth', {
         email: emailAddress,
         password,
       });
