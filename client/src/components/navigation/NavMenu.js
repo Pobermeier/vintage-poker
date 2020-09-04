@@ -30,7 +30,7 @@ const StyledNavMenu = styled.div`
   flex-direction: column;
   top: 0;
   right: 0;
-  width: 300px;
+  width: 320px;
   height: 100%;
   background-color: ${(props) => props.theme.colors.lightestBg};
   box-shadow: ${(props) => props.theme.other.navMenuDropShadow};
