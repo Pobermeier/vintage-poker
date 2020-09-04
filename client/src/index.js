@@ -16,6 +16,7 @@ if (
   process.env.NODE_ENV === 'production' &&
   process.env.REACT_APP_MAINTENANCE_MODE === 'true'
 ) {
+  // Show maintenance mode content if proper env vars are set
   const template = `
     <div style="width: 100%; padding: 0 1.5rem; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; background-color: hsl(43, 40%, 86%);">
       <img style="width: 100%; max-width: 320px;" src=${logoWithText} alt="Vintage Poker">
@@ -39,6 +40,7 @@ if (
     rootElement,
   );
 
+  // Hide loading screen and show app content when window has fully loaded
   window.onload = () => {
     setTimeout(() => {
       loadingScreen.style.display = 'none';
@@ -46,7 +48,7 @@ if (
     }, 1000);
   };
 
-  // Disable dev tools in production
+  // Disable react dev tools in production
   if (
     process.env.NODE_ENV === 'production' &&
     typeof window.__REACT_DEVTOOLS_GLOBAL_HOOK__ === 'object'
