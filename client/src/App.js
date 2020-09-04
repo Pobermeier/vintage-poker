@@ -17,12 +17,14 @@ import Play from './pages/Play';
 import ProtectedRoute from './components/routing/ProtectedRoute';
 import Axios from 'axios';
 import setAuthToken from './helpers/setAuthToken';
+import LoadingScreen from './components/loading/LoadingScreen';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
 const App = ({ location }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [lang, setLang] = useState('en');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState(null);
@@ -106,6 +108,7 @@ const App = ({ location }) => {
   };
 
   const register = async (name, email, password) => {
+    setIsLoading(true);
     try {
       const res = await Axios.post('http://localhost:5000/api/users', {
         name,
@@ -123,9 +126,11 @@ const App = ({ location }) => {
     } catch (error) {
       alert(error);
     }
+    setIsLoading(false);
   };
 
   const login = async (emailAddress, password) => {
+    setIsLoading(true);
     try {
       const res = await Axios.post('http://localhost:5000/api/auth', {
         email: emailAddress,
@@ -142,6 +147,7 @@ const App = ({ location }) => {
     } catch (error) {
       alert(error);
     }
+    setIsLoading(false);
   };
 
   const loadUser = async (token) => {
@@ -188,87 +194,89 @@ const App = ({ location }) => {
     setShowModal(false);
   };
 
-  return (
-    <>
-      <MainLayout
-        chipsAmount={chipsAmount}
-        loggedIn={isLoggedIn}
-        openModal={openModal}
-        logout={logout}
-        userName={userName}
-        cookiesAccepted={cookiesAccepted}
-        setcookiesAccepted={setcookiesAccepted}
-        lang={lang}
-        setLang={setLang}
-        staticPages={staticPages}
-      >
-        <Switch>
-          <Route
-            path="/"
-            exact
-            render={() => {
-              return (
-                <HomePage
-                  loggedIn={isLoggedIn}
-                  logout={logout}
-                  userName={userName}
-                  openModal={openModal}
-                  lang={lang}
-                />
-              );
-            }}
-          />
-          <Route
-            path="/register"
-            render={() => {
-              return (
-                <RegistrationPage register={register} loggedIn={isLoggedIn} />
-              );
-            }}
-          />
-          <Route
-            path="/login"
-            render={() => {
-              return <LoginPage login={login} loggedIn={isLoggedIn} />;
-            }}
-          />
-          <ProtectedRoute
-            isLoggedIn={isLoggedIn}
-            userName={userName}
-            email={email}
-            path="/dashboard"
-            component={Dashboard}
-          />
-          <ProtectedRoute
-            isLoggedIn={isLoggedIn}
-            path="/play"
-            component={Play}
-          />
-          {staticPages &&
-            staticPages.map((page) => (
-              <Route
-                key={page.slug}
-                path={`/${page.slug}`}
-                component={() => (
-                  <StaticPage title={page.title} content={page.content} />
-                )}
-              />
-            ))}
-          <Route component={NotFoundPage} />
-        </Switch>
-      </MainLayout>
-      {showModal && (
-        <Modal
-          headingText={modalData.headingText}
-          btnText={modalData.btnText}
-          onClose={closeModal}
-          onBtnClicked={closeModal}
+  if (isLoading) return <LoadingScreen />;
+  else
+    return (
+      <>
+        <MainLayout
+          chipsAmount={chipsAmount}
+          loggedIn={isLoggedIn}
+          openModal={openModal}
+          logout={logout}
+          userName={userName}
+          cookiesAccepted={cookiesAccepted}
+          setcookiesAccepted={setcookiesAccepted}
+          lang={lang}
+          setLang={setLang}
+          staticPages={staticPages}
         >
-          {modalData.children()}
-        </Modal>
-      )}
-    </>
-  );
+          <Switch>
+            <Route
+              path="/"
+              exact
+              render={() => {
+                return (
+                  <HomePage
+                    loggedIn={isLoggedIn}
+                    logout={logout}
+                    userName={userName}
+                    openModal={openModal}
+                    lang={lang}
+                  />
+                );
+              }}
+            />
+            <Route
+              path="/register"
+              render={() => {
+                return (
+                  <RegistrationPage register={register} loggedIn={isLoggedIn} />
+                );
+              }}
+            />
+            <Route
+              path="/login"
+              render={() => {
+                return <LoginPage login={login} loggedIn={isLoggedIn} />;
+              }}
+            />
+            <ProtectedRoute
+              isLoggedIn={isLoggedIn}
+              userName={userName}
+              email={email}
+              path="/dashboard"
+              component={Dashboard}
+            />
+            <ProtectedRoute
+              isLoggedIn={isLoggedIn}
+              path="/play"
+              component={Play}
+            />
+            {staticPages &&
+              staticPages.map((page) => (
+                <Route
+                  key={page.slug}
+                  path={`/${page.slug}`}
+                  component={() => (
+                    <StaticPage title={page.title} content={page.content} />
+                  )}
+                />
+              ))}
+            <Route component={NotFoundPage} />
+          </Switch>
+        </MainLayout>
+        {showModal && (
+          <Modal
+            headingText={modalData.headingText}
+            btnText={modalData.btnText}
+            onClose={closeModal}
+            onBtnClicked={closeModal}
+          >
+            {modalData.children()}
+          </Modal>
+        )}
+      </>
+    );
 };
 
 export default withRouter(App);
