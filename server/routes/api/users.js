@@ -53,17 +53,17 @@ router.post(
 
       await user.save();
 
-      const payload = {
-        user: {
-          id: user.id,
-        },
-      };
-
       try {
         await sendEmail(user.email, WelcomeMail(user.name));
       } catch (error) {
         console.log(error);
       }
+
+      const payload = {
+        user: {
+          id: user.id,
+        },
+      };
 
       jwt.sign(
         payload,
