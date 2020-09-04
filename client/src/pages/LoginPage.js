@@ -9,6 +9,7 @@ import { FormGroup } from '../components/forms/FormGroup';
 import { ButtonGroup } from '../components/forms/ButtonGroup';
 import { Label } from '../components/forms/Label';
 import RelativeWrapper from '../components/layout/RelativeWrapper';
+import ShowPasswordButton from '../components/buttons/ShowPasswordButton';
 
 const LoginPage = ({ login, loggedIn }) => {
   useEffect(() => {
@@ -48,10 +49,17 @@ const LoginPage = ({ login, loggedIn }) => {
           </HeadingWithLogo>
           <FormGroup>
             <Label htmlFor="nickname">E-mail</Label>
-            <Input type="email" name="email" ref={emailRef} required />
+            <Input
+              type="email"
+              name="email"
+              ref={emailRef}
+              required
+              autoComplete="email"
+            />
           </FormGroup>
           <FormGroup>
             <Label htmlFor="password">Password</Label>
+            <ShowPasswordButton passwordRef={passwordRef} />
             <Input
               type="password"
               name="password"

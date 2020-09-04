@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Container from '../components/layout/Container';
 import { Redirect, Link } from 'react-router-dom';
 import HeadingWithLogo from '../components/typography/HeadingWithLogo';
@@ -9,7 +9,7 @@ import { FormGroup } from '../components/forms/FormGroup';
 import { ButtonGroup } from '../components/forms/ButtonGroup';
 import { Label } from '../components/forms/Label';
 import RelativeWrapper from '../components/layout/RelativeWrapper';
-import { useRef } from 'react';
+import ShowPasswordButton from '../components/buttons/ShowPasswordButton';
 
 const RegistrationPage = ({ register, loggedIn }) => {
   useEffect(() => {
@@ -36,8 +36,6 @@ const RegistrationPage = ({ register, loggedIn }) => {
           onSubmit={(e) => {
             e.preventDefault();
 
-            console.log('this runs');
-
             const name = nicknameRef.current.value;
             const email = emailRef.current.value;
             const password = passwordRef.current.value;
@@ -59,7 +57,7 @@ const RegistrationPage = ({ register, loggedIn }) => {
           </HeadingWithLogo>
           <FormGroup>
             <Label htmlFor="email">E-mail</Label>
-            <Input type="email" name="email" ref={emailRef} />
+            <Input type="email" name="email" ref={emailRef} required />
           </FormGroup>
           <FormGroup>
             <Label htmlFor="nickname">Nickname</Label>
@@ -68,16 +66,19 @@ const RegistrationPage = ({ register, loggedIn }) => {
               name="nickname"
               autoComplete="username"
               ref={nicknameRef}
+              required
             />
           </FormGroup>
           <FormGroup>
             <Label htmlFor="password">Password</Label>
+            <ShowPasswordButton passwordRef={passwordRef} />
             <Input
               type="password"
               name="password"
               minLength="6"
               autoComplete="new-password"
               ref={passwordRef}
+              required
             />
           </FormGroup>
           {/* <FormGroup>
