@@ -14,14 +14,21 @@ import * as serviceWorker from './serviceWorker';
 import Text from './components/typography/Text';
 import Button from './components/buttons/Button';
 import Play from './pages/Play';
+import ProtectedRoute from './components/routing/ProtectedRoute';
+import Axios from 'axios';
+import setAuthToken from './helpers/setAuthToken';
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 const App = ({ location }) => {
   const [lang, setLang] = useState('en');
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [userName] = useState('Patrick');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState(null);
+  const [email, SetEmail] = useState(null);
+  const [chipsAmount, SetChipsAmount] = useState(0);
   const [staticPages, setStaticPages] = useState(null);
-  const [email] = useState('name@examplemail.com');
-  const [chipsAmount] = useState(30000);
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(initialModalData);
   const [cookiesAccepted, setcookiesAccepted] = useState(true);
@@ -30,7 +37,12 @@ const App = ({ location }) => {
   const contentfulClient = useContentful();
 
   useEffect(() => {
+    const token = localStorage.token;
+
+    token && loadUser(token);
+
     setcookiesAccepted(checkCookies('cookies-accepted'));
+
     const lang =
       new URLSearchParams(location.search).get('lang') ||
       localStorage.getItem('lang') ||
@@ -93,12 +105,71 @@ const App = ({ location }) => {
     window.location.reload();
   };
 
-  const login = () => {
-    setIsLoggedIn(true);
+  const register = async (name, email, password) => {
+    try {
+      const res = await Axios.post('http://localhost:5000/api/users', {
+        name,
+        email,
+        password,
+      });
+
+      const token = res.data.token;
+
+      if (token) {
+        localStorage.setItem('token', token);
+        setAuthToken(token);
+        await loadUser(token);
+      }
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  const login = async (emailAddress, password) => {
+    try {
+      const res = await Axios.post('http://localhost:5000/api/auth', {
+        email: emailAddress,
+        password,
+      });
+
+      const token = res.data.token;
+
+      if (token) {
+        localStorage.setItem('token', token);
+        setAuthToken(token);
+        await loadUser(token);
+      }
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  const loadUser = async (token) => {
+    try {
+      const res = await Axios.get('/api/auth', {
+        headers: {
+          'x-auth-token': token,
+        },
+      });
+
+      const { name, email, chipsAmount } = res.data;
+
+      setIsLoggedIn(true);
+      setUserName(name);
+      SetEmail(email);
+      SetChipsAmount(chipsAmount);
+    } catch (error) {
+      localStorage.removeItem(token);
+      alert(error);
+    }
   };
 
   const logout = () => {
+    localStorage.removeItem('token');
     setIsLoggedIn(false);
+    setUserName(null);
+    SetEmail(null);
+    SetChipsAmount(null);
   };
 
   const openModal = (children, headingText, btnText) => {
@@ -150,7 +221,9 @@ const App = ({ location }) => {
           <Route
             path="/register"
             render={() => {
-              return <RegistrationPage login={login} loggedIn={isLoggedIn} />;
+              return (
+                <RegistrationPage register={register} loggedIn={isLoggedIn} />
+              );
             }}
           />
           <Route
@@ -159,23 +232,17 @@ const App = ({ location }) => {
               return <LoginPage login={login} loggedIn={isLoggedIn} />;
             }}
           />
-          <Route
+          <ProtectedRoute
+            isLoggedIn={isLoggedIn}
+            userName={userName}
+            email={email}
             path="/dashboard"
-            render={() => {
-              return (
-                <Dashboard
-                  loggedIn={isLoggedIn}
-                  userName={userName}
-                  email={email}
-                />
-              );
-            }}
+            component={Dashboard}
           />
-          <Route
+          <ProtectedRoute
+            isLoggedIn={isLoggedIn}
             path="/play"
-            render={() => {
-              return <Play loggedIn={isLoggedIn} />;
-            }}
+            component={Play}
           />
           {staticPages &&
             staticPages.map((page) => (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Container from '../components/layout/Container';
 import HeadingWithLogo from '../components/typography/HeadingWithLogo';
 import Button from '../components/buttons/Button';
@@ -47,9 +47,7 @@ const Wrapper = styled.div`
 //   }
 // `;
 
-const Dashboard = ({ loggedIn, userName, email }) => {
-  if (!loggedIn) return <Redirect to="/login" />;
-
+const Dashboard = ({ userName, email }) => {
   return (
     <RelativeWrapper>
       {/* <TiledBackgroundImage /> */}

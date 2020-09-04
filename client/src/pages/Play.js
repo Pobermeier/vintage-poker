@@ -1,6 +1,5 @@
 import React from 'react';
 import Container from '../components/layout/Container';
-import { Redirect } from 'react-router-dom';
 import table from '../assets/game/table.svg';
 import styled from 'styled-components';
 import Button from '../components/buttons/Button';
@@ -46,8 +45,7 @@ const PokerTable = styled.img`
   } */
 `;
 
-const Play = ({ loggedIn }) => {
-  if (!loggedIn) return <Redirect to="/login" />;
+const Play = () => {
   return (
     <>
       <Wrapper>
