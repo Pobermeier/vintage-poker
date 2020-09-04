@@ -35,7 +35,7 @@ const configureMiddleware = (app) => {
   app.use(hpp());
 
   // Enable CORS
-  app.use(cors());
+  // app.use(cors());
 };
 
 module.exports = configureMiddleware;
