@@ -168,26 +168,7 @@ const MainPage = ({ userName, openModal, lang, history }) => {
               '{main_page.open_shop}'}
           </Heading>
         </MainMenuCard>
-        <MainMenuCard
-          onClick={() => {
-            openModal(
-              () => (
-                <Text textAlign="center">
-                  {strings[lang].main_page.modal_text ||
-                    '{main_page.modal_text}'}
-                </Text>
-              ),
-              `${
-                strings[lang].main_page.modal_heading ||
-                '{main_page.modal_heading}'
-              }`,
-              `${
-                strings[lang].main_page.modal_button_text ||
-                '{main_page.modal_button_text }'
-              }`,
-            );
-          }}
-        >
+        <MainMenuCard onClick={() => history.push('/game-rules')}>
           <img src={queenImg} alt="Rules" />
           <Heading as="h3" headingClass="h5" textCentered>
             {strings[lang].main_page.open_rules.toUpperCase() ||
