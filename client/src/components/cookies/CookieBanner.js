@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import { setCookie } from '../../helpers/cookies';
 import Button from '../buttons/Button';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -71,7 +70,7 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-const CookieBanner = ({ setcookiesAccepted, className }) => {
+const CookieBanner = ({ clickHandler, className }) => {
   return ReactDOM.createPortal(
     <Wrapper className={className}>
       <StyledCookieBanner>
@@ -82,14 +81,7 @@ const CookieBanner = ({ setcookiesAccepted, className }) => {
             <Link to="/privacy">here</Link>.
           </Content>
           <ButtonWrapper>
-            <Button
-              small
-              primary
-              onClick={() => {
-                setCookie('cookies-accepted', '1', 365);
-                setcookiesAccepted(true);
-              }}
-            >
+            <Button small primary onClick={clickHandler}>
               Continue
             </Button>
             <Button as={Link} to="/privacy" secondary small>
@@ -104,7 +96,7 @@ const CookieBanner = ({ setcookiesAccepted, className }) => {
 };
 
 CookieBanner.propTypes = {
-  setcookiesAccepted: PropTypes.func.isRequired,
+  clickHandler: PropTypes.func.isRequired,
 };
 
 export default CookieBanner;

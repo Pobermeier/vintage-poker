@@ -6,6 +6,7 @@ import NavMenu from '../navigation/NavMenu';
 import CookieBanner from '../cookies/CookieBanner';
 import { withRouter } from 'react-router-dom';
 import useNavMenu from '../../hooks/useNavMenu';
+import useCookie from '../../hooks/useCookie';
 
 const MainLayout = ({
   children,
@@ -14,14 +15,13 @@ const MainLayout = ({
   openModal,
   logout,
   userName,
-  cookiesAccepted,
-  setcookiesAccepted,
   lang,
   setLang,
   staticPages,
   location,
 }) => {
   const [showNavMenu, openNavMenu, closeNavMenu] = useNavMenu();
+  const [isCookieSet, setCookie] = useCookie('cookies-accepted', true);
 
   return (
     <div id="layout-wrapper">
@@ -52,10 +52,10 @@ const MainLayout = ({
           staticPages={staticPages}
         />
       )}
-      {!cookiesAccepted && (
+      {!isCookieSet && (
         <CookieBanner
           className="blur-target"
-          setcookiesAccepted={setcookiesAccepted}
+          clickHandler={() => setCookie('1', 365)}
         />
       )}
     </div>

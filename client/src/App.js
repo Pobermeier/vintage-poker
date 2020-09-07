@@ -7,7 +7,6 @@ import RegistrationPage from './pages/RegistrationPage';
 import StaticPage from './pages/StaticPage';
 import NotFoundPage from './pages/NotFoundPage';
 import Modal, { initialModalData } from './components/modals/Modal';
-import { checkCookies } from './helpers/cookies';
 import Dashboard from './pages/Dashboard';
 import useContentful from './hooks/useContentful';
 import Text from './components/typography/Text';
@@ -31,7 +30,6 @@ const App = ({ location }) => {
   const [staticPages, setStaticPages] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(initialModalData);
-  const [cookiesAccepted, setcookiesAccepted] = useState(true);
 
   const contentfulClient = useContentful();
   const [updateServiceWorker] = useServiceWorker(() => {
@@ -56,8 +54,6 @@ const App = ({ location }) => {
     const token = localStorage.token;
 
     token && loadUser(token);
-
-    setcookiesAccepted(checkCookies('cookies-accepted'));
 
     const lang =
       new URLSearchParams(location.search).get('lang') ||
@@ -181,8 +177,6 @@ const App = ({ location }) => {
           openModal={openModal}
           logout={logout}
           userName={userName}
-          cookiesAccepted={cookiesAccepted}
-          setcookiesAccepted={setcookiesAccepted}
           lang={lang}
           setLang={setLang}
           staticPages={staticPages}
