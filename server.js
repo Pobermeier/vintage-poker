@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const config = require('./config');
 const connectDB = require('./server/config/db');
@@ -16,6 +17,9 @@ const app = express();
 
 // Config Express-Middleware
 configureMiddleware(app);
+
+// Set-up static asset path
+app.use(express.static(path.join('server', 'public')));
 
 // Set-up Routes
 configureRoutes(app);
