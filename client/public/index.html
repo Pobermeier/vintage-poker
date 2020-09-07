@@ -126,7 +126,8 @@
       }
     }
 
-    #root {
+    #root,
+    #cookie-banner {
       opacity: 0;
       animation: fade-in 0.75s ease-out forwards;
     }
@@ -254,6 +255,8 @@
     </noscript>
   </div>
   <div id="root" style="display: none;"></div>
+  <div id="cookie-banner" style="display: none;"></div>
+  <div id="modal"></div>
   <script>
     document.getElementById("custom-loader").style.display = "block";
     document.getElementById("custom-loader-text").style.display = "block";

@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import CloseButton from '../buttons/CloseButton';
 import HeadingWithLogo from '../typography/HeadingWithLogo';
 import Button from '../buttons/Button';
@@ -31,6 +32,8 @@ const StyledModal = styled.div`
   padding: 1.5rem;
   margin: 0 1rem;
   box-shadow: ${(props) => props.theme.other.cardDropShadow};
+  opacity: 0;
+  animation: fade-in 0.75s ease-out forwards;
 
   @media screen and (min-width: 1024px) {
     padding: 2rem;
@@ -65,40 +68,43 @@ const IconWrapper = styled.div`
   right: 1.5rem;
 `;
 
-const Modal = ({ children, headingText, btnText, onClose, onBtnClicked }) => (
-  <ModalWrapper
-    id="wrapper"
-    onClick={(e) => {
-      if (e.target.id === 'wrapper') {
-        onClose();
-      }
-    }}
-  >
-    <StyledModal>
-      <IconWrapper>
-        <CloseButton clickHandler={onClose} />
-      </IconWrapper>
-      <ModalContent>
-        <HeadingWithLogo textCentered hideIconOnMobile={false}>
-          {headingText}
-        </HeadingWithLogo>
-        {children ? (
-          children
-        ) : (
-          <Text>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis
-            error aspernatur vel fugiat quisquam aut tempore, consequatur quo.
-            Neque officiis magni molestias quasi, accusamus rem sunt incidunt
-            inventore esse. Modi.
-          </Text>
-        )}
-        <Button primary onClick={onBtnClicked}>
-          {btnText}
-        </Button>
-      </ModalContent>
-    </StyledModal>
-  </ModalWrapper>
-);
+const Modal = ({ children, headingText, btnText, onClose, onBtnClicked }) => {
+  return ReactDOM.createPortal(
+    <ModalWrapper
+      id="wrapper"
+      onClick={(e) => {
+        if (e.target.id === 'wrapper') {
+          onClose();
+        }
+      }}
+    >
+      <StyledModal>
+        <IconWrapper>
+          <CloseButton clickHandler={onClose} />
+        </IconWrapper>
+        <ModalContent>
+          <HeadingWithLogo textCentered hideIconOnMobile={false}>
+            {headingText}
+          </HeadingWithLogo>
+          {children ? (
+            children
+          ) : (
+            <Text>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Blanditiis error aspernatur vel fugiat quisquam aut tempore,
+              consequatur quo. Neque officiis magni molestias quasi, accusamus
+              rem sunt incidunt inventore esse. Modi.
+            </Text>
+          )}
+          <Button primary onClick={onBtnClicked}>
+            {btnText}
+          </Button>
+        </ModalContent>
+      </StyledModal>
+    </ModalWrapper>,
+    document.getElementById('modal'),
+  );
+};
 
 Modal.propTypes = {
   headingText: PropTypes.string,

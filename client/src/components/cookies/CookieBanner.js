@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { setCookie } from '../../helpers/cookies';
 import Button from '../buttons/Button';
@@ -71,7 +72,7 @@ const ButtonWrapper = styled.div`
 `;
 
 const CookieBanner = ({ setcookiesAccepted, className }) => {
-  return (
+  return ReactDOM.createPortal(
     <Wrapper className={className}>
       <StyledCookieBanner>
         <ContentWrapper>
@@ -97,7 +98,8 @@ const CookieBanner = ({ setcookiesAccepted, className }) => {
           </ButtonWrapper>
         </ContentWrapper>
       </StyledCookieBanner>
-    </Wrapper>
+    </Wrapper>,
+    document.getElementById('cookie-banner'),
   );
 };
 

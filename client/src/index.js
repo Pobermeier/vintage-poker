@@ -9,6 +9,7 @@ import GlobalStyles from './styles/Global';
 import logoWithText from './assets/img/logo-text@2x.png';
 
 const rootElement = document.getElementById('root');
+const cookieBannerRoot = document.getElementById('cookie-banner');
 const loadingScreen = document.getElementById('loading-screen');
 
 if (
@@ -45,6 +46,7 @@ if (
     setTimeout(() => {
       loadingScreen.style.display = 'none';
       rootElement.style.display = 'block';
+      cookieBannerRoot.style.display = 'block';
     }, 1000);
   };
 
