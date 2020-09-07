@@ -19,7 +19,7 @@ const Header = () => `
                     style="border-collapse:collapse;border-spacing:0px;">
                     <tbody>
                       <tr>
-                        <td style="width:250px;"><a href="https://www.vintagepoker.app" target="_blank"><img
+                        <td style="width:250px;"><a href="https://www.vintagepoker.net" target="_blank"><img
                               alt="Vintage Poker" height="auto"
                               src="https://images.ctfassets.net/4tlsutsg5se1/nYWFnuZzTZW8J3KeNoifT/b795af5e05cc6fd9c0cbfa7a3950b32a/logo-text_3x.png"
                               style="border:none;border-radius:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;"

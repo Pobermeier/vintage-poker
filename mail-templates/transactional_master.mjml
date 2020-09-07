@@ -1,41 +1,308 @@
 <mjml owa="desktop" version="4.5.1">
   <mj-head>
     <mj-preview></mj-preview>
-    <mj-font href="https://fonts.googleapis.com/css?family=Playfair Display" name="Playfair Display"></mj-font>
+    <mj-font
+      href="https://fonts.googleapis.com/css?family=Playfair Display"
+      name="Playfair Display"
+    ></mj-font>
   </mj-head>
-  <mj-body background-color="#fffefc" color="#282215" font-family="Playfair Display, Helvetica, Arial, sans-serif">
-    <mj-section background-color="#e8e1d0" background-repeat="repeat" border="0px solid #ffffff" padding-bottom="0px" padding-left="0px" padding-right="0px" padding-top="0px" padding="0px 0px 0px 0px" text-align="center" vertical-align="top">
+  <mj-body
+    background-color="#fffefc"
+    color="#282215"
+    font-family="Playfair Display, Helvetica, Arial, sans-serif"
+  >
+    <mj-section
+      background-color="#e8e1d0"
+      background-repeat="repeat"
+      border="0px solid #ffffff"
+      padding-bottom="0px"
+      padding-left="0px"
+      padding-right="0px"
+      padding-top="0px"
+      padding="0px 0px 0px 0px"
+      text-align="center"
+      vertical-align="top"
+    >
       <mj-column>
-        <mj-image align="center" alt="Vintage Poker" border-radius="0" border="none" height="auto" href="https://www.vintagepoker.app" padding-bottom="20px" padding-left="0px" padding-right="0px" padding-top="20px" padding="20px 0px 20px 0px" src="https://x45j6.mjt.lu/tplimg/x45j6/b/x9t1k/xxk28.png" target="_blank" title="" width="250px"></mj-image>
+        <mj-image
+          align="center"
+          alt="Vintage Poker"
+          border-radius="0"
+          border="none"
+          height="auto"
+          href="https://www.vintagepoker.net"
+          padding-bottom="20px"
+          padding-left="0px"
+          padding-right="0px"
+          padding-top="20px"
+          padding="20px 0px 20px 0px"
+          src="https://x45j6.mjt.lu/tplimg/x45j6/b/x9t1k/xxk28.png"
+          target="_blank"
+          title=""
+          width="250px"
+        ></mj-image>
       </mj-column>
     </mj-section>
-    <mj-section background-color="#f7f2dc" background-repeat="repeat" border="0px solid #ffffff" padding-bottom="24px" padding-left="0px" padding-right="0px" padding-top="16px" padding="16px 0px 24px 0px" text-align="center" vertical-align="top">
+    <mj-section
+      background-color="#f7f2dc"
+      background-repeat="repeat"
+      border="0px solid #ffffff"
+      padding-bottom="24px"
+      padding-left="0px"
+      padding-right="0px"
+      padding-top="16px"
+      padding="16px 0px 24px 0px"
+      text-align="center"
+      vertical-align="top"
+    >
       <mj-column>
-        <mj-text align="left" color="#000000" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" padding-bottom="0px" padding-top="0px" padding="0px 25px 0px 25px">
-          <h2 class="text-build-content" data-testid="i8L8HViE9W" style="margin-top: 10px; margin-bottom: 10px"><span style="color:#245069;font-family:Playfair Display, Helvetica, Arial, sans-serif;font-size:24px;">Hi username!</span></h2>
+        <mj-text
+          align="left"
+          color="#000000"
+          font-family="Arial, sans-serif"
+          font-size="13px"
+          letter-spacing="normal"
+          padding-bottom="0px"
+          padding-top="0px"
+          padding="0px 25px 0px 25px"
+        >
+          <h2
+            class="text-build-content"
+            data-testid="i8L8HViE9W"
+            style="margin-top: 10px; margin-bottom: 10px"
+          >
+            <span
+              style="
+                color: #245069;
+                font-family: Playfair Display, Helvetica, Arial, sans-serif;
+                font-size: 24px;
+              "
+              >Hi username!</span
+            >
+          </h2>
         </mj-text>
-        <mj-text align="left" color="#000000" font-family="Arial, sans-serif" font-size="14px" letter-spacing="normal" padding-bottom="0px" padding-top="0px" padding="0px 25px 0px 25px">
-          <p class="text-build-content" data-testid="g-3gwNNsRl" style="margin: 10px 0; margin-top: 10px;"><span style="color:#282215;font-family:Roboto;font-size:15px;line-height:22px;">The content of your email goes here. </span><a target="_blank" href="https://www.vintagepoker.app"><span style="color:#6297B5;font-family:Roboto;font-size:15px;line-height:22px;"><b>This is an example link</b></span></a><span style="color:#282215;font-family:Roboto;font-size:15px;line-height:22px;">.</span></p>
-          <p class="text-build-content" data-testid="g-3gwNNsRl" style="margin: 10px 0; margin-bottom: 10px;"><span style="color:#282215;font-family:Roboto;font-size:15px;line-height:22px;">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</span></p>
+        <mj-text
+          align="left"
+          color="#000000"
+          font-family="Arial, sans-serif"
+          font-size="14px"
+          letter-spacing="normal"
+          padding-bottom="0px"
+          padding-top="0px"
+          padding="0px 25px 0px 25px"
+        >
+          <p
+            class="text-build-content"
+            data-testid="g-3gwNNsRl"
+            style="margin: 10px 0; margin-top: 10px"
+          >
+            <span
+              style="
+                color: #282215;
+                font-family: Roboto;
+                font-size: 15px;
+                line-height: 22px;
+              "
+              >The content of your email goes here. </span
+            ><a target="_blank" href="https://www.vintagepoker.net"
+              ><span
+                style="
+                  color: #6297b5;
+                  font-family: Roboto;
+                  font-size: 15px;
+                  line-height: 22px;
+                "
+                ><b>This is an example link</b></span
+              ></a
+            ><span
+              style="
+                color: #282215;
+                font-family: Roboto;
+                font-size: 15px;
+                line-height: 22px;
+              "
+              >.</span
+            >
+          </p>
+          <p
+            class="text-build-content"
+            data-testid="g-3gwNNsRl"
+            style="margin: 10px 0; margin-bottom: 10px"
+          >
+            <span
+              style="
+                color: #282215;
+                font-family: Roboto;
+                font-size: 15px;
+                line-height: 22px;
+              "
+              >Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+              erat, sed diam voluptua. At vero eos et accusam et justo duo
+              dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+              sanctus est Lorem ipsum dolor sit amet.</span
+            >
+          </p>
         </mj-text>
-        <mj-button align="center" background-color="#245069" border-radius="30px" border="0px solid #ffffff" color="#ffffff" font-family="Arial, sans-serif" font-size="22px" font-weight="normal" href="https://www.vintagepoker.app" inner-padding="10px 25px 10px 25px" padding-left="25px" padding-right="25px" padding="10px 25px 10px 25px" text-decoration="none" text-transform="none" vertical-align="middle">
-          <span style="background-color:transparent;color:#ffffff;font-family:Roboto;font-size:22px;">Call to Action</span>
+        <mj-button
+          align="center"
+          background-color="#245069"
+          border-radius="30px"
+          border="0px solid #ffffff"
+          color="#ffffff"
+          font-family="Arial, sans-serif"
+          font-size="22px"
+          font-weight="normal"
+          href="https://www.vintagepoker.net"
+          inner-padding="10px 25px 10px 25px"
+          padding-left="25px"
+          padding-right="25px"
+          padding="10px 25px 10px 25px"
+          text-decoration="none"
+          text-transform="none"
+          vertical-align="middle"
+        >
+          <span
+            style="
+              background-color: transparent;
+              color: #ffffff;
+              font-family: Roboto;
+              font-size: 22px;
+            "
+            >Call to Action</span
+          >
         </mj-button>
-        <mj-text align="left" color="#000000" font-family="Arial, sans-serif" font-size="14px" letter-spacing="normal" padding-bottom="0px" padding-top="0px" padding="10px 25px">
-          <p class="text-build-content" data-testid="O1eJC078zX" style="margin: 10px 0; margin-top: 10px; margin-bottom: 10px;"><span style="color:#282215;font-family:Roboto;font-size:15px;line-height:24px;">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</span></p>
+        <mj-text
+          align="left"
+          color="#000000"
+          font-family="Arial, sans-serif"
+          font-size="14px"
+          letter-spacing="normal"
+          padding-bottom="0px"
+          padding-top="0px"
+          padding="10px 25px"
+        >
+          <p
+            class="text-build-content"
+            data-testid="O1eJC078zX"
+            style="margin: 10px 0; margin-top: 10px; margin-bottom: 10px"
+          >
+            <span
+              style="
+                color: #282215;
+                font-family: Roboto;
+                font-size: 15px;
+                line-height: 24px;
+              "
+              >Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+              erat, sed diam voluptua. At vero eos et accusam et justo duo
+              dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+              sanctus est Lorem ipsum dolor sit amet.</span
+            >
+          </p>
         </mj-text>
-        <mj-text align="left" color="#000000" font-family="Arial, sans-serif" font-size="14px" letter-spacing="normal" padding-bottom="0px" padding-top="0px" padding="10px 25px">
-          <p class="text-build-content" data-testid="BCd-ekutlT" style="margin: 10px 0; margin-top: 10px; margin-bottom: 10px;"><span style="color:#282215;font-family:Roboto;font-size:15px;line-height:24px;">Enjoy playing!</span></p>
+        <mj-text
+          align="left"
+          color="#000000"
+          font-family="Arial, sans-serif"
+          font-size="14px"
+          letter-spacing="normal"
+          padding-bottom="0px"
+          padding-top="0px"
+          padding="10px 25px"
+        >
+          <p
+            class="text-build-content"
+            data-testid="BCd-ekutlT"
+            style="margin: 10px 0; margin-top: 10px; margin-bottom: 10px"
+          >
+            <span
+              style="
+                color: #282215;
+                font-family: Roboto;
+                font-size: 15px;
+                line-height: 24px;
+              "
+              >Enjoy playing!</span
+            >
+          </p>
         </mj-text>
-        <mj-text align="left" color="#000000" font-family="Arial, sans-serif" font-size="14px" letter-spacing="normal" padding-bottom="0px" padding-left="25px" padding-right="25px" padding-top="0px" padding="0px 25px 0px 25px">
-          <p class="text-build-content" data-testid="RB_XdJ1yXO" style="margin: 10px 0; margin-top: 10px; margin-bottom: 10px;"><span style="color:#282215;font-family:Roboto;font-size:15px;line-height:10px;"><i>The Vintage Poker Team</i></span></p>
+        <mj-text
+          align="left"
+          color="#000000"
+          font-family="Arial, sans-serif"
+          font-size="14px"
+          letter-spacing="normal"
+          padding-bottom="0px"
+          padding-left="25px"
+          padding-right="25px"
+          padding-top="0px"
+          padding="0px 25px 0px 25px"
+        >
+          <p
+            class="text-build-content"
+            data-testid="RB_XdJ1yXO"
+            style="margin: 10px 0; margin-top: 10px; margin-bottom: 10px"
+          >
+            <span
+              style="
+                color: #282215;
+                font-family: Roboto;
+                font-size: 15px;
+                line-height: 10px;
+              "
+              ><i>The Vintage Poker Team</i></span
+            >
+          </p>
         </mj-text>
       </mj-column>
     </mj-section>
-    <mj-section background-color="transparent" background-repeat="repeat" border="0px solid #ffffff" padding-bottom="0px" padding-left="0px" padding-right="0px" padding-top="0px" padding="0px 0px 0px 0px" text-align="center" vertical-align="top">
+    <mj-section
+      background-color="transparent"
+      background-repeat="repeat"
+      border="0px solid #ffffff"
+      padding-bottom="0px"
+      padding-left="0px"
+      padding-right="0px"
+      padding-top="0px"
+      padding="0px 0px 0px 0px"
+      text-align="center"
+      vertical-align="top"
+    >
       <mj-column>
-        <mj-text align="left" color="#000000" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" padding-bottom="8px" padding-left="20px" padding-right="20px" padding-top="8px" padding="8px 20px 8px 20px">
-          <p class="text-build-content" style="text-align: center; margin: 10px 0; margin-top: 10px; margin-bottom: 10px;" data-testid="v8eZLeSfkPK"><span style="color:#245069;font-family:Roboto;font-size:13px;line-height:13px;">© 2020 Vintage Poker. All rights reserved.</span></p>
+        <mj-text
+          align="left"
+          color="#000000"
+          font-family="Arial, sans-serif"
+          font-size="13px"
+          letter-spacing="normal"
+          padding-bottom="8px"
+          padding-left="20px"
+          padding-right="20px"
+          padding-top="8px"
+          padding="8px 20px 8px 20px"
+        >
+          <p
+            class="text-build-content"
+            style="
+              text-align: center;
+              margin: 10px 0;
+              margin-top: 10px;
+              margin-bottom: 10px;
+            "
+            data-testid="v8eZLeSfkPK"
+          >
+            <span
+              style="
+                color: #245069;
+                font-family: Roboto;
+                font-size: 13px;
+                line-height: 13px;
+              "
+              >© 2020 Vintage Poker. All rights reserved.</span
+            >
+          </p>
         </mj-text>
       </mj-column>
     </mj-section>

@@ -8,7 +8,7 @@ ${ContentBlock(
     'Welcome to Vintage Poker and thank you for registering to our service!',
   )}`,
 )}
-${Button('Play now!', 'https://www.vintagepoker.app')}
+${Button('Play now!', 'https://www.vintagepoker.net')}
 ${ContentBlock(`${Text('Enjoy playing on our platform!')}`)}
 `;
 
