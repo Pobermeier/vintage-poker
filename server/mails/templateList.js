@@ -3,32 +3,41 @@ let templates = require('./index');
 templates = Object.values(templates).map((template) => template());
 
 const templateList = ((templates) => `
-<style>
-table, th, td {
-  border: 1px solid black;
-}
-</style>
+<!DOCTYPE html>
+<html lang="en">
 
-<div style="text-align:center">
-  <h1>List of all transactional mail templates</h1>  
-  <table style="text-align: center; border-collapse: collapse; min-width: 600px; margin:0 auto;">
-    <thead style="background-color: cyan; border-collapse: collapse;">
-      <th>ID</th>
-      <th>Template Name</th>
-      <th>Template Link</th>
-    </thead>
-    <tbody style="border-collapse: collapse;">
-      ${templates.map(
-        (template) => `
-      <tr>
-        <td>${template.id}</td>
-        <td>${template.name}</td>
-        <td><a href="/api/mails/${template.id}">Link</a></td>
-      </tr>`,
-      )}
-    </tbody>
-  </table>
-</div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vintage Poker | Transactional Mails</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+  <div style="text-align:center" class="container">
+    <h2 class="my-5">List of transactional mail-templates</h2>  
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <th>ID</th>
+        <th>Template Name</th>
+        <th>Template Link</th>
+      </thead>
+      <tbody style="border-collapse: collapse;">
+        ${templates.map(
+          (template) => `
+        <tr>
+          <td><strong>${template.id}</strong></td>
+          <td>${template.name}</td>
+          <td><a href="/api/mails/${template.id}">Link</a></td>
+        </tr>`,
+        )}
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>
 `)(templates);
 
 module.exports = { templates, templateList };
