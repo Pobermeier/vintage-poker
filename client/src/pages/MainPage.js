@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Container from '../components/layout/Container';
 import Heading from '../components/typography/Heading';
 import PropTypes from 'prop-types';
@@ -11,6 +11,7 @@ import styled from 'styled-components';
 import Text from '../components/typography/Text';
 import strings from '../strings.json';
 import { withRouter } from 'react-router-dom';
+import useScrollToTopOnPageLoad from '../hooks/useScrollToTopOnPageLoad';
 
 const WelcomeHeading = styled(Heading)`
   @media screen and (min-width: 468px) and (min-height: 600px) {
@@ -111,9 +112,7 @@ const MainMenuCard = styled.div`
 `;
 
 const MainPage = ({ userName, openModal, lang, history }) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  useScrollToTopOnPageLoad();
 
   return (
     <Container

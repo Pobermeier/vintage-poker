@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Container from '../components/layout/Container';
 import ColoredText from '../components/typography/ColoredText';
 import CenteredBlock from '../components/layout/CenteredBlock';
@@ -6,11 +6,10 @@ import Heading from '../components/typography/Heading';
 import Button from '../components/buttons/Button';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import useScrollToTopOnPageLoad from '../hooks/useScrollToTopOnPageLoad';
 
 const NotFoundPage = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  useScrollToTopOnPageLoad();
 
   return (
     <Container fullHeight contentCenteredMobile padding="4rem 2rem 2rem 2rem">

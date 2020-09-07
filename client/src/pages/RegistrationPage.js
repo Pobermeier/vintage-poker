@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import Container from '../components/layout/Container';
 import { Redirect, Link } from 'react-router-dom';
 import HeadingWithLogo from '../components/typography/HeadingWithLogo';
@@ -10,11 +10,10 @@ import { ButtonGroup } from '../components/forms/ButtonGroup';
 import { Label } from '../components/forms/Label';
 import RelativeWrapper from '../components/layout/RelativeWrapper';
 import ShowPasswordButton from '../components/buttons/ShowPasswordButton';
+import useScrollToTopOnPageLoad from '../hooks/useScrollToTopOnPageLoad';
 
 const RegistrationPage = ({ register, loggedIn }) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  useScrollToTopOnPageLoad();
 
   const emailRef = useRef(null);
   const passwordRef = useRef(null);

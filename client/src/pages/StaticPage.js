@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Container from '../components/layout/Container';
 import HeadingWithLogo from '../components/typography/HeadingWithLogo';
 import Button from '../components/buttons/Button';
 import { Link } from 'react-router-dom';
 import Markdown from 'react-remarkable';
+import useScrollToTopOnPageLoad from '../hooks/useScrollToTopOnPageLoad';
 
 const StaticPage = ({ title, content }) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  useScrollToTopOnPageLoad();
 
   return (
     <>

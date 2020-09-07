@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Container from '../components/layout/Container';
 import HeadingWithLogo from '../components/typography/HeadingWithLogo';
 import Heading from '../components/typography/Heading';
@@ -6,11 +6,10 @@ import Text from '../components/typography/Text';
 import ColoredText from '../components/typography/ColoredText';
 import { Link } from 'react-router-dom';
 import Button from '../components/buttons/Button';
+import useScrollToTopOnPageLoad from '../hooks/useScrollToTopOnPageLoad';
 
 const ImprintPage = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  useScrollToTopOnPageLoad();
 
   return (
     <>
