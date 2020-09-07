@@ -53,10 +53,7 @@ const MainLayout = ({
         />
       )}
       {!isCookieSet && (
-        <CookieBanner
-          className="blur-target"
-          clickHandler={() => setCookie('1', 365)}
-        />
+        <CookieBanner clickHandler={() => setCookie('1', 365)} />
       )}
     </div>
   );
