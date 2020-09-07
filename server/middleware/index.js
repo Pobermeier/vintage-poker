@@ -5,7 +5,8 @@ const helmet = require('helmet');
 const xssClean = require('xss-clean');
 const expressRateLimit = require('express-rate-limit');
 const hpp = require('hpp');
-const cors = require('cors');
+// const cors = require('cors');
+const logger = require('./logger');
 
 const configureMiddleware = (app) => {
   // Body-parser middleware
@@ -36,6 +37,9 @@ const configureMiddleware = (app) => {
 
   // Enable CORS
   // app.use(cors());
+
+  // Custom logging middleware
+  app.use(logger);
 };
 
 module.exports = configureMiddleware;
