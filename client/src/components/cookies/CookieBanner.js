@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   width: 100%;
   z-index: 50;
   text-align: center;
+  pointer-events: none;
 `;
 
 const StyledCookieBanner = styled.div`
@@ -27,6 +28,7 @@ const StyledCookieBanner = styled.div`
   display: flex;
   border-radius: calc(${(props) => props.theme.other.stdBorderRadius} - 1rem);
   box-shadow: ${(props) => props.theme.other.cardDropShadow};
+  pointer-events: all;
 `;
 
 const ContentWrapper = styled.div`
