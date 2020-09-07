@@ -17,5 +17,5 @@ module.exports = {
   SMTP_USER: process.env.SMTP_USER,
   SMTP_PW: process.env.SMTP_PW,
   FROM_NAME: 'Vintage Poker Info',
-  FROM_EMAIL: 'no-reply@vintagepoker.app',
+  FROM_EMAIL: 'no-reply@vintagepoker.net',
 };
