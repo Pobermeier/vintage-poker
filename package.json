@@ -10,7 +10,8 @@
     "dev": "concurrently \"npm run dev:server\" \"npm run start:client\""
   },
   "author": "Patrick Obermeier <patrick.obermeier@outlook.com>",
-  "license": "ISC",
+  "private": "true",
+  "license": "UNLICENSED",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.5",
