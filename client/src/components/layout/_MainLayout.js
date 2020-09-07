@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from '../navigation/Navbar';
 import Footer from '../navigation/Footer';
 import WatermarkWrapper from '../decoration/WatermarkWrapper';
 import NavMenu from '../navigation/NavMenu';
 import CookieBanner from '../cookies/CookieBanner';
 import { withRouter } from 'react-router-dom';
+import useNavMenu from '../../hooks/useNavMenu';
 
 const MainLayout = ({
   children,
@@ -20,27 +21,7 @@ const MainLayout = ({
   staticPages,
   location,
 }) => {
-  const [showNavMenu, setShowNavMenu] = useState(false);
-
-  const openNavMenu = () => {
-    document.body.style.overflow = 'hidden';
-    Array.from(document.getElementsByClassName('blur-target')).forEach(
-      (element) => {
-        element.style.filter = 'blur(4px)';
-      },
-    );
-    setShowNavMenu(true);
-  };
-
-  const closeNavMenu = () => {
-    document.body.style.overflow = 'initial';
-    Array.from(document.getElementsByClassName('blur-target')).forEach(
-      (element) => {
-        element.style.filter = 'none';
-      },
-    );
-    setShowNavMenu(false);
-  };
+  const [showNavMenu, openNavMenu, closeNavMenu] = useNavMenu();
 
   return (
     <div id="layout-wrapper">
