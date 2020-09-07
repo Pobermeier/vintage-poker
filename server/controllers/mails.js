@@ -4,11 +4,15 @@ const { templates, templateList } = require('../mails/templateList');
 // @desc    Get a list of transactional templates
 // @access  Public
 exports.getMailTemplateList = (req, res) => {
-  res.send(templateList);
+  if (req.query.format === 'html') {
+    res.send(templateList);
+  } else {
+    res.json(templates);
+  }
 };
 
 // @route   GET api/mails/:id
-// @desc    Get transactional mail template by Id
+// @desc    Get transactional template by Id
 // @access  Public
 exports.getTemplateById = (req, res) => {
   const foundTemplate = templates.find(
