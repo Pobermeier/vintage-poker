@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import Container from '../components/layout/Container';
 import { Redirect, Link } from 'react-router-dom';
 import HeadingWithLogo from '../components/typography/HeadingWithLogo';
@@ -11,14 +11,17 @@ import { Label } from '../components/forms/Label';
 import RelativeWrapper from '../components/layout/RelativeWrapper';
 import ShowPasswordButton from '../components/buttons/ShowPasswordButton';
 import useScrollToTopOnPageLoad from '../hooks/useScrollToTopOnPageLoad';
+import authContext from '../context/auth/authContext';
 
-const LoginPage = ({ login, loggedIn }) => {
+const LoginPage = () => {
+  const { login, isLoggedIn } = useContext(authContext);
+
   useScrollToTopOnPageLoad();
 
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
-  if (loggedIn) return <Redirect to="/" />;
+  if (isLoggedIn) return <Redirect to="/" />;
   return (
     <RelativeWrapper>
       {/* <TiledBackgroundImage /> */}

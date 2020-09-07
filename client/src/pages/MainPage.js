@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Container from '../components/layout/Container';
 import Heading from '../components/typography/Heading';
 import PropTypes from 'prop-types';
@@ -12,6 +12,7 @@ import Text from '../components/typography/Text';
 import strings from '../strings.json';
 import { withRouter } from 'react-router-dom';
 import useScrollToTopOnPageLoad from '../hooks/useScrollToTopOnPageLoad';
+import globalContext from '../context/global/globalContext';
 
 const WelcomeHeading = styled(Heading)`
   @media screen and (min-width: 468px) and (min-height: 600px) {
@@ -111,7 +112,9 @@ const MainMenuCard = styled.div`
   }
 `;
 
-const MainPage = ({ userName, openModal, lang, history }) => {
+const MainPage = ({ openModal, lang, history }) => {
+  const { userName } = useContext(globalContext);
+
   useScrollToTopOnPageLoad();
 
   return (

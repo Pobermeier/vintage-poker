@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from '../navigation/Navbar';
 import Footer from '../navigation/Footer';
 import WatermarkWrapper from '../decoration/WatermarkWrapper';
@@ -7,19 +7,20 @@ import CookieBanner from '../cookies/CookieBanner';
 import { withRouter } from 'react-router-dom';
 import useNavMenu from '../../hooks/useNavMenu';
 import useCookie from '../../hooks/useCookie';
+import globalContext from '../../context/global/globalContext';
+import authContext from '../../context/auth/authContext';
 
 const MainLayout = ({
   children,
-  chipsAmount,
-  loggedIn,
   openModal,
-  logout,
-  userName,
   lang,
   setLang,
   staticPages,
   location,
 }) => {
+  const { chipsAmount, userName } = useContext(globalContext);
+  const { isLoggedIn, logout } = useContext(authContext);
+
   const [showNavMenu, openNavMenu, closeNavMenu] = useNavMenu();
   const [isCookieSet, setCookie] = useCookie('cookies-accepted', true);
 
@@ -27,7 +28,7 @@ const MainLayout = ({
     <div id="layout-wrapper">
       <Navbar
         chipsAmount={chipsAmount}
-        loggedIn={loggedIn}
+        loggedIn={isLoggedIn}
         openModal={openModal}
         openNavMenu={openNavMenu}
         className="blur-target"

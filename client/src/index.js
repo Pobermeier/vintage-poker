@@ -7,6 +7,8 @@ import theme from './styles/theme';
 import Normalize from './styles/Normalize';
 import GlobalStyles from './styles/Global';
 import logoWithText from './assets/img/logo-text@2x.png';
+import GlobalState from './context/global/GlobalState';
+import AuthProvider from './context/auth/AuthProvider';
 
 const rootElement = document.getElementById('root');
 const cookieBannerRoot = document.getElementById('cookie-banner');
@@ -30,13 +32,17 @@ if (
 } else {
   ReactDOM.render(
     <React.StrictMode>
-      <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <Normalize />
-          <GlobalStyles />
-          <App />
-        </ThemeProvider>
-      </BrowserRouter>
+      <GlobalState>
+        <AuthProvider>
+          <BrowserRouter>
+            <ThemeProvider theme={theme}>
+              <Normalize />
+              <GlobalStyles />
+              <App />
+            </ThemeProvider>
+          </BrowserRouter>
+        </AuthProvider>
+      </GlobalState>
     </React.StrictMode>,
     rootElement,
   );

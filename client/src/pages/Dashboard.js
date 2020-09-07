@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Container from '../components/layout/Container';
 import HeadingWithLogo from '../components/typography/HeadingWithLogo';
@@ -9,6 +9,7 @@ import { Input } from '../components/forms/Input';
 import styled from 'styled-components';
 import { Form } from '../components/forms/Form';
 import RelativeWrapper from '../components/layout/RelativeWrapper';
+import globalContext from '../context/global/globalContext';
 
 const Wrapper = styled.div`
   display: grid;
@@ -47,7 +48,9 @@ const Wrapper = styled.div`
 //   }
 // `;
 
-const Dashboard = ({ userName, email }) => {
+const Dashboard = () => {
+  const { userName, email } = useContext(globalContext);
+
   return (
     <RelativeWrapper>
       {/* <TiledBackgroundImage /> */}
