@@ -1,11 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
 import App from './App';
-import theme from './styles/theme';
-import Normalize from './styles/Normalize';
-import GlobalStyles from './styles/Global';
 import logoWithText from './assets/img/logo-text@2x.png';
 import Providers from './context/Providers';
 
@@ -32,13 +28,9 @@ if (
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <Providers>
-            <Normalize />
-            <GlobalStyles />
-            <App />
-          </Providers>
-        </ThemeProvider>
+        <Providers>
+          <App />
+        </Providers>
       </BrowserRouter>
     </React.StrictMode>,
     rootElement,
