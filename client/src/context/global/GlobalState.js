@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import GlobalContext from './globalContext';
 
 const GlobalState = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [userName, setUserName] = useState(null);
   const [email, setEmail] = useState(null);
   const [chipsAmount, setChipsAmount] = useState(0);

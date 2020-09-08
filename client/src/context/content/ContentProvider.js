@@ -2,8 +2,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import ContentContext from './contentContext';
 import useContentful from '../../hooks/useContentful';
 import locaContext from '../localization/locaContext';
+import globalContext from '../global/globalContext';
 
 const ContentProvider = ({ children }) => {
+  const { setIsLoading } = useContext(globalContext);
   const { lang } = useContext(locaContext);
   const contentfulClient = useContentful();
 
@@ -11,6 +13,7 @@ const ContentProvider = ({ children }) => {
   const [localizedStrings, setLocalizedStrings] = useState(null);
 
   useEffect(() => {
+    setIsLoading(true);
     contentfulClient
       .getEntries({ content_type: 'key', locale: lang })
       .then((res) => {
@@ -36,6 +39,8 @@ const ContentProvider = ({ children }) => {
           })),
         );
       });
+
+    setIsLoading(false);
     // eslint-disable-next-line
   }, [lang]);
 
