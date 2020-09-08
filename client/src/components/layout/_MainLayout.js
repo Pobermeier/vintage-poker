@@ -9,17 +9,16 @@ import useNavMenu from '../../hooks/useNavMenu';
 import useCookie from '../../hooks/useCookie';
 import globalContext from '../../context/global/globalContext';
 import authContext from '../../context/auth/authContext';
+import locaContext from '../../context/localization/locaContext';
+import contentContext from '../../context/content/contentContext';
+import modalContext from '../../context/modal/modalContext';
 
-const MainLayout = ({
-  children,
-  openModal,
-  lang,
-  setLang,
-  staticPages,
-  location,
-}) => {
+const MainLayout = ({ children, location }) => {
   const { chipsAmount, userName } = useContext(globalContext);
   const { isLoggedIn, logout } = useContext(authContext);
+  const { lang, setLang } = useContext(locaContext);
+  const { staticPages } = useContext(contentContext);
+  const { openModal } = useContext(modalContext);
 
   const [showNavMenu, openNavMenu, closeNavMenu] = useNavMenu();
   const [isCookieSet, setCookie] = useCookie('cookies-accepted', true);

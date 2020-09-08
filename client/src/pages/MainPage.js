@@ -9,10 +9,11 @@ import queenImg from '../assets/img/queen-rounded-img@2x.png';
 import queen2Img from '../assets/img/queen2-rounded-img@2x.png';
 import styled from 'styled-components';
 import Text from '../components/typography/Text';
-import strings from '../strings.json';
 import { withRouter } from 'react-router-dom';
 import useScrollToTopOnPageLoad from '../hooks/useScrollToTopOnPageLoad';
 import globalContext from '../context/global/globalContext';
+import contentContext from '../context/content/contentContext';
+import modalContext from '../context/modal/modalContext';
 
 const WelcomeHeading = styled(Heading)`
   @media screen and (min-width: 468px) and (min-height: 600px) {
@@ -112,8 +113,10 @@ const MainMenuCard = styled.div`
   }
 `;
 
-const MainPage = ({ openModal, lang, history }) => {
+const MainPage = ({ history }) => {
   const { userName } = useContext(globalContext);
+  const { localizedStrings } = useContext(contentContext);
+  const { openModal } = useContext(modalContext);
 
   useScrollToTopOnPageLoad();
 
@@ -126,21 +129,21 @@ const MainPage = ({ openModal, lang, history }) => {
       padding="6rem 2rem 2rem 2rem"
     >
       <WelcomeHeading as="h2" textCentered>
-        {strings[lang].main_page.salutation || '{main_page.salutation}'}{' '}
+        {localizedStrings['main_page-salutation'] || '{main_page.salutation}'}{' '}
         <ColoredText>{userName}!</ColoredText>
       </WelcomeHeading>
       <MainMenuWrapper>
         <MainMenuCard onClick={() => history.push('/play')}>
           <img src={kingImg} alt="Join Table" />
           <Heading as="h3" headingClass="h5" textCentered>
-            {strings[lang].main_page.join_table.toUpperCase() ||
+            {localizedStrings['main_page-join_table'].toUpperCase() ||
               '{main_page.join_table}'}
           </Heading>
         </MainMenuCard>
         <MainMenuCard onClick={() => history.push('/play')}>
           <img src={queen2Img} alt="Quick Game" />
           <Heading as="h3" headingClass="h5" textCentered>
-            {strings[lang].main_page.quick_game.toUpperCase() ||
+            {localizedStrings['main_page-quick_game'].toUpperCase() ||
               '{main_page.quick_game}'}
           </Heading>
         </MainMenuCard>
@@ -149,16 +152,16 @@ const MainPage = ({ openModal, lang, history }) => {
             openModal(
               () => (
                 <Text textAlign="center">
-                  {strings[lang].main_page.modal_text ||
+                  {localizedStrings['main_page-modal_text'] ||
                     '{main_page.modal_text}'}
                 </Text>
               ),
               `${
-                strings[lang].main_page.modal_heading ||
+                localizedStrings['main_page-modal_heading'] ||
                 '{main_page.modal_heading}'
               }`,
               `${
-                strings[lang].main_page.modal_button_text ||
+                localizedStrings['main_page-modal_button_text'] ||
                 '{main_page.modal_button_text }'
               }`,
             );
@@ -166,14 +169,14 @@ const MainPage = ({ openModal, lang, history }) => {
         >
           <img src={jackImg} alt="Shop" />
           <Heading as="h3" headingClass="h5" textCentered>
-            {strings[lang].main_page.open_shop.toUpperCase() ||
+            {localizedStrings['main_page-open_shop'].toUpperCase() ||
               '{main_page.open_shop}'}
           </Heading>
         </MainMenuCard>
         <MainMenuCard onClick={() => history.push('/game-rules')}>
           <img src={queenImg} alt="Rules" />
           <Heading as="h3" headingClass="h5" textCentered>
-            {strings[lang].main_page.open_rules.toUpperCase() ||
+            {localizedStrings['main_page-open_rules'].toUpperCase() ||
               '{main_page.open_rules}'}
           </Heading>
         </MainMenuCard>
