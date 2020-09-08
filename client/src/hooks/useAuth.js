@@ -14,9 +14,10 @@ const useAuth = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    const token = localStorage.token;
 
+    const token = localStorage.token;
     token && loadUser(token);
+
     setIsLoading(false);
     // eslint-disable-next-line
   }, []);

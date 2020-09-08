@@ -15,9 +15,9 @@ const Providers = ({ children }) => (
   <BrowserRouter>
     <ThemeProvider theme={theme}>
       <GlobalState>
-        <AuthProvider>
-          <LocaProvider>
-            <ContentProvider>
+        <LocaProvider>
+          <ContentProvider>
+            <AuthProvider>
               <ModalProvider>
                 <OfflineProvider>
                   <Normalize />
@@ -25,9 +25,9 @@ const Providers = ({ children }) => (
                   {children}
                 </OfflineProvider>
               </ModalProvider>
-            </ContentProvider>
-          </LocaProvider>
-        </AuthProvider>
+            </AuthProvider>
+          </ContentProvider>
+        </LocaProvider>
       </GlobalState>
     </ThemeProvider>
   </BrowserRouter>

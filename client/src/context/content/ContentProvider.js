@@ -2,18 +2,25 @@ import React, { useState, useEffect, useContext } from 'react';
 import ContentContext from './contentContext';
 import useContentful from '../../hooks/useContentful';
 import locaContext from '../localization/locaContext';
-import globalContext from '../global/globalContext';
 
 const ContentProvider = ({ children }) => {
-  const { setIsLoading } = useContext(globalContext);
   const { lang } = useContext(locaContext);
   const contentfulClient = useContentful();
 
+  const [isLoading, setIsLoading] = useState(true);
   const [staticPages, setStaticPages] = useState(null);
   const [localizedStrings, setLocalizedStrings] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
+
+    fetchContent();
+
+    setIsLoading(false);
+    // eslint-disable-next-line
+  }, [lang]);
+
+  const fetchContent = () => {
     contentfulClient
       .getEntries({ content_type: 'key', locale: lang })
       .then((res) => {
@@ -39,13 +46,12 @@ const ContentProvider = ({ children }) => {
           })),
         );
       });
-
-    setIsLoading(false);
-    // eslint-disable-next-line
-  }, [lang]);
+  };
 
   return (
-    <ContentContext.Provider value={{ staticPages, localizedStrings }}>
+    <ContentContext.Provider
+      value={{ isLoading, staticPages, localizedStrings }}
+    >
       {children}
     </ContentContext.Provider>
   );
