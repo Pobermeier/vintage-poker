@@ -9,6 +9,7 @@ import theme from '../styles/theme';
 import Normalize from '../styles/Normalize';
 import GlobalStyles from '../styles/Global';
 import { BrowserRouter } from 'react-router-dom';
+import OfflineProvider from './offline/OfflineProvider';
 
 const Providers = ({ children }) => (
   <BrowserRouter>
@@ -18,9 +19,11 @@ const Providers = ({ children }) => (
           <LocaProvider>
             <ContentProvider>
               <ModalProvider>
-                <Normalize />
-                <GlobalStyles />
-                {children}
+                <OfflineProvider>
+                  <Normalize />
+                  <GlobalStyles />
+                  {children}
+                </OfflineProvider>
               </ModalProvider>
             </ContentProvider>
           </LocaProvider>
