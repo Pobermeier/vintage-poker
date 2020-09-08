@@ -1,7 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const mongoSanitize = require('express-mongo-sanitize');
-const helmet = require('helmet');
+// const helmet = require('helmet');
 const xssClean = require('xss-clean');
 const expressRateLimit = require('express-rate-limit');
 const hpp = require('hpp');
@@ -19,7 +19,7 @@ const configureMiddleware = (app) => {
   app.use(mongoSanitize());
 
   // Helmet improves API security by setting some additional header checks
-  app.use(helmet());
+  // app.use(helmet());
 
   // Additional protection against XSS attacks
   app.use(xssClean());
