@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import logoWithText from './assets/img/logo-text@2x.png';
 import Providers from './context/Providers';
@@ -27,11 +26,9 @@ if (
 } else {
   ReactDOM.render(
     <React.StrictMode>
-      <BrowserRouter>
-        <Providers>
-          <App />
-        </Providers>
-      </BrowserRouter>
+      <Providers>
+        <App />
+      </Providers>
     </React.StrictMode>,
     rootElement,
   );
