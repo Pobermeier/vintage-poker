@@ -1,9 +1,9 @@
 const path = require('path');
 const express = require('express');
 const config = require('./config');
-const connectDB = require('./server/config/db');
-const configureMiddleware = require('./server/middleware');
-const configureRoutes = require('./server/routes');
+const connectDB = require('./config/db');
+const configureMiddleware = require('./middleware');
+const configureRoutes = require('./routes');
 
 // Connect and get reference to mongodb instance
 let db;

@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const config = require('../../config');
+const config = require('../config');
 const { validationResult } = require('express-validator');
 const { WelcomeMail } = require('../mails');
 const User = require('../models/User');
