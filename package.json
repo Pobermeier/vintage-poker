@@ -24,9 +24,12 @@
     "helmet": "^4.1.0",
     "hpp": "^0.2.3",
     "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.20",
     "mongoose": "^5.10.2",
     "nodemailer": "^6.4.11",
+    "pokersolver": "^2.1.4",
     "socket.io": "^2.3.0",
+    "underscore": "^1.11.0",
     "xss-clean": "^0.1.1"
   },
   "devDependencies": {
