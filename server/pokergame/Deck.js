@@ -1,6 +1,6 @@
+const lodash = require('lodash');
 class Deck {
   constructor() {
-    this.extend = [];
     this.suits = ['s', 'h', 'd', 'c'];
     this.ranks = [
       'A',
@@ -17,11 +17,11 @@ class Deck {
       '3',
       '2',
     ];
-    this.cards = this.shuffle();
+    this.cards = this.createDeckAndShuffle();
   }
 
-  shuffle() {
-    const cards = [];
+  createDeckAndShuffle() {
+    let cards = [];
 
     this.suits.forEach((suit) => {
       this.ranks.forEach((rank) => {
@@ -29,16 +29,9 @@ class Deck {
       });
     });
 
-    return cards;
-  }
+    cards = lodash.shuffle(cards);
 
-  inlay(card) {
-    if (card && card.suit && card.rank) {
-      this.cards.push(card);
-      return true;
-    } else {
-      return false;
-    }
+    return cards;
   }
 
   count() {
