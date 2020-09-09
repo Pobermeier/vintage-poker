@@ -6,9 +6,13 @@ import globalContext from '../context/global/globalContext';
 const useAuth = () => {
   localStorage.token && setAuthToken(localStorage.token);
 
-  const { setIsLoading, setUserName, setEmail, setChipsAmount } = useContext(
-    globalContext,
-  );
+  const {
+    setId,
+    setIsLoading,
+    setUserName,
+    setEmail,
+    setChipsAmount,
+  } = useContext(globalContext);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -73,9 +77,10 @@ const useAuth = () => {
         },
       });
 
-      const { name, email, chipsAmount } = res.data;
+      const { _id, name, email, chipsAmount } = res.data;
 
       setIsLoggedIn(true);
+      setId(_id);
       setUserName(name);
       setEmail(email);
       setChipsAmount(chipsAmount);
