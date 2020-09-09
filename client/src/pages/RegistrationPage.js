@@ -66,8 +66,9 @@ const RegistrationPage = () => {
             <Input
               type="text"
               name="nickname"
-              autoComplete="username"
+              autoComplete="off"
               ref={nicknameRef}
+              minLength="5"
               required
             />
           </FormGroup>
