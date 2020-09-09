@@ -2,10 +2,10 @@
   "name": "vintage-poker",
   "version": "1.0.0",
   "description": "A full-stack poker web-app",
-  "main": "server.js",
+  "main": "./server/server.js",
   "scripts": {
-    "start:server": "node server",
-    "dev:server": "nodemon server",
+    "start:server": "node ./server/server",
+    "dev:server": "nodemon ./server/server",
     "start:client": "npm start --prefix client",
     "dev": "concurrently \"npm run dev:server\" \"npm run start:client\""
   },
