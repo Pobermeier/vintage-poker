@@ -4,8 +4,6 @@ import { withRouter } from 'react-router-dom';
 
 const initialState = localStorage.getItem('lang') || 'en';
 
-console.log(initialState);
-
 const LocaProvider = ({ location, children }) => {
   const [lang, setLang] = useState(initialState);
 
