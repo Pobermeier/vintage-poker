@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import LogoWithText from '../logo/LogoWithText';
 import Logo from '../logo/LogoIcon';
 import Container from '../layout/Container';
@@ -10,6 +10,7 @@ import ChipsAmount from '../user/ChipsAmount';
 import HamburgerButton from '../buttons/HamburgerButton';
 import Spacer from '../layout/Spacer';
 import Text from '../typography/Text';
+import contentContext from '../../context/content/contentContext';
 
 const StyledNav = styled.nav`
   padding: 1rem 0;
@@ -27,6 +28,8 @@ const Navbar = ({
   openNavMenu,
   className,
 }) => {
+  const { localizedStrings } = useContext(contentContext);
+
   if (!loggedIn)
     return (
       <StyledNav className={className}>
@@ -39,12 +42,16 @@ const Navbar = ({
             <Spacer>
               {location.pathname !== '/register' && (
                 <Button as={Link} to="/register" primary small>
-                  Register
+                  {localizedStrings &&
+                    (localizedStrings['navbar-register_btn'] ||
+                      'navbar-register_btn')}
                 </Button>
               )}
               {location.pathname !== '/login' && (
                 <Button as={Link} to="/login" secondary small>
-                  Login
+                  {localizedStrings &&
+                    (localizedStrings['navbar-login_btn'] ||
+                      'navbar-login_btn')}
                 </Button>
               )}
             </Spacer>
@@ -105,7 +112,9 @@ const Navbar = ({
                   );
                 }}
               >
-                Buy Chips
+                {localizedStrings &&
+                  (localizedStrings['navbar-buychips_btn'] ||
+                    'navbar-buychips_btn')}
               </Button>
             </Hider>
             <HamburgerButton clickHandler={openNavMenu} />
