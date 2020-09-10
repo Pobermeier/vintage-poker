@@ -5,7 +5,7 @@ const GoogleAnalytics = ({ location, history }) => {
   useEffect(() => {
     const gtag = window.gtag;
 
-    if (history.action === 'PUSH' && typeof gtag === 'function') {
+    if (history.action === 'PUSH' && gtag && typeof gtag === 'function') {
       gtag('config', '', {
         page_title: document.title,
         page_location: window.location.href,
