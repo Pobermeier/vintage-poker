@@ -6,7 +6,7 @@ const GoogleAnalytics = ({ location, history }) => {
     const gtag = window.gtag;
 
     if (history.action === 'PUSH' && gtag && typeof gtag === 'function') {
-      gtag('config', '', {
+      gtag('config', 'UA-147439668-3', {
         page_title: document.title,
         page_location: window.location.href,
         page_path: location.pathname,
