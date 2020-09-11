@@ -312,9 +312,32 @@ function Table({
               <strong>minRaise: </strong>
               {currentTable.minRaise}
             </li>
+          </ul>
+        </div>
+        <div className="col-4">
+          <strong>Players on this table:</strong>
+          <br />
+          <ul>
+            {currentTable.players.map((player) => (
+              <li key={player.id}>{player.name}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="col-4">
+          <strong>This round:</strong>
+          <br />
+          <ul>
             <li>
               <strong>mainPot: </strong>
               {currentTable.mainPot}
+            </li>
+            <li>
+              <strong>Turn: </strong>
+              {currentTable.board.length === 0 && 'Pre-Flop'}
+              {currentTable.board.length === 3 && 'Flop'}
+              {currentTable.board.length === 4 && 'Turn'}
+              {currentTable.board.length === 5 && 'River'}
+              {currentTable.wentToShowdown && 'Showdown'}
             </li>
             {currentTable.board && currentTable.board.length > 0 && (
               <li>
@@ -328,15 +351,6 @@ function Table({
                 })}
               </li>
             )}
-          </ul>
-        </div>
-        <div className="col-4">
-          <strong>Players on this table:</strong>
-          <br />
-          <ul>
-            {currentTable.players.map((player) => (
-              <li key={player.id}>{player.name}</li>
-            ))}
           </ul>
         </div>
       </div>
