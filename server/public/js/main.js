@@ -160,7 +160,7 @@ function Game({ setConnected }) {
   };
 
   const leaveTable = () => {
-    socket.emit(STAND_UP, currentTable.id);
+    isPlayerSeated && standUp();
     socket.emit(LEAVE_TABLE, currentTable.id);
     setCurrentTable(null);
   };
