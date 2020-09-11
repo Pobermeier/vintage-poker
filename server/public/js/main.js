@@ -250,7 +250,6 @@ function Game({ setConnected }) {
       <div className="row">
         {currentTable ? (
           <Table
-            addMessage={addMessage}
             currentTable={currentTable}
             isPlayerSeated={isPlayerSeated}
             standUp={standUp}
@@ -259,6 +258,7 @@ function Game({ setConnected }) {
             fold={fold}
             check={check}
             call={call}
+            raise={raise}
           />
         ) : (
           <h1 className="text-center">Join a table to play</h1>
@@ -269,7 +269,6 @@ function Game({ setConnected }) {
 }
 
 function Table({
-  addMessage,
   currentTable,
   isPlayerSeated,
   socketId,
@@ -278,6 +277,7 @@ function Table({
   fold,
   check,
   call,
+  raise,
 }) {
   console.log(currentTable);
   return (
@@ -372,6 +372,7 @@ function Table({
                 fold={fold}
                 check={check}
                 call={call}
+                raise={raise}
               />
             );
           }
@@ -382,7 +383,7 @@ function Table({
 }
 
 // A single seat
-function Seat({ seat, socketId, standUp, fold, check, call }) {
+function Seat({ seat, socketId, standUp, fold, check, call, raise }) {
   console.log(seat);
   return (
     <div className="col-3 text-center m-4">
@@ -419,6 +420,15 @@ function Seat({ seat, socketId, standUp, fold, check, call }) {
           {seat.turn && (
             <React.Fragment>
               {' '}
+              <button
+                onClick={() => {
+                  const amount = prompt('Enter raise amount:');
+                  raise(parseInt(amount));
+                }}
+                className="btn btn-primary"
+              >
+                Raise
+              </button>
               <button onClick={() => call()} className="btn btn-primary">
                 Call
               </button>
