@@ -373,6 +373,7 @@ function Table({
                 check={check}
                 call={call}
                 raise={raise}
+                currentTable={currentTable}
               />
             );
           }
@@ -383,7 +384,16 @@ function Table({
 }
 
 // A single seat
-function Seat({ seat, socketId, standUp, fold, check, call, raise }) {
+function Seat({
+  seat,
+  socketId,
+  standUp,
+  fold,
+  check,
+  call,
+  raise,
+  currentTable,
+}) {
   console.log(seat);
   return (
     <div className="col-3 text-center m-4">
@@ -419,25 +429,35 @@ function Seat({ seat, socketId, standUp, fold, check, call, raise }) {
         <React.Fragment>
           {seat.turn && (
             <React.Fragment>
-              {' '}
-              <button
-                onClick={() => {
-                  const amount = prompt('Enter raise amount:');
-                  raise(parseInt(amount));
-                }}
-                className="btn btn-primary"
-              >
-                Raise
-              </button>
-              <button onClick={() => call()} className="btn btn-primary">
-                Call
-              </button>
-              <button onClick={() => check()} className="btn btn-primary">
-                Check
-              </button>
-              <button onClick={() => fold()} className="btn btn-danger">
-                Fold
-              </button>
+              {!seat.folded && (
+                <button
+                  onClick={() => {
+                    const amount = prompt('Enter raise amount:');
+                    raise(parseInt(amount));
+                  }}
+                  className="btn btn-primary"
+                >
+                  Bet
+                </button>
+              )}
+              {!seat.folded && currentTable.callAmount > seat.bet && (
+                <button onClick={() => call()} className="btn btn-primary">
+                  Call
+                </button>
+              )}
+              {!seat.folded &&
+                (!currentTable.callAmount ||
+                  currentTable.callAmount === seat.bet ||
+                  currentTable.turn <= 1) && (
+                  <button onClick={() => check()} className="btn btn-primary">
+                    Check
+                  </button>
+                )}
+              {!seat.folded && (
+                <button onClick={() => fold()} className="btn btn-danger">
+                  Fold
+                </button>
+              )}
               <br />
             </React.Fragment>
           )}
