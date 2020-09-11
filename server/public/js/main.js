@@ -324,7 +324,10 @@ function Table({
                 {!isPlayerSeated ? (
                   <button
                     onClick={() => {
-                      sitDown(currentTable.id, index, 5000);
+                      const amount = prompt(
+                        'With what amount do you want to buy-in?',
+                      );
+                      sitDown(currentTable.id, index, parseInt(amount));
                     }}
                     className="btn btn-primary"
                   >
