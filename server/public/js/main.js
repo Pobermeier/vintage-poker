@@ -73,10 +73,12 @@ function Navbar() {
 function Game({ setConnected }) {
   const [players, setPlayers] = React.useState(null);
   const [tables, setTables] = React.useState(null);
+  const [messages, setMessages] = React.useState([]);
   const [currentTable, setCurrentTable] = React.useState(null);
   const [socketId, setSocketId] = React.useState(null);
   const [userId] = React.useState(user.id);
   const [userName] = React.useState(user.username);
+  const [isPlayerSeated, setIsPlayerSeated] = React.useState(false);
   const [bankroll, setBankroll] = React.useState(user.bankroll);
 
   const currentTableRef = React.useRef(currentTable);
@@ -89,20 +91,20 @@ function Game({ setConnected }) {
 
   React.useEffect(() => {
     socket.on(RECEIVE_LOBBY_INFO, ({ tables, players, socketId }) => {
-      console.log(RECEIVE_LOBBY_INFO, tables, players, socketId);
+      // console.log(RECEIVE_LOBBY_INFO, tables, players, socketId);
       setTables(tables);
       setPlayers(players);
       setSocketId(socketId);
     });
 
     socket.on(PLAYERS_UPDATED, (players) => {
-      console.log(PLAYERS_UPDATED, players);
+      // console.log(PLAYERS_UPDATED, players);
       setPlayers(players);
       setBankroll(players[socketIdRef.current].bankroll);
     });
 
     socket.on(TABLES_UPDATED, (tables) => {
-      console.log(TABLES_UPDATED, tables);
+      // console.log(TABLES_UPDATED, tables);
       setTables(tables);
       // currentTableRef.current &&
       //   setCurrentTable(tables[currentTableRef.current.id]);
@@ -110,15 +112,16 @@ function Game({ setConnected }) {
 
     socket.on(TABLE_UPDATED, ({ table, message, from }) => {
       setCurrentTable(table);
+      message && setMessages((prevMessages) => [...prevMessages, message]);
     });
 
     socket.on(TABLE_JOINED, ({ tables, tableId }) => {
-      console.log(TABLE_JOINED, tables, tableId);
+      // console.log(TABLE_JOINED, tables, tableId);
       setCurrentTable(tables[tableId]);
     });
 
     socket.on(TABLE_LEFT, ({ tables, tableId }) => {
-      console.log(TABLE_LEFT, tables, tableId);
+      // console.log(TABLE_LEFT, tables, tableId);
       setCurrentTable(null);
     });
 
@@ -131,6 +134,42 @@ function Game({ setConnected }) {
     };
   }, []);
 
+  const sitDown = (tableId, seatId, amount) => {
+    socket.emit(SIT_DOWN, { tableId, seatId, amount });
+    setIsPlayerSeated(true);
+  };
+
+  const standUp = () => {
+    socket.emit(STAND_UP, currentTable.id);
+    setIsPlayerSeated(false);
+  };
+
+  const leaveTable = () => {
+    socket.emit(STAND_UP, currentTable.id);
+    socket.emit(LEAVE_TABLE, currentTable.id);
+    setCurrentTable(null);
+  };
+
+  const joinTable = () => {
+    socket.emit(JOIN_TABLE, 1);
+  };
+
+  const fold = () => {
+    socket.emit(FOLD, currentTable.id);
+  };
+
+  const check = () => {
+    socket.emit(CHECK, currentTable.id);
+  };
+
+  const call = () => {
+    socket.emit(CALL, currentTable.id);
+  };
+
+  const raise = (amount) => {
+    socket.emit(RAISE, { tableId: currentTable.id, amount });
+  };
+
   return (
     <div className="mt-5 container">
       <div className="mt-3 row">
@@ -138,10 +177,9 @@ function Game({ setConnected }) {
           <button
             onClick={() => {
               if (currentTable) {
-                socket.emit(STAND_UP, currentTable.id);
-                socket.emit(LEAVE_TABLE, currentTable.id);
+                leaveTable();
               } else {
-                socket.emit(JOIN_TABLE, 1);
+                joinTable();
               }
             }}
             className="btn btn-primary"
@@ -185,16 +223,45 @@ function Game({ setConnected }) {
           </ul>
         </div>
       </div>
-      {currentTable ? (
-        <Table currentTable={currentTable} />
-      ) : (
-        <h1 className="text-center">Join a table to play</h1>
-      )}
+      <br />
+      <div className="row">
+        <h5>Messages</h5>
+        <br />
+        <ul>
+          {messages.length > 0 &&
+            messages.map((message, index) => <li key={index}>{message}</li>)}
+        </ul>
+      </div>
+      <div className="row">
+        {currentTable ? (
+          <Table
+            currentTable={currentTable}
+            isPlayerSeated={isPlayerSeated}
+            standUp={standUp}
+            sitDown={sitDown}
+            socketId={socketId}
+            fold={fold}
+            check={check}
+            call={call}
+          />
+        ) : (
+          <h1 className="text-center">Join a table to play</h1>
+        )}
+      </div>
     </div>
   );
 }
 
-function Table({ currentTable }) {
+function Table({
+  currentTable,
+  isPlayerSeated,
+  socketId,
+  standUp,
+  sitDown,
+  fold,
+  check,
+  call,
+}) {
   console.log(currentTable);
   return (
     <div className="container">
@@ -228,6 +295,15 @@ function Table({ currentTable }) {
               <strong>minRaise: </strong>
               {currentTable.minRaise}
             </li>
+            <li>
+              <strong>mainPot: </strong>
+              {currentTable.mainPot}
+            </li>
+            {currentTable.board && currentTable.board.length > 0 && (
+              <li>
+                {currentTable.board.map((card) => `${card.suit}${card.rank} `)}
+              </li>
+            )}
           </ul>
         </div>
         <div className="col-4">
@@ -245,22 +321,32 @@ function Table({ currentTable }) {
           if (!seat) {
             return (
               <div key={index} className="col-3 text-center m-4">
-                <button
-                  onClick={() => {
-                    socket.emit(SIT_DOWN, {
-                      tableId: currentTable.id,
-                      seatId: index,
-                      amount: 15000,
-                    });
-                  }}
-                  className="btn btn-primary"
-                >
-                  Sit down
-                </button>
+                {!isPlayerSeated ? (
+                  <button
+                    onClick={() => {
+                      sitDown(currentTable.id, index, 5000);
+                    }}
+                    className="btn btn-primary"
+                  >
+                    Sit down
+                  </button>
+                ) : (
+                  <h5>Empty Seat</h5>
+                )}
               </div>
             );
           } else {
-            return <Seat key={index} seat={seat} />;
+            return (
+              <Seat
+                key={index}
+                seat={seat}
+                socketId={socketId}
+                standUp={standUp}
+                fold={fold}
+                check={check}
+                call={call}
+              />
+            );
           }
         })}
       </div>
@@ -269,7 +355,7 @@ function Table({ currentTable }) {
 }
 
 // A single seat
-function Seat({ seat }) {
+function Seat({ seat, socketId, standUp, fold, check, call }) {
   console.log(seat);
   return (
     <div className="col-3 text-center m-4">
@@ -301,6 +387,28 @@ function Seat({ seat }) {
           <strong>Folded:</strong> {seat.folded.toString()}
         </li>
       </ul>
+      {seat.player.socketId === socketId && (
+        <React.Fragment>
+          {seat.turn && (
+            <React.Fragment>
+              {' '}
+              <button onClick={() => call()} className="btn btn-primary">
+                Call
+              </button>
+              <button onClick={() => check()} className="btn btn-primary">
+                Check
+              </button>
+              <button onClick={() => fold()} className="btn btn-danger">
+                Fold
+              </button>
+              <br />
+            </React.Fragment>
+          )}
+          <button onClick={() => standUp()} className="btn btn-primary">
+            Stand Up
+          </button>
+        </React.Fragment>
+      )}
     </div>
   );
 }

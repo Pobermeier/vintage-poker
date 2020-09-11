@@ -221,7 +221,10 @@ class Table {
   endWithoutShowdown() {
     const winner = this.unfoldedPlayers()[0];
     winner && winner.winHand(this.pot);
-    this.winMessages.push(`${winner.player.name} wins $${this.pot.toFixed(2)}`);
+    winner &&
+      this.winMessages.push(
+        `${winner.player.name} wins $${this.pot.toFixed(2)}`,
+      );
     this.endHand();
   }
   resetEmptyTable() {
