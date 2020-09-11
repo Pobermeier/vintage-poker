@@ -6,6 +6,10 @@ The server part of the application is a Node- / Express-Backend. The Frontend is
 
 This project is currently work-in-progress.
 
+## In-depth Project Documentation
+
+The more detailed project documentation can be found [here](https://www.notion.so/Vintage-Poker-Working-Title-2fa245a71d374bf787a13cf39e3e08dd).
+
 ## Planned Features
 
 These features are a must-have for the Minimal Viable Product (MVP) of this app:
