@@ -44,10 +44,16 @@ const init = (socket, io) => {
   });
 
   socket.on(JOIN_TABLE, (tableId) => {
+    const table = tables[tableId];
     tables[tableId].addPlayer(players[socket.id]);
 
     socket.emit(TABLE_JOINED, { tables, tableId });
     socket.broadcast.emit(TABLES_UPDATED, tables);
+
+    if (tables[tableId].players && tables[tableId].players.length > 0) {
+      let message = `${players[socket.id].name} joined the table.`;
+      broadcastToTable(table, message);
+    }
   });
 
   socket.on(LEAVE_TABLE, (tableId) => {
@@ -65,6 +71,11 @@ const init = (socket, io) => {
 
     socket.broadcast.emit(TABLES_UPDATED, tables);
     socket.emit(TABLE_LEFT, { tables, tableId });
+
+    if (tables[tableId].players && tables[tableId].players.length > 0) {
+      let message = `${players[socket.id].name} left the table.`;
+      broadcastToTable(table, message);
+    }
 
     if (table.activePlayers().length === 1) {
       clearForOnePlayer(table);
