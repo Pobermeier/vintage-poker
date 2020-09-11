@@ -90,6 +90,16 @@ function Game({ setConnected }) {
   }, [currentTable, socketId]);
 
   React.useEffect(() => {
+    if (
+      currentTable &&
+      currentTable.winMessage &&
+      currentTable.winMessage.length > 0
+    ) {
+      currentTable.winMessage.forEach((message) => addMessage(message));
+    }
+  }, [currentTable]);
+
+  React.useEffect(() => {
     socket.on(RECEIVE_LOBBY_INFO, ({ tables, players, socketId }) => {
       // console.log(RECEIVE_LOBBY_INFO, tables, players, socketId);
       setTables(tables);
@@ -100,7 +110,8 @@ function Game({ setConnected }) {
     socket.on(PLAYERS_UPDATED, (players) => {
       // console.log(PLAYERS_UPDATED, players);
       setPlayers(players);
-      setBankroll(players[socketIdRef.current].bankroll);
+      players[socketIdRef.current] &&
+        setBankroll(players[socketIdRef.current].bankroll);
     });
 
     socket.on(TABLES_UPDATED, (tables) => {
@@ -112,7 +123,7 @@ function Game({ setConnected }) {
 
     socket.on(TABLE_UPDATED, ({ table, message, from }) => {
       setCurrentTable(table);
-      message && setMessages((prevMessages) => [...prevMessages, message]);
+      message && addMessage(message);
     });
 
     socket.on(TABLE_JOINED, ({ tables, tableId }) => {
@@ -133,6 +144,10 @@ function Game({ setConnected }) {
       cleanUp();
     };
   }, []);
+
+  const addMessage = (message) => {
+    setMessages((prevMessages) => [...prevMessages, message]);
+  };
 
   const sitDown = (tableId, seatId, amount) => {
     socket.emit(SIT_DOWN, { tableId, seatId, amount });
@@ -235,6 +250,7 @@ function Game({ setConnected }) {
       <div className="row">
         {currentTable ? (
           <Table
+            addMessage={addMessage}
             currentTable={currentTable}
             isPlayerSeated={isPlayerSeated}
             standUp={standUp}
@@ -253,6 +269,7 @@ function Game({ setConnected }) {
 }
 
 function Table({
+  addMessage,
   currentTable,
   isPlayerSeated,
   socketId,
@@ -302,6 +319,13 @@ function Table({
             {currentTable.board && currentTable.board.length > 0 && (
               <li>
                 {currentTable.board.map((card) => `${card.suit}${card.rank} `)}
+              </li>
+            )}
+            {currentTable.winMessages && currentTable.winMessages.length > 0 && (
+              <li>
+                {currentTable.winMessages.map((winMessage) => {
+                  return `${winMessage} `;
+                })}
               </li>
             )}
           </ul>
