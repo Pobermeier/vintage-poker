@@ -45,13 +45,18 @@ const init = (socket, io) => {
 
   socket.on(JOIN_TABLE, (tableId) => {
     const table = tables[tableId];
-    tables[tableId].addPlayer(players[socket.id]);
+    const player = players[socket.id];
+    tables[tableId].addPlayer(player);
 
     socket.emit(TABLE_JOINED, { tables, tableId });
     socket.broadcast.emit(TABLES_UPDATED, tables);
 
-    if (tables[tableId].players && tables[tableId].players.length > 0) {
-      let message = `${players[socket.id].name} joined the table.`;
+    if (
+      tables[tableId].players &&
+      tables[tableId].players.length > 0 &&
+      player
+    ) {
+      let message = `${player.name} joined the table.`;
       broadcastToTable(table, message);
     }
   });
@@ -72,8 +77,12 @@ const init = (socket, io) => {
     socket.broadcast.emit(TABLES_UPDATED, tables);
     socket.emit(TABLE_LEFT, { tables, tableId });
 
-    if (tables[tableId].players && tables[tableId].players.length > 0) {
-      let message = `${players[socket.id].name} left the table.`;
+    if (
+      tables[tableId].players &&
+      tables[tableId].players.length > 0 &&
+      player
+    ) {
+      let message = `${player.name} left the table.`;
       broadcastToTable(table, message);
     }
 
