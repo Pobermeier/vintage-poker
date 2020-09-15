@@ -381,7 +381,7 @@ function Table({
                       const amount = prompt(
                         'With what amount do you want to buy-in?',
                       );
-                      sitDown(currentTable.id, index, parseInt(amount));
+                      sitDown(currentTable.id, index + 1, parseInt(amount));
                     }}
                     className="btn btn-primary"
                   >

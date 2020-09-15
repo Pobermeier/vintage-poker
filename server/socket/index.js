@@ -299,7 +299,7 @@ const init = (socket, io) => {
     let hiddenCard = { suit: 'hidden', rank: 'hidden' };
     let hiddenHand = [hiddenCard, hiddenCard];
 
-    for (let i = 0; i < tableCopy.maxPlayers; i++) {
+    for (let i = 1; i <= tableCopy.maxPlayers; i++) {
       let seat = tableCopy.seats[i];
       if (
         seat &&

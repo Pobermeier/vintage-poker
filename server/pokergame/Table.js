@@ -34,7 +34,7 @@ class Table {
   initSeats(maxPlayers) {
     const seats = {};
 
-    for (let i = 0; i < maxPlayers; i++) {
+    for (let i = 1; i <= maxPlayers; i++) {
       seats[i] = null;
     }
 
