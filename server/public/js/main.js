@@ -351,6 +351,22 @@ function Table({
                 })}
               </li>
             )}
+            <li>
+              <strong>Turn: </strong>
+              {currentTable.turn}
+            </li>
+            <li>
+              <strong>Dealer: </strong>
+              {currentTable.button}
+            </li>
+            <li>
+              <strong>Small Blind: </strong>
+              {currentTable.smallBlind}
+            </li>
+            <li>
+              <strong>Big Blind: </strong>
+              {currentTable.bigBlind}
+            </li>
           </ul>
         </div>
       </div>
