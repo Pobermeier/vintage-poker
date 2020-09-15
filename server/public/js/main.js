@@ -438,6 +438,9 @@ function Seat({
         <li>
           <strong>Folded:</strong> {seat.folded.toString()}
         </li>
+        <li>
+          <strong>Sitting Out:</strong> {seat.sittingOut.toString()}
+        </li>
       </ul>
       {seat.player.socketId === socketId && (
         <React.Fragment>
