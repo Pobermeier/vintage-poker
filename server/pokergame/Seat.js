@@ -2,22 +2,17 @@ const { FOLD, CHECK, RAISE, WINNER, CALL } = require('./actions');
 
 class Seat {
   constructor(id, player, buyin, stack) {
-    this.id = id; // Seat ID
-    this.player = player; // A reference to the player currently holding the seat
-    this.buyin = buyin; // The amount the player buys into the game with
-    this.stack = stack; // The amount of chips the player currently has in the game at his disposal
-    this.hand = []; // The players hidden cards
-    this.bet = 0; // The current bet amount
-    this.turn = false; // Is this currently the players turn?
-    this.checked = true; // Did the player "check"?
-    this.folded = true; // Did the player "fold"?
+    this.id = id;
+    this.player = player;
+    this.buyin = buyin;
+    this.stack = stack;
+    this.hand = [];
+    this.bet = 0;
+    this.turn = false;
+    this.checked = true;
+    this.folded = true;
     this.lastAction = null;
     this.sittingOut = false;
-  }
-
-  placeBlind(amount) {
-    this.bet = amount;
-    this.stack -= amount;
   }
 
   fold() {
@@ -42,6 +37,10 @@ class Seat {
     this.turn = false;
     this.lastAction = RAISE;
   }
+  placeBlind(amount) {
+    this.bet = amount;
+    this.stack -= amount;
+  }
 
   callRaise(amount) {
     let amountCalled = amount - this.bet;
@@ -52,7 +51,6 @@ class Seat {
     this.turn = false;
     this.lastAction = CALL;
   }
-
   winHand(amount) {
     this.bet = 0;
     this.stack += amount;
