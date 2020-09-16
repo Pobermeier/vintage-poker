@@ -139,7 +139,8 @@ const MainPage = ({ history }) => {
           <img src={kingImg} alt="Join Table" />
           <Heading as="h3" headingClass="h5" textCentered>
             {localizedStrings &&
-              (localizedStrings['main_page-join_table'].toUpperCase() ||
+              ((localizedStrings['main_page-join_table'] &&
+                localizedStrings['main_page-join_table'].toUpperCase()) ||
                 'main_page-join_table')}
           </Heading>
         </MainMenuCard>
@@ -147,7 +148,8 @@ const MainPage = ({ history }) => {
           <img src={queen2Img} alt="Quick Game" />
           <Heading as="h3" headingClass="h5" textCentered>
             {localizedStrings &&
-              (localizedStrings['main_page-quick_game'].toUpperCase() ||
+              ((localizedStrings['main_page-quick_game'] &&
+                localizedStrings['main_page-quick_game'].toUpperCase()) ||
                 'main_page-quick_game')}
           </Heading>
         </MainMenuCard>
@@ -177,7 +179,8 @@ const MainPage = ({ history }) => {
           <img src={jackImg} alt="Shop" />
           <Heading as="h3" headingClass="h5" textCentered>
             {localizedStrings &&
-              (localizedStrings['main_page-open_shop'].toUpperCase() ||
+              ((localizedStrings['main_page-open_shop'] &&
+                localizedStrings['main_page-open_shop'].toUpperCase()) ||
                 'main_page-open_shop')}
           </Heading>
         </MainMenuCard>
@@ -185,7 +188,8 @@ const MainPage = ({ history }) => {
           <img src={queenImg} alt="Rules" />
           <Heading as="h3" headingClass="h5" textCentered>
             {localizedStrings &&
-              (localizedStrings['main_page-open_rules'].toUpperCase() ||
+              ((localizedStrings['main_page-open_rules'] &&
+                localizedStrings['main_page-open_rules'].toUpperCase()) ||
                 'main_page-open_rules')}
           </Heading>
         </MainMenuCard>
