@@ -142,7 +142,8 @@ const NavMenu = ({
           <SalutationText textAlign="left">
             {localizedStrings &&
               (localizedStrings['main_page-salutation'] ||
-                'main_page-salutation')}{' '}
+                'main_page-salutation')}
+            <br />
             <ColoredText>{userName}!</ColoredText>
           </SalutationText>
           <HorizontalWrapper>
