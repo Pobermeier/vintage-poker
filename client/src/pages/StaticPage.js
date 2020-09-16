@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Container from '../components/layout/Container';
 import HeadingWithLogo from '../components/typography/HeadingWithLogo';
 import Button from '../components/buttons/Button';
 import { Link } from 'react-router-dom';
 import Markdown from 'react-remarkable';
 import useScrollToTopOnPageLoad from '../hooks/useScrollToTopOnPageLoad';
+import contentContext from '../context/content/contentContext';
 
 const StaticPage = ({ title, content }) => {
+  const { localizedStrings } = useContext(contentContext);
   useScrollToTopOnPageLoad();
 
   return (
@@ -27,7 +29,9 @@ const StaticPage = ({ title, content }) => {
         margin="2rem auto"
       >
         <Button as={Link} to="/" secondary small>
-          Back To Home
+          {localizedStrings &&
+            (localizedStrings['static_page-back_btn_txt'] ||
+              'static_page-back_btn_txt')}
         </Button>
       </Container>
     </>

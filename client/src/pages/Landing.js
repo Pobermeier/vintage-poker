@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Container from '../components/layout/Container';
-import ColoredText from '../components/typography/ColoredText';
 import CenteredBlock from '../components/layout/CenteredBlock';
 import Heading from '../components/typography/Heading';
 import Button from '../components/buttons/Button';
@@ -10,6 +9,8 @@ import illustrationMobile from '../assets/img/main-illustration-mobile@2x.png';
 import illustrationDesktop from '../assets/img/main-illustration-desktop@2x.png';
 import styled from 'styled-components';
 import useScrollToTopOnPageLoad from '../hooks/useScrollToTopOnPageLoad';
+import contentContext from '../context/content/contentContext';
+import Markdown from 'react-remarkable';
 
 const MarketingHeadline = styled(Heading)`
   @media screen and (min-width: 1024px) {
@@ -18,6 +19,7 @@ const MarketingHeadline = styled(Heading)`
 `;
 
 const Landing = () => {
+  const { localizedStrings } = useContext(contentContext);
   useScrollToTopOnPageLoad();
 
   return (
@@ -26,21 +28,33 @@ const Landing = () => {
         <Hider hideOnDesktop>
           <MobileIllustration src={illustrationMobile} alt="Vintage Poker" />
         </Hider>
-        <MarketingHeadline as="h2" headingClass="h1" textCenteredOnMobile>
-          Join the world’s most{' '}
-          <ColoredText>
-            classy
-            <br />
-            online poker
-          </ColoredText>{' '}
-          experience!
-        </MarketingHeadline>
+        <Markdown>
+          <MarketingHeadline
+            as="h2"
+            headingClass="h1"
+            textCenteredOnMobile
+            dangerouslySetInnerHTML={{
+              __html:
+                localizedStrings &&
+                (localizedStrings['landing-primary_headline'] ||
+                  'landing-primary_headline'),
+            }}
+          />
+        </Markdown>
 
-        <MarketingHeadline as="h3" headingClass="h6" textCenteredOnMobile>
-          You receive <ColoredText emphazised>30.000 free chips</ColoredText> on
-          registration.
-        </MarketingHeadline>
-
+        <Markdown>
+          <MarketingHeadline
+            as="h3"
+            headingClass="h6"
+            textCenteredOnMobile
+            dangerouslySetInnerHTML={{
+              __html:
+                localizedStrings &&
+                (localizedStrings['landing-secondary_headline'] ||
+                  'landing-secondary_headline'),
+            }}
+          />
+        </Markdown>
         <Wrapper>
           <Button
             as={Link}
@@ -50,10 +64,13 @@ const Landing = () => {
             fullWidthOnMobile
             autoFocus
           >
-            Register
+            {localizedStrings &&
+              (localizedStrings['navbar-register_btn'] ||
+                'navbar-register_btn')}
           </Button>
           <Button as={Link} to="/login" large secondary fullWidthOnMobile>
-            Login
+            {localizedStrings &&
+              (localizedStrings['navbar-login_btn'] || 'navbar-login_btn')}
           </Button>
         </Wrapper>
       </CenteredBlock>

@@ -11,6 +11,7 @@ import HamburgerButton from '../buttons/HamburgerButton';
 import Spacer from '../layout/Spacer';
 import Text from '../typography/Text';
 import contentContext from '../../context/content/contentContext';
+import Markdown from 'react-remarkable';
 
 const StyledNav = styled.nav`
   padding: 1rem 0;
@@ -79,15 +80,19 @@ const Navbar = ({
                 openModal(
                   () => (
                     <Text textAlign="center">
-                      We're currently working hard to get the shop up and
-                      running!
-                      <br />
-                      <br /> Soon you'll be able to buy chip packages for
-                      competitive prices to enhance your gaming experience.
+                      <Markdown>
+                        {localizedStrings &&
+                          (localizedStrings['shop-coming_soon-modal_text'] ||
+                            'shop-coming_soon-modal_text')}
+                      </Markdown>
                     </Text>
                   ),
-                  'Shop',
-                  'Close',
+                  localizedStrings &&
+                    (localizedStrings['shop-coming_soon-modal_heading'] ||
+                      'shop-coming_soon-modal_heading'),
+                  localizedStrings &&
+                    (localizedStrings['shop-coming_soon-modal_btn_text'] ||
+                      'shop-coming_soon-modal_btn_text'),
                 );
               }}
             />
@@ -100,15 +105,19 @@ const Navbar = ({
                   openModal(
                     () => (
                       <Text textAlign="center">
-                        We're currently working hard to get the shop up and
-                        running!
-                        <br />
-                        <br /> Soon you'll be able to buy chip packages for
-                        competitive prices to enhance your gaming experience.
+                        <Markdown>
+                          {localizedStrings &&
+                            (localizedStrings['shop-coming_soon-modal_text'] ||
+                              'shop-coming_soon-modal_text')}
+                        </Markdown>
                       </Text>
                     ),
-                    'Shop',
-                    'Close',
+                    localizedStrings &&
+                      (localizedStrings['shop-coming_soon-modal_heading'] ||
+                        'shop-coming_soon-modal_heading'),
+                    localizedStrings &&
+                      (localizedStrings['shop-coming_soon-modal_btn_text'] ||
+                        'shop-coming_soon-modal_btn_text'),
                   );
                 }}
               >

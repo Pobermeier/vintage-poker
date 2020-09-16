@@ -129,22 +129,26 @@ const MainPage = ({ history }) => {
       padding="6rem 2rem 2rem 2rem"
     >
       <WelcomeHeading as="h2" textCentered>
-        {localizedStrings['main_page-salutation'] || '{main_page.salutation}'}{' '}
+        {localizedStrings &&
+          (localizedStrings['main_page-salutation'] ||
+            'main_page-salutation')}{' '}
         <ColoredText>{userName}!</ColoredText>
       </WelcomeHeading>
       <MainMenuWrapper>
         <MainMenuCard onClick={() => history.push('/play')}>
           <img src={kingImg} alt="Join Table" />
           <Heading as="h3" headingClass="h5" textCentered>
-            {localizedStrings['main_page-join_table'].toUpperCase() ||
-              '{main_page.join_table}'}
+            {localizedStrings &&
+              (localizedStrings['main_page-join_table'].toUpperCase() ||
+                'main_page-join_table')}
           </Heading>
         </MainMenuCard>
         <MainMenuCard onClick={() => history.push('/play')}>
           <img src={queen2Img} alt="Quick Game" />
           <Heading as="h3" headingClass="h5" textCentered>
-            {localizedStrings['main_page-quick_game'].toUpperCase() ||
-              '{main_page.quick_game}'}
+            {localizedStrings &&
+              (localizedStrings['main_page-quick_game'].toUpperCase() ||
+                'main_page-quick_game')}
           </Heading>
         </MainMenuCard>
         <MainMenuCard
@@ -152,32 +156,37 @@ const MainPage = ({ history }) => {
             openModal(
               () => (
                 <Text textAlign="center">
-                  {localizedStrings['main_page-modal_text'] ||
-                    '{main_page.modal_text}'}
+                  {localizedStrings &&
+                    (localizedStrings['main_page-modal_text'] ||
+                      'main_page-modal_text')}
                 </Text>
               ),
               `${
-                localizedStrings['main_page-modal_heading'] ||
-                '{main_page.modal_heading}'
+                localizedStrings &&
+                (localizedStrings['main_page-modal_heading'] ||
+                  'main_page-modal_heading')
               }`,
               `${
-                localizedStrings['main_page-modal_button_text'] ||
-                '{main_page.modal_button_text }'
+                localizedStrings &&
+                (localizedStrings['main_page-modal_button_text'] ||
+                  'main_page-modal_button_text')
               }`,
             );
           }}
         >
           <img src={jackImg} alt="Shop" />
           <Heading as="h3" headingClass="h5" textCentered>
-            {localizedStrings['main_page-open_shop'].toUpperCase() ||
-              '{main_page.open_shop}'}
+            {localizedStrings &&
+              (localizedStrings['main_page-open_shop'].toUpperCase() ||
+                'main_page-open_shop')}
           </Heading>
         </MainMenuCard>
         <MainMenuCard onClick={() => history.push('/game-rules')}>
           <img src={queenImg} alt="Rules" />
           <Heading as="h3" headingClass="h5" textCentered>
-            {localizedStrings['main_page-open_rules'].toUpperCase() ||
-              '{main_page.open_rules}'}
+            {localizedStrings &&
+              (localizedStrings['main_page-open_rules'].toUpperCase() ||
+                'main_page-open_rules')}
           </Heading>
         </MainMenuCard>
       </MainMenuWrapper>

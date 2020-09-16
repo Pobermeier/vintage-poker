@@ -12,8 +12,10 @@ import RelativeWrapper from '../components/layout/RelativeWrapper';
 import ShowPasswordButton from '../components/buttons/ShowPasswordButton';
 import useScrollToTopOnPageLoad from '../hooks/useScrollToTopOnPageLoad';
 import authContext from '../context/auth/authContext';
+import contentContext from '../context/content/contentContext';
 
 const LoginPage = () => {
+  const { localizedStrings } = useContext(contentContext);
   const { login, isLoggedIn } = useContext(authContext);
 
   useScrollToTopOnPageLoad();
@@ -47,10 +49,16 @@ const LoginPage = () => {
           }}
         >
           <HeadingWithLogo textCentered hideIconOnMobile={false}>
-            Login
+            {localizedStrings &&
+              (localizedStrings['login_page-header_txt'] ||
+                'login_page-header_txt')}
           </HeadingWithLogo>
           <FormGroup>
-            <Label htmlFor="nickname">E-mail</Label>
+            <Label htmlFor="email">
+              {localizedStrings &&
+                (localizedStrings['login_page-email_lbl_txt'] ||
+                  'login_page-email_lbl_txt')}
+            </Label>
             <Input
               type="email"
               name="email"
@@ -60,7 +68,11 @@ const LoginPage = () => {
             />
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password">
+              {localizedStrings &&
+                (localizedStrings['login_page-password_lbl_txt'] ||
+                  'login_page-password_lbl_txt')}
+            </Label>
             <ShowPasswordButton passwordRef={passwordRef} />
             <Input
               type="password"
@@ -72,10 +84,16 @@ const LoginPage = () => {
           </FormGroup>
           <ButtonGroup>
             <Button primary type="submit" fullWidth>
-              Login
+              {localizedStrings &&
+                (localizedStrings['login_page-cta_btn_txt'] ||
+                  'login_page-cta_btn_txt')}
             </Button>
-            {/* <Link to="/">I forgot my password!</Link> */}
-            <Link to="/register">I do not have an account yet!</Link>
+            {/* <Link to="/">I foI do not have an account yet!rgot my password!</Link> */}
+            <Link to="/register">
+              {localizedStrings &&
+                (localizedStrings['login_page-no_account_txt'] ||
+                  'login_page-no_account_txt')}
+            </Link>
           </ButtonGroup>
         </Form>
       </Container>

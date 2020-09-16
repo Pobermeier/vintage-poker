@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import CloseButton from '../buttons/CloseButton';
 import Button from '../buttons/Button';
@@ -10,6 +10,8 @@ import { Select } from '../forms/Select';
 import lobbyIcon from '../../assets/icons/lobby-icon.svg';
 import newsIcon from '../../assets/icons/news-icon.svg';
 import userIcon from '../../assets/icons/user-icon.svg';
+import contentContext from '../../context/content/contentContext';
+import Markdown from 'react-remarkable';
 
 const NavMenuWrapper = styled.div`
   position: fixed;
@@ -120,131 +122,157 @@ const NavMenu = ({
   openModal,
   lang,
   setLang,
-}) => (
-  <NavMenuWrapper
-    id="wrapper"
-    onClick={(e) => {
-      if (e.target.id === 'wrapper') {
-        onClose();
-      }
-    }}
-  >
-    <StyledNavMenu>
-      <IconWrapper>
-        <CloseButton clickHandler={onClose} autoFocus />
-      </IconWrapper>
-      <MenuHeader>
-        <SalutationText textAlign="left">
-          Hello, <ColoredText>{userName}!</ColoredText>
-        </SalutationText>
-        <HorizontalWrapper>
-          <ChipsAmount
-            chipsAmount={chipsAmount}
-            clickHandler={() => {
-              openModal(
-                () => (
-                  <Text textAlign="center">
-                    We're currently working hard to get the shop up and running!
-                    <br />
-                    <br /> Soon you'll be able to buy chip packages for
-                    competitive prices to enhance your gaming experience.
-                  </Text>
-                ),
-                'Shop',
-                'Close',
-              );
+}) => {
+  const { localizedStrings } = useContext(contentContext);
+
+  return (
+    <NavMenuWrapper
+      id="wrapper"
+      onClick={(e) => {
+        if (e.target.id === 'wrapper') {
+          onClose();
+        }
+      }}
+    >
+      <StyledNavMenu>
+        <IconWrapper>
+          <CloseButton clickHandler={onClose} autoFocus />
+        </IconWrapper>
+        <MenuHeader>
+          <SalutationText textAlign="left">
+            {localizedStrings &&
+              (localizedStrings['main_page-salutation'] ||
+                'main_page-salutation')}{' '}
+            <ColoredText>{userName}!</ColoredText>
+          </SalutationText>
+          <HorizontalWrapper>
+            <ChipsAmount
+              chipsAmount={chipsAmount}
+              clickHandler={() => {
+                openModal(
+                  () => (
+                    <Text textAlign="center">
+                      <Markdown>
+                        {localizedStrings &&
+                          (localizedStrings['shop-coming_soon-modal_text'] ||
+                            'shop-coming_soon-modal_text')}
+                      </Markdown>
+                    </Text>
+                  ),
+                  localizedStrings &&
+                    (localizedStrings['shop-coming_soon-modal_heading'] ||
+                      'shop-coming_soon-modal_heading'),
+                  localizedStrings &&
+                    (localizedStrings['shop-coming_soon-modal_btn_text'] ||
+                      'shop-coming_soon-modal_btn_text'),
+                );
+              }}
+            />
+            <Button
+              onClick={() => {
+                openModal(
+                  () => (
+                    <Text textAlign="center">
+                      <Markdown>
+                        {localizedStrings &&
+                          (localizedStrings['shop-coming_soon-modal_text'] ||
+                            'shop-coming_soon-modal_text')}
+                      </Markdown>
+                    </Text>
+                  ),
+                  localizedStrings &&
+                    (localizedStrings['shop-coming_soon-modal_heading'] ||
+                      'shop-coming_soon-modal_heading'),
+                  localizedStrings &&
+                    (localizedStrings['shop-coming_soon-modal_btn_text'] ||
+                      'shop-coming_soon-modal_btn_text'),
+                );
+              }}
+              small
+              primary
+            >
+              {localizedStrings &&
+                (localizedStrings['shop-coming_soon-modal_heading'] ||
+                  'shop-coming_soon-modal_heading')}
+            </Button>
+          </HorizontalWrapper>
+          <HorizontalWrapper>
+            <Select value={lang} onChange={(e) => setLang(e.target.value)}>
+              <option value="en">English</option>
+              <option value="de">Deutsch</option>
+            </Select>
+          </HorizontalWrapper>
+        </MenuHeader>
+        <MenuBody>
+          <MenuItem
+            as={Link}
+            to="/"
+            onClick={() => {
+              onClose();
             }}
-          />
+          >
+            {localizedStrings &&
+              (localizedStrings['navmenu-menu_item-lobby_txt'] ||
+                'navmenu-menu_item-lobby_txt')}
+            <img
+              src={lobbyIcon}
+              alt="Lobby"
+              width="25"
+              style={{ width: '25px' }}
+            />
+          </MenuItem>
+          <MenuItem
+            as={Link}
+            to="/dashboard"
+            onClick={() => {
+              onClose();
+            }}
+          >
+            {localizedStrings &&
+              (localizedStrings['navmenu-menu_item-dashboard_txt'] ||
+                'navmenu-menu_item-dashboard_txt')}
+            <img
+              src={userIcon}
+              alt="Dashboard"
+              width="25"
+              style={{ width: '25px' }}
+            />
+          </MenuItem>
+          <MenuItem
+            as={Link}
+            to="/news"
+            onClick={() => {
+              onClose();
+            }}
+          >
+            {localizedStrings &&
+              (localizedStrings['navmenu-menu_item-news_txt'] ||
+                'navmenu-menu_item-news_txt')}
+            <img
+              src={newsIcon}
+              alt="News"
+              width="25"
+              style={{ width: '25px' }}
+            />
+          </MenuItem>
+        </MenuBody>
+        <MenuFooter>
           <Button
             onClick={() => {
-              openModal(
-                () => (
-                  <Text textAlign="center">
-                    We're currently working hard to get the shop up and running!
-                    <br />
-                    <br /> Soon you'll be able to buy chip packages for
-                    competitive prices to enhance your gaming experience.
-                  </Text>
-                ),
-                'Shop',
-                'Close',
-              );
+              logout();
+              onClose();
             }}
+            secondary
+            fullWidth
             small
-            primary
           >
-            Shop
+            {localizedStrings &&
+              (localizedStrings['navmenu-logout_btn'] || 'navmenu-logout_btn')}
           </Button>
-        </HorizontalWrapper>
-        <HorizontalWrapper>
-          <Select value={lang} onChange={(e) => setLang(e.target.value)}>
-            <option value="en">English</option>
-            <option value="de">Deutsch</option>
-          </Select>
-        </HorizontalWrapper>
-      </MenuHeader>
-      <MenuBody>
-        <MenuItem
-          as={Link}
-          to="/"
-          onClick={() => {
-            onClose();
-          }}
-        >
-          Go To Lobby
-          <img
-            src={lobbyIcon}
-            alt="Go to Lobby"
-            width="25"
-            style={{ width: '25px' }}
-          />
-        </MenuItem>
-        <MenuItem
-          as={Link}
-          to="/dashboard"
-          onClick={() => {
-            onClose();
-          }}
-        >
-          My Dashboard
-          <img
-            src={userIcon}
-            alt="My Dashboard"
-            width="25"
-            style={{ width: '25px' }}
-          />
-        </MenuItem>
-        <MenuItem
-          as={Link}
-          to="/news"
-          onClick={() => {
-            onClose();
-          }}
-        >
-          Latest News
-          <img
-            src={newsIcon}
-            alt="Latest News"
-            width="25"
-            style={{ width: '25px' }}
-          />
-        </MenuItem>
-      </MenuBody>
-      <MenuFooter>
-        <Button
-          onClick={() => {
-            logout();
-            onClose();
-          }}
-          secondary
-          fullWidth
-          small
-        >
-          Logout
-        </Button>
-      </MenuFooter>
-    </StyledNavMenu>
-  </NavMenuWrapper>
-);
+        </MenuFooter>
+      </StyledNavMenu>
+    </NavMenuWrapper>
+  );
+};
 
 export default NavMenu;

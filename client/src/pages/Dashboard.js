@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { Form } from '../components/forms/Form';
 import RelativeWrapper from '../components/layout/RelativeWrapper';
 import globalContext from '../context/global/globalContext';
+import contentContext from '../context/content/contentContext';
 
 const Wrapper = styled.div`
   display: grid;
@@ -49,6 +50,7 @@ const Wrapper = styled.div`
 // `;
 
 const Dashboard = () => {
+  const { localizedStrings } = useContext(contentContext);
   const { userName, email } = useContext(globalContext);
 
   return (
@@ -64,22 +66,46 @@ const Dashboard = () => {
       >
         <Form onSubmit={(e) => e.preventDefault()}>
           <HeadingWithLogo textCentered hideIconOnMobile={false}>
-            My Dashboard
+            Dashboard
           </HeadingWithLogo>
           <Wrapper>
             <FormGroup>
-              <Label>Nickname</Label>
+              <Label>
+                {localizedStrings &&
+                  (localizedStrings['dashboard-nickname_lbl_txt'] ||
+                    'dashboard-nickname_lbl_txt')}
+              </Label>
               <Input value={userName} />
-              <Button primary>Change Nickname</Button>
+              <Button primary>
+                {localizedStrings &&
+                  (localizedStrings['dashboard-nickname_btn_txt'] ||
+                    'dashboard-nickname_btn_txt')}
+              </Button>
             </FormGroup>
             <FormGroup>
-              <Label>E-mail</Label>
+              <Label>
+                {localizedStrings &&
+                  (localizedStrings['dashboard-email_lbl_txt'] ||
+                    'dashboard-email_lbl_txt')}
+              </Label>
               <Input type="email" value={email} />
-              <Button primary>Change E-mail</Button>
+              <Button primary>
+                {localizedStrings &&
+                  (localizedStrings['dashboard-email_btn_txt'] ||
+                    'dashboard-email_btn_txt')}
+              </Button>
             </FormGroup>
             <FormGroup style={{ gridColumnStart: '1', gridColumnEnd: '3' }}>
-              <Button primary>Reset Password</Button>
-              <Button>Delete Account</Button>
+              <Button primary>
+                {localizedStrings &&
+                  (localizedStrings['dashboard-reset_pw_btn_text'] ||
+                    'dashboard-reset_pw_btn_text')}
+              </Button>
+              <Button>
+                {localizedStrings &&
+                  (localizedStrings['dashboard-delete_acct_btn_text'] ||
+                    'dashboard-delete_acct_btn_text')}
+              </Button>
             </FormGroup>
             <Button
               as={Link}
@@ -87,7 +113,9 @@ const Dashboard = () => {
               secondary
               style={{ gridColumnStart: '1', gridColumnEnd: '3' }}
             >
-              Back To Main Menu
+              {localizedStrings &&
+                (localizedStrings['static_page-back_btn_txt'] ||
+                  'static_page-back_btn_txt')}
             </Button>
           </Wrapper>
         </Form>
