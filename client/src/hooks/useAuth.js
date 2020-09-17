@@ -93,6 +93,7 @@ const useAuth = () => {
   const logout = () => {
     localStorage.removeItem('token');
     setIsLoggedIn(false);
+    setId(null);
     setUserName(null);
     setEmail(null);
     setChipsAmount(null);

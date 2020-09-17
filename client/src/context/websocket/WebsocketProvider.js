@@ -23,6 +23,8 @@ const WebSocketProvider = ({ children }) => {
     socket.close();
     setSocket(null);
     setSocketId(null);
+    setPlayers(null);
+    setTables(null);
   }
 
   function connect() {
