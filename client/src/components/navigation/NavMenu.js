@@ -12,6 +12,7 @@ import newsIcon from '../../assets/icons/news-icon.svg';
 import userIcon from '../../assets/icons/user-icon.svg';
 import contentContext from '../../context/content/contentContext';
 import Markdown from 'react-remarkable';
+import socketContext from '../../context/websocket/socketContext';
 
 const NavMenuWrapper = styled.div`
   position: fixed;
@@ -124,6 +125,7 @@ const NavMenu = ({
   setLang,
 }) => {
   const { localizedStrings } = useContext(contentContext);
+  const { cleanUp } = useContext(socketContext);
 
   return (
     <NavMenuWrapper
@@ -260,6 +262,7 @@ const NavMenu = ({
         <MenuFooter>
           <Button
             onClick={() => {
+              cleanUp();
               logout();
               onClose();
             }}
