@@ -3,10 +3,11 @@ import OfflineContext from './offlineContext';
 import useServiceWorker from '../../hooks/useServiceWorker';
 import modalContext from '../modal/modalContext';
 import Text from '../../components/typography/Text';
-import Button from '../../components/buttons/Button';
+import contentContext from '../content/contentContext';
 
 const OfflineProvider = ({ children }) => {
   const { openModal } = useContext(modalContext);
+  const { localizedStrings } = useContext(contentContext);
 
   const [updateServiceWorker] = useServiceWorker(() => {
     onUpdateServiceWorker();
@@ -15,18 +16,15 @@ const OfflineProvider = ({ children }) => {
   const onUpdateServiceWorker = () => {
     openModal(
       () => (
-        <>
-          <Text>
-            A new update is available. Click the button below to refresh the app
-            and get the latest and greatest stuff!
-          </Text>
-          <Button primary fullWidth onClick={updateServiceWorker}>
-            Update &amp; Refresh
-          </Button>
-        </>
+        <Text>
+          {localizedStrings &&
+            (localizedStrings['service_worker-update_available'] ||
+              'service_worker-update_available')}
+        </Text>
       ),
       'Update Available',
-      'Close',
+      'Update Now & Refresh',
+      updateServiceWorker,
     );
   };
 
