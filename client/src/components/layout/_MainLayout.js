@@ -25,13 +25,15 @@ const MainLayout = ({ children, location }) => {
 
   return (
     <div id="layout-wrapper">
-      <Navbar
-        chipsAmount={chipsAmount}
-        loggedIn={isLoggedIn}
-        openModal={openModal}
-        openNavMenu={openNavMenu}
-        className="blur-target"
-      />
+      {!location.pathname.includes('/play') && (
+        <Navbar
+          chipsAmount={chipsAmount}
+          loggedIn={isLoggedIn}
+          openModal={openModal}
+          openNavMenu={openNavMenu}
+          className="blur-target"
+        />
+      )}
       {showNavMenu && (
         <NavMenu
           onClose={closeNavMenu}
@@ -45,7 +47,7 @@ const MainLayout = ({ children, location }) => {
       )}
       <main className="blur-target">{children}</main>
       <WatermarkWrapper className="blur-target" />
-      {location.pathname !== '/play' && (
+      {!location.pathname.includes('/play') && (
         <Footer
           className="blur-target"
           setLang={setLang}
