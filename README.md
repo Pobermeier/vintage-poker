@@ -10,6 +10,10 @@ This project is currently work-in-progress.
 
 The more detailed project documentation can be found [here](https://www.notion.so/Vintage-Poker-Working-Title-2fa245a71d374bf787a13cf39e3e08dd).
 
+## Design Mock-ups
+
+You can find the Figma-files with the design mock-ups for this app [here](https://www.figma.com/file/Vh4zssZy2ZhMxLGkcNJA7a/Vintage-Poker-Design-Copy?node-id=0%3A1).
+
 ## Planned Features
 
 These features are a must-have for the Minimal Viable Product (MVP) of this app:
@@ -27,7 +31,7 @@ These features are a must-have for the Minimal Viable Product (MVP) of this app:
 
 ## Quick Start
 
-### Add a local.env file in "./server/config" folder with the following
+### Add a "local.env" file in the "/server/config" folder with the following entries
 
 ```
   MONGO_URI=<YOUR_MONGODB_URI>
@@ -38,6 +42,14 @@ These features are a must-have for the Minimal Viable Product (MVP) of this app:
   SMTP_PORT=<YOUR_SMTP_PORT>
   SMTP_USER=<YOUR_SMTP_USER>
   SMTP_PW=<YOUR_SMTP_PASSWORD>
+```
+
+### Add a "env.local" file in the "/client" folder with the following entries
+
+```
+  REACT_APP_CONTENTFUL_SPACE_ID=<YOUR_CONTENTFUL_SPACE_ID>
+  REACT_APP_CONTENTFUL_ACCESS_TOKEN=<YOUR_CONTENTFUL_ACCESS_TOKEN>
+  REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID=<YOUR_GOOGLE_ANALYTICS_TRACKING_ID>
 ```
 
 ### Install server dependencies
@@ -53,7 +65,7 @@ cd client
 npm install
 ```
 
-### Run both Express & React from root
+### Run both Express & React from root project-directory
 
 ```bash
 npm run dev
