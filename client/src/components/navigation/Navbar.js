@@ -60,7 +60,6 @@ const Navbar = ({
         </Container>
       </StyledNav>
     );
-  else if (location.pathname === '/play') return false;
   else
     return (
       <StyledNav className={className}>
