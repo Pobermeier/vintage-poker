@@ -10,6 +10,7 @@ import Normalize from '../styles/Normalize';
 import GlobalStyles from '../styles/Global';
 import { BrowserRouter } from 'react-router-dom';
 import OfflineProvider from './offline/OfflineProvider';
+import WebSocketProvider from './websocket/WebsocketProvider';
 
 const Providers = ({ children }) => (
   <BrowserRouter>
@@ -20,9 +21,11 @@ const Providers = ({ children }) => (
             <AuthProvider>
               <ModalProvider>
                 <OfflineProvider>
-                  <Normalize />
-                  <GlobalStyles />
-                  {children}
+                  <WebSocketProvider>
+                    <Normalize />
+                    <GlobalStyles />
+                    {children}
+                  </WebSocketProvider>
                 </OfflineProvider>
               </ModalProvider>
             </AuthProvider>
