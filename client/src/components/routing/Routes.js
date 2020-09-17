@@ -35,8 +35,8 @@ const Routes = () => {
         tables.map((table) => (
           <ProtectedRoute
             key={table.id}
-            path={`/play/${table.id}`}
-            component={Play}
+            path={`/play/:${table.id}`}
+            component={() => <Play tableId={table.id} />}
           />
         ))}
       <Route component={NotFoundPage} />
