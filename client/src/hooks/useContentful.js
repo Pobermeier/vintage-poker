@@ -1,9 +1,10 @@
 import { createClient } from 'contentful';
+import config from '../clientConfig';
 
 const useContentful = () => {
   const client = createClient({
-    space: '4tlsutsg5se1',
-    accessToken: '_BZqCnlzI0RuHvLPcOIfNxjUfS082jSJ9WmevnXSLdk',
+    space: config.contentfulSpaceId,
+    accessToken: config.contentfulAccessToken,
   });
   return client;
 };
