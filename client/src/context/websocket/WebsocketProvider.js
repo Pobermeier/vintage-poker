@@ -9,9 +9,11 @@ import {
   RECEIVE_LOBBY_INFO,
   TABLES_UPDATED,
 } from '../../pokergame/actions';
+import globalContext from '../global/globalContext';
 
 const WebSocketProvider = ({ children }) => {
   const { isLoggedIn } = useContext(authContext);
+  const { setTables, setPlayers } = useContext(globalContext);
 
   const [socket, setSocket] = useState(null);
   const [socketId, setSocketId] = useState(null);
@@ -34,14 +36,18 @@ const WebSocketProvider = ({ children }) => {
     socket.on(RECEIVE_LOBBY_INFO, ({ tables, players, socketId }) => {
       console.log(RECEIVE_LOBBY_INFO, tables, players, socketId);
       setSocketId(socketId);
+      setTables(tables);
+      setPlayers(players);
     });
 
     socket.on(PLAYERS_UPDATED, (players) => {
       console.log(PLAYERS_UPDATED, players);
+      setPlayers(players);
     });
 
     socket.on(TABLES_UPDATED, (tables) => {
       console.log(TABLES_UPDATED, tables);
+      setTables(tables);
     });
   }
 
