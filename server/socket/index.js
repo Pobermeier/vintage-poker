@@ -32,6 +32,26 @@ const tables = {
 };
 const players = {};
 
+function getCurrentPlayers() {
+  return Object.values(players).map((player) => ({
+    socketId: player.socketId,
+    id: player.id,
+    name: player.name,
+  }));
+}
+
+function getCurrentTables() {
+  return Object.values(tables).map((table) => ({
+    id: table.id,
+    name: table.name,
+    limit: table.limit,
+    maxPlayers: table.maxPlayers,
+    currentNumberPlayers: table.players.length,
+    smallBlind: table.minBet,
+    bigBlind: table.minBet * 2,
+  }));
+}
+
 const init = (socket, io) => {
   socket.on(FETCH_LOBBY_INFO, async (token) => {
     let user;
@@ -53,8 +73,12 @@ const init = (socket, io) => {
         user.chipsAmount,
       );
 
-      socket.emit(RECEIVE_LOBBY_INFO, { tables, players, socketId: socket.id });
-      socket.broadcast.emit(PLAYERS_UPDATED, players);
+      socket.emit(RECEIVE_LOBBY_INFO, {
+        tables: getCurrentTables(),
+        players: getCurrentPlayers(),
+        socketId: socket.id,
+      });
+      socket.broadcast.emit(PLAYERS_UPDATED, getCurrentPlayers());
     }
   });
 
@@ -63,8 +87,8 @@ const init = (socket, io) => {
     const player = players[socket.id];
     tables[tableId].addPlayer(player);
 
-    socket.emit(TABLE_JOINED, { tables, tableId });
-    socket.broadcast.emit(TABLES_UPDATED, tables);
+    socket.emit(TABLE_JOINED, { tables: getCurrentTables(), tableId });
+    socket.broadcast.emit(TABLES_UPDATED, getCurrentTables());
 
     if (
       tables[tableId].players &&
@@ -89,8 +113,8 @@ const init = (socket, io) => {
 
     table.removePlayer(socket.id);
 
-    socket.broadcast.emit(TABLES_UPDATED, tables);
-    socket.emit(TABLE_LEFT, { tables, tableId });
+    socket.broadcast.emit(TABLES_UPDATED, getCurrentTables());
+    socket.emit(TABLE_LEFT, { tables: getCurrentTables(), tableId });
 
     if (
       tables[tableId].players &&
@@ -213,8 +237,8 @@ const init = (socket, io) => {
     delete players[socket.id];
     removeFromTables(socket.id);
 
-    socket.broadcast.emit(TABLES_UPDATED, tables);
-    socket.broadcast.emit(PLAYERS_UPDATED, players);
+    socket.broadcast.emit(TABLES_UPDATED, getCurrentTables());
+    socket.broadcast.emit(PLAYERS_UPDATED, getCurrentPlayers());
   });
 
   async function updatePlayerBankroll(player, amount) {
@@ -225,7 +249,7 @@ const init = (socket, io) => {
     // );
     // players[socket.id].bankroll = user.bankroll + amount;
     players[socket.id].bankroll += amount;
-    io.to(socket.id).emit(PLAYERS_UPDATED, players);
+    io.to(socket.id).emit(PLAYERS_UPDATED, getCurrentPlayers());
   }
 
   // async function saveHandHistory(table) {
