@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const jwt = require('jsonwebtoken');
 const Table = require('../pokergame/Table');
 const Player = require('../pokergame/Player');
 const {
@@ -24,6 +25,7 @@ const {
   TABLE_UPDATED,
   WINNER,
 } = require('../pokergame/actions');
+const config = require('../config');
 
 const tables = {
   1: new Table(1, 'Table 1', 10000),
@@ -31,16 +33,29 @@ const tables = {
 const players = {};
 
 const init = (socket, io) => {
-  socket.on(FETCH_LOBBY_INFO, (user) => {
-    players[socket.id] = new Player(
-      socket.id,
-      user.id,
-      user.username,
-      user.bankroll,
-    );
+  socket.on(FETCH_LOBBY_INFO, async (token) => {
+    let user;
 
-    socket.emit(RECEIVE_LOBBY_INFO, { tables, players, socketId: socket.id });
-    socket.broadcast.emit(PLAYERS_UPDATED, players);
+    jwt.verify(token, config.JWT_SECRET, (err, decoded) => {
+      if (err) console.log(err);
+      else {
+        user = decoded.user;
+      }
+    });
+
+    if (user) {
+      user = await User.findById(user.id).select('-password');
+
+      players[socket.id] = new Player(
+        socket.id,
+        user._id,
+        user.name,
+        user.chipsAmount,
+      );
+
+      socket.emit(RECEIVE_LOBBY_INFO, { tables, players, socketId: socket.id });
+      socket.broadcast.emit(PLAYERS_UPDATED, players);
+    }
   });
 
   socket.on(JOIN_TABLE, (tableId) => {
