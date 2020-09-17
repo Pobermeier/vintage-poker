@@ -6,8 +6,20 @@ const ModalProvider = ({ children }) => {
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(initialModalData);
 
-  const openModal = (children, headingText, btnText) => {
-    setModalData({ children, headingText, btnText });
+  const openModal = (
+    children,
+    headingText,
+    btnText,
+    btnCallBack = closeModal,
+    onCloseCallBack = closeModal,
+  ) => {
+    setModalData({
+      children,
+      headingText,
+      btnText,
+      btnCallBack,
+      onCloseCallBack,
+    });
     document.body.style.overflow = 'hidden';
     document.getElementById('layout-wrapper').style.filter = 'blur(4px)';
     document.getElementById('layout-wrapper').style.pointerEvents = 'none';
@@ -31,8 +43,8 @@ const ModalProvider = ({ children }) => {
         <Modal
           headingText={modalData.headingText}
           btnText={modalData.btnText}
-          onClose={closeModal}
-          onBtnClicked={closeModal}
+          onClose={modalData.btnCallBack}
+          onBtnClicked={modalData.onCloseCallBack}
         >
           {modalData.children()}
         </Modal>
