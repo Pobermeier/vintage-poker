@@ -64,6 +64,15 @@ const init = (socket, io) => {
     });
 
     if (user) {
+      const found = Object.values(players).find((player) => {
+        console.log(player.id, user.id);
+        return player.id == user.id;
+      });
+
+      if (found) {
+        delete players[found.socketId];
+      }
+
       user = await User.findById(user.id).select('-password');
 
       players[socket.id] = new Player(
