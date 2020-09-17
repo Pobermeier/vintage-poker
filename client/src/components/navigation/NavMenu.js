@@ -13,6 +13,7 @@ import userIcon from '../../assets/icons/user-icon.svg';
 import contentContext from '../../context/content/contentContext';
 import Markdown from 'react-remarkable';
 import socketContext from '../../context/websocket/socketContext';
+import globalContext from '../../context/global/globalContext';
 
 const NavMenuWrapper = styled.div`
   position: fixed;
@@ -124,6 +125,7 @@ const NavMenu = ({
   lang,
   setLang,
 }) => {
+  const { players } = useContext(globalContext);
   const { localizedStrings } = useContext(contentContext);
   const { cleanUp } = useContext(socketContext);
 
@@ -148,6 +150,11 @@ const NavMenu = ({
             <br />
             <ColoredText>{userName}!</ColoredText>
           </SalutationText>
+          {players && (
+            <SalutationText textAlign="left">
+              Online: <ColoredText>{players.length}</ColoredText>
+            </SalutationText>
+          )}
           <HorizontalWrapper>
             <ChipsAmount
               chipsAmount={chipsAmount}
