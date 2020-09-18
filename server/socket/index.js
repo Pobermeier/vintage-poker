@@ -65,12 +65,14 @@ const init = (socket, io) => {
 
     if (user) {
       const found = Object.values(players).find((player) => {
-        console.log(player.id, user.id);
         return player.id == user.id;
       });
 
       if (found) {
         delete players[found.socketId];
+        Object.values(tables).map((table) => {
+          table.removePlayer(found.socketId);
+        });
       }
 
       user = await User.findById(user.id).select('-password');
@@ -94,7 +96,16 @@ const init = (socket, io) => {
   socket.on(JOIN_TABLE, (tableId) => {
     const table = tables[tableId];
     const player = players[socket.id];
-    tables[tableId].addPlayer(player);
+
+    const found = Object.values(table.players).find(
+      (player) => player.socketId == socket.id,
+    );
+
+    if (found) {
+      delete table.players[socket.id];
+    }
+
+    table.addPlayer(player);
 
     socket.emit(TABLE_JOINED, { tables: getCurrentTables(), tableId });
     socket.broadcast.emit(TABLES_UPDATED, getCurrentTables());
