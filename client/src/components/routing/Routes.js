@@ -9,10 +9,8 @@ import ProtectedRoute from './ProtectedRoute';
 import StaticPage from '../../pages/StaticPage';
 import NotFoundPage from '../../pages/NotFoundPage';
 import contentContext from '../../context/content/contentContext';
-import globalContext from '../../context/global/globalContext';
 
 const Routes = () => {
-  const { tables } = useContext(globalContext);
   const { staticPages } = useContext(contentContext);
 
   return (
@@ -31,14 +29,7 @@ const Routes = () => {
             )}
           />
         ))}
-      {tables &&
-        tables.map((table) => (
-          <ProtectedRoute
-            key={table.id}
-            path={`/play/:${table.id}`}
-            component={() => <Play tableId={table.id} />}
-          />
-        ))}
+      <ProtectedRoute path="/play" component={Play} />
       <Route component={NotFoundPage} />
     </Switch>
   );
