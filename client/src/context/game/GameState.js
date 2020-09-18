@@ -21,14 +21,13 @@ const GameState = ({ children }) => {
   const [messages, setMessages] = useState([]);
   const [currentTable, setCurrentTable] = useState(null);
   const [isPlayerSeated, setIsPlayerSeated] = useState(false);
-
-  useEffect(() => {
-    return () => leaveTable();
-    // eslint-disable-next-line
-  }, []);
+  const [seatId, setSeatId] = useState(null);
 
   useEffect(() => {
     if (socket) {
+      window.onunload = leaveTable;
+      window.onunload = leaveTable;
+
       socket.on(TABLE_UPDATED, ({ table, message, from }) => {
         console.log(TABLE_UPDATED, table, message, from);
         setCurrentTable(table);
@@ -45,10 +44,12 @@ const GameState = ({ children }) => {
         setCurrentTable(null);
       });
     }
+    return () => socket && leaveTable;
     // eslint-disable-next-line
   }, [socket]);
 
   const joinTable = (tableId) => {
+    console.log(JOIN_TABLE, tableId);
     socket.emit(JOIN_TABLE, tableId);
   };
 
@@ -62,11 +63,13 @@ const GameState = ({ children }) => {
   const sitDown = (tableId, seatId, amount) => {
     socket.emit(SIT_DOWN, { tableId, seatId, amount });
     setIsPlayerSeated(true);
+    setSeatId(seatId);
   };
 
   const standUp = () => {
     socket.emit(STAND_UP, currentTable.id);
     setIsPlayerSeated(false);
+    setSeatId(null);
   };
 
   const addMessage = (message) => {
@@ -95,6 +98,7 @@ const GameState = ({ children }) => {
         messages,
         currentTable,
         isPlayerSeated,
+        seatId,
         joinTable,
         leaveTable,
         sitDown,
