@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext, useEffect, useState, memo } from 'react';
 import Container from '../components/layout/Container';
 import table from '../assets/game/table.svg';
 import styled from 'styled-components';
 import Button from '../components/buttons/Button';
 import Text from '../components/typography/Text';
 import rotateGif from '../assets/game/rotate.gif';
+import gameContext from '../context/game/gameContext';
+import socketContext from '../context/websocket/socketContext';
 
 const Wrapper = styled.div`
   display: none;
@@ -46,6 +48,34 @@ const PokerTable = styled.img`
 `;
 
 const Play = () => {
+  const { socket } = useContext(socketContext);
+  const {
+    messages,
+    currentTable,
+    isPlayerSeated,
+    seatId,
+    joinTable,
+    leaveTable,
+    sitDown,
+    standUp,
+    addMessage,
+    fold,
+    check,
+    call,
+    raise,
+  } = useContext(gameContext);
+
+  const [bet, setBet] = useState(0);
+
+  useEffect(() => {
+    socket && joinTable(1);
+    // eslint-disable-next-line
+  }, [socket]);
+
+  // useEffect(() => {
+  //   currentTable && currentTable.callAmount && setBet(currentTable.callAmount);
+  // }, [currentTable]);
+  console.log('render');
   return (
     <>
       <Wrapper>
@@ -131,45 +161,62 @@ const Play = () => {
             ></span>
           </span>
         </div>
-        <UIWrapper
-          style={{
-            position: 'fixed',
-            bottom: '1vh',
-            right: '1vh',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gridGap: '0.5rem',
-            backgroundColor: 'hsla(49, 63%, 92%, 60%)',
-            borderRadius: '2rem',
-            padding: '1rem',
-          }}
-        >
-          <div
+        {isPlayerSeated && seatId && (
+          <UIWrapper
             style={{
-              gridColumn: '1 / 4',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: 'rgba(0, 0, 0, 0.6)',
+              position: 'fixed',
+              bottom: '1vh',
+              right: '1vh',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4, 1fr)',
+              gridGap: '0.5rem',
+              backgroundColor: 'hsla(49, 63%, 92%, 60%)',
               borderRadius: '2rem',
-              padding: '0.5rem 1rem',
+              padding: '1rem',
             }}
           >
-            <input type="range" style={{ width: '100%' }} />
-          </div>
-          <Button small>Bet X</Button>
-          <Button small secondary>
-            Fold
-          </Button>
-          <Button small secondary>
-            Check
-          </Button>
-          <Button small>Call X</Button>
-          <Button small>All In</Button>
-        </UIWrapper>
+            {currentTable && currentTable.callAmount && (
+              <>
+                <div
+                  style={{
+                    gridColumn: '1 / 4',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                    borderRadius: '2rem',
+                    padding: '0.5rem 1rem',
+                  }}
+                >
+                  <input
+                    type="range"
+                    style={{ width: '100%' }}
+                    min={currentTable.callAmount}
+                    max={currentTable.seats[seatId].stack}
+                    value={bet}
+                    onChange={(e) => setBet(e.target.value)}
+                  />
+                </div>
+                <Button small>Bet {bet}</Button>
+                <Button small secondary onClick={fold}>
+                  Fold
+                </Button>
+                <Button small secondary onClick={check}>
+                  Check
+                </Button>
+
+                <Button small onClick={call}>
+                  Call {currentTable.callAmount}
+                </Button>
+
+                <Button small>All In</Button>
+              </>
+            )}
+          </UIWrapper>
+        )}
       </Container>
     </>
   );
 };
 
-export default Play;
+export default memo(Play);
