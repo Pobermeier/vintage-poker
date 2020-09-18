@@ -72,6 +72,7 @@ const init = (socket, io) => {
         delete players[found.socketId];
         Object.values(tables).map((table) => {
           table.removePlayer(found.socketId);
+          broadcastToTable(table);
         });
       }
 
@@ -96,14 +97,6 @@ const init = (socket, io) => {
   socket.on(JOIN_TABLE, (tableId) => {
     const table = tables[tableId];
     const player = players[socket.id];
-
-    const found = Object.values(table.players).find(
-      (player) => player.socketId == socket.id,
-    );
-
-    if (found) {
-      delete table.players[socket.id];
-    }
 
     table.addPlayer(player);
 
