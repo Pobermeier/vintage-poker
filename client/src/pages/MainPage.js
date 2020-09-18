@@ -135,7 +135,7 @@ const MainPage = ({ history }) => {
         <ColoredText>{userName}!</ColoredText>
       </WelcomeHeading>
       <MainMenuWrapper>
-        <MainMenuCard onClick={() => history.push('/play/1')}>
+        <MainMenuCard onClick={() => history.push('/play')}>
           <img src={kingImg} alt="Join Table" />
           <Heading as="h3" headingClass="h5" textCentered>
             {localizedStrings &&
@@ -144,7 +144,7 @@ const MainPage = ({ history }) => {
                 'main_page-join_table')}
           </Heading>
         </MainMenuCard>
-        <MainMenuCard onClick={() => history.push('/play/1')}>
+        <MainMenuCard onClick={() => history.push('/play')}>
           <img src={queen2Img} alt="Quick Game" />
           <Heading as="h3" headingClass="h5" textCentered>
             {localizedStrings &&
