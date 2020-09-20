@@ -126,8 +126,21 @@ const NavMenu = ({
   setLang,
 }) => {
   const { players } = useContext(globalContext);
-  const { localizedStrings } = useContext(contentContext);
+  const { getLocalizedString } = useContext(contentContext);
   const { cleanUp } = useContext(socketContext);
+
+  const openShopModal = () =>
+    openModal(
+      () => (
+        <Text textAlign="center">
+          <Markdown>
+            {getLocalizedString('shop-coming_soon-modal_text')}
+          </Markdown>
+        </Text>
+      ),
+      getLocalizedString('shop-coming_soon-modal_heading'),
+      getLocalizedString('shop-coming_soon-modal_btn_text'),
+    );
 
   return (
     <NavMenuWrapper
@@ -144,9 +157,7 @@ const NavMenu = ({
         </IconWrapper>
         <MenuHeader>
           <SalutationText textAlign="left">
-            {localizedStrings &&
-              (localizedStrings['main_page-salutation'] ||
-                'main_page-salutation')}
+            {getLocalizedString('main_page-salutation')}
             <br />
             <ColoredText>{userName}!</ColoredText>
           </SalutationText>
@@ -158,52 +169,10 @@ const NavMenu = ({
           <HorizontalWrapper>
             <ChipsAmount
               chipsAmount={chipsAmount}
-              clickHandler={() => {
-                openModal(
-                  () => (
-                    <Text textAlign="center">
-                      <Markdown>
-                        {localizedStrings &&
-                          (localizedStrings['shop-coming_soon-modal_text'] ||
-                            'shop-coming_soon-modal_text')}
-                      </Markdown>
-                    </Text>
-                  ),
-                  localizedStrings &&
-                    (localizedStrings['shop-coming_soon-modal_heading'] ||
-                      'shop-coming_soon-modal_heading'),
-                  localizedStrings &&
-                    (localizedStrings['shop-coming_soon-modal_btn_text'] ||
-                      'shop-coming_soon-modal_btn_text'),
-                );
-              }}
+              clickHandler={openShopModal}
             />
-            <Button
-              onClick={() => {
-                openModal(
-                  () => (
-                    <Text textAlign="center">
-                      <Markdown>
-                        {localizedStrings &&
-                          (localizedStrings['shop-coming_soon-modal_text'] ||
-                            'shop-coming_soon-modal_text')}
-                      </Markdown>
-                    </Text>
-                  ),
-                  localizedStrings &&
-                    (localizedStrings['shop-coming_soon-modal_heading'] ||
-                      'shop-coming_soon-modal_heading'),
-                  localizedStrings &&
-                    (localizedStrings['shop-coming_soon-modal_btn_text'] ||
-                      'shop-coming_soon-modal_btn_text'),
-                );
-              }}
-              small
-              primary
-            >
-              {localizedStrings &&
-                (localizedStrings['shop-coming_soon-modal_heading'] ||
-                  'shop-coming_soon-modal_heading')}
+            <Button onClick={openShopModal} small primary>
+              {getLocalizedString('shop-coming_soon-modal_heading')}
             </Button>
           </HorizontalWrapper>
           <HorizontalWrapper>
@@ -221,9 +190,7 @@ const NavMenu = ({
               onClose();
             }}
           >
-            {localizedStrings &&
-              (localizedStrings['navmenu-menu_item-lobby_txt'] ||
-                'navmenu-menu_item-lobby_txt')}
+            {getLocalizedString('navmenu-menu_item-lobby_txt')}
             <img
               src={lobbyIcon}
               alt="Lobby"
@@ -238,9 +205,7 @@ const NavMenu = ({
               onClose();
             }}
           >
-            {localizedStrings &&
-              (localizedStrings['navmenu-menu_item-dashboard_txt'] ||
-                'navmenu-menu_item-dashboard_txt')}
+            {getLocalizedString('navmenu-menu_item-dashboard_txt')}
             <img
               src={userIcon}
               alt="Dashboard"
@@ -255,9 +220,7 @@ const NavMenu = ({
               onClose();
             }}
           >
-            {localizedStrings &&
-              (localizedStrings['navmenu-menu_item-news_txt'] ||
-                'navmenu-menu_item-news_txt')}
+            {getLocalizedString('navmenu-menu_item-news_txt')}
             <img
               src={newsIcon}
               alt="News"
@@ -277,8 +240,7 @@ const NavMenu = ({
             fullWidth
             small
           >
-            {localizedStrings &&
-              (localizedStrings['navmenu-logout_btn'] || 'navmenu-logout_btn')}
+            {getLocalizedString('navmenu-logout_btn')}
           </Button>
         </MenuFooter>
       </StyledNavMenu>

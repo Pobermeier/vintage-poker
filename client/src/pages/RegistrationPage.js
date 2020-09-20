@@ -15,7 +15,7 @@ import authContext from '../context/auth/authContext';
 import contentContext from '../context/content/contentContext';
 
 const RegistrationPage = () => {
-  const { localizedStrings } = useContext(contentContext);
+  const { getLocalizedString } = useContext(contentContext);
   const { register, isLoggedIn } = useContext(authContext);
 
   useScrollToTopOnPageLoad();
@@ -57,23 +57,17 @@ const RegistrationPage = () => {
           }}
         >
           <HeadingWithLogo textCentered hideIconOnMobile={false}>
-            {localizedStrings &&
-              (localizedStrings['registration_page-header_txt'] ||
-                'registration_page-header_txt')}
+            {getLocalizedString('registration_page-header_txt')}
           </HeadingWithLogo>
           <FormGroup>
             <Label htmlFor="email">
-              {localizedStrings &&
-                (localizedStrings['registration_page-email_lbl_txt'] ||
-                  'registration_page-email_lbl_txt')}
+              {getLocalizedString('registration_page-email_lbl_txt')}
             </Label>
             <Input type="email" name="email" ref={emailRef} required />
           </FormGroup>
           <FormGroup>
             <Label htmlFor="nickname">
-              {localizedStrings &&
-                (localizedStrings['registration_page-nickname_lbl_txt'] ||
-                  'registration_page-nickname_lbl_txt')}
+              {getLocalizedString('registration_page-nickname_lbl_txt')}
             </Label>
             <Input
               type="text"
@@ -86,9 +80,7 @@ const RegistrationPage = () => {
           </FormGroup>
           <FormGroup>
             <Label htmlFor="password">
-              {localizedStrings &&
-                (localizedStrings['registration_page-password_lbl_txt'] ||
-                  'registration_page-password_lbl_txt')}
+              {getLocalizedString('registration_page-password_lbl_txt')}
             </Label>
             <ShowPasswordButton passwordRef={passwordRef} />
             <Input
@@ -106,14 +98,10 @@ const RegistrationPage = () => {
           </FormGroup> */}
           <ButtonGroup>
             <Button primary type="submit" fullWidth>
-              {localizedStrings &&
-                (localizedStrings['registration_page-cta_btn_txt'] ||
-                  'registration_page-cta_btn_txt')}
+              {getLocalizedString('registration_page-cta_btn_txt')}
             </Button>
             <Link to="/login">
-              {localizedStrings &&
-                (localizedStrings['registration_page-already_account_txt'] ||
-                  'registration_page-already_account_txt')}
+              {getLocalizedString('registration_page-already_account_txt')}
             </Link>
           </ButtonGroup>
         </Form>

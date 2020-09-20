@@ -74,26 +74,19 @@ const ButtonWrapper = styled.div`
 `;
 
 const CookieBanner = ({ clickHandler, className }) => {
-  const { localizedStrings } = useContext(contentContext);
+  const { getLocalizedString } = useContext(contentContext);
 
   return ReactDOM.createPortal(
     <Wrapper className={className}>
       <StyledCookieBanner>
         <ContentWrapper>
-          <Content>
-            {localizedStrings &&
-              (localizedStrings['cookiebanner-text'] || 'cookiebanner-text')}
-          </Content>
+          <Content>{getLocalizedString('cookiebanner-text')}</Content>
           <ButtonWrapper>
             <Button small primary onClick={clickHandler}>
-              {localizedStrings &&
-                (localizedStrings['cookiebanner-confirm_btn_txt'] ||
-                  'cookiebanner-confirm_btn_txt')}
+              {getLocalizedString('cookiebanner-confirm_btn_txt')}
             </Button>
             <Button as={Link} to="/privacy" secondary small>
-              {localizedStrings &&
-                (localizedStrings['cookiebanner-info_btn_txt'] ||
-                  'cookiebanner-info_btn_txt')}
+              {getLocalizedString('cookiebanner-info_btn_txt')}
             </Button>
           </ButtonWrapper>
         </ContentWrapper>

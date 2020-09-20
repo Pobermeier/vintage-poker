@@ -29,7 +29,20 @@ const Navbar = ({
   openNavMenu,
   className,
 }) => {
-  const { localizedStrings } = useContext(contentContext);
+  const { getLocalizedString } = useContext(contentContext);
+
+  const openShopModal = () =>
+    openModal(
+      () => (
+        <Text textAlign="center">
+          <Markdown>
+            {getLocalizedString('shop-coming_soon-modal_text')}
+          </Markdown>
+        </Text>
+      ),
+      getLocalizedString('shop-coming_soon-modal_heading'),
+      getLocalizedString('shop-coming_soon-modal_btn_text'),
+    );
 
   if (!loggedIn)
     return (
@@ -43,16 +56,12 @@ const Navbar = ({
             <Spacer>
               {location.pathname !== '/register' && (
                 <Button as={Link} to="/register" primary small>
-                  {localizedStrings &&
-                    (localizedStrings['navbar-register_btn'] ||
-                      'navbar-register_btn')}
+                  {getLocalizedString('navbar-register_btn')}
                 </Button>
               )}
               {location.pathname !== '/login' && (
                 <Button as={Link} to="/login" secondary small>
-                  {localizedStrings &&
-                    (localizedStrings['navbar-login_btn'] ||
-                      'navbar-login_btn')}
+                  {getLocalizedString('navbar-login_btn')}
                 </Button>
               )}
             </Spacer>
@@ -75,54 +84,11 @@ const Navbar = ({
           <Spacer>
             <ChipsAmount
               chipsAmount={chipsAmount}
-              clickHandler={() => {
-                openModal(
-                  () => (
-                    <Text textAlign="center">
-                      <Markdown>
-                        {localizedStrings &&
-                          (localizedStrings['shop-coming_soon-modal_text'] ||
-                            'shop-coming_soon-modal_text')}
-                      </Markdown>
-                    </Text>
-                  ),
-                  localizedStrings &&
-                    (localizedStrings['shop-coming_soon-modal_heading'] ||
-                      'shop-coming_soon-modal_heading'),
-                  localizedStrings &&
-                    (localizedStrings['shop-coming_soon-modal_btn_text'] ||
-                      'shop-coming_soon-modal_btn_text'),
-                );
-              }}
+              clickHandler={openShopModal}
             />
             <Hider hideOnMobile>
-              <Button
-                to="/"
-                primary
-                small
-                onClick={() => {
-                  openModal(
-                    () => (
-                      <Text textAlign="center">
-                        <Markdown>
-                          {localizedStrings &&
-                            (localizedStrings['shop-coming_soon-modal_text'] ||
-                              'shop-coming_soon-modal_text')}
-                        </Markdown>
-                      </Text>
-                    ),
-                    localizedStrings &&
-                      (localizedStrings['shop-coming_soon-modal_heading'] ||
-                        'shop-coming_soon-modal_heading'),
-                    localizedStrings &&
-                      (localizedStrings['shop-coming_soon-modal_btn_text'] ||
-                        'shop-coming_soon-modal_btn_text'),
-                  );
-                }}
-              >
-                {localizedStrings &&
-                  (localizedStrings['navbar-buychips_btn'] ||
-                    'navbar-buychips_btn')}
+              <Button to="/" primary small onClick={openShopModal}>
+                {getLocalizedString('navbar-buychips_btn')}
               </Button>
             </Hider>
             <HamburgerButton clickHandler={openNavMenu} />

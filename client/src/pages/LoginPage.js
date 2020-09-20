@@ -15,7 +15,7 @@ import authContext from '../context/auth/authContext';
 import contentContext from '../context/content/contentContext';
 
 const LoginPage = () => {
-  const { localizedStrings } = useContext(contentContext);
+  const { getLocalizedString } = useContext(contentContext);
   const { login, isLoggedIn } = useContext(authContext);
 
   useScrollToTopOnPageLoad();
@@ -49,15 +49,11 @@ const LoginPage = () => {
           }}
         >
           <HeadingWithLogo textCentered hideIconOnMobile={false}>
-            {localizedStrings &&
-              (localizedStrings['login_page-header_txt'] ||
-                'login_page-header_txt')}
+            {getLocalizedString('login_page-header_txt')}
           </HeadingWithLogo>
           <FormGroup>
             <Label htmlFor="email">
-              {localizedStrings &&
-                (localizedStrings['login_page-email_lbl_txt'] ||
-                  'login_page-email_lbl_txt')}
+              {getLocalizedString('login_page-email_lbl_txt')}
             </Label>
             <Input
               type="email"
@@ -69,9 +65,7 @@ const LoginPage = () => {
           </FormGroup>
           <FormGroup>
             <Label htmlFor="password">
-              {localizedStrings &&
-                (localizedStrings['login_page-password_lbl_txt'] ||
-                  'login_page-password_lbl_txt')}
+              {getLocalizedString('login_page-password_lbl_txt')}
             </Label>
             <ShowPasswordButton passwordRef={passwordRef} />
             <Input
@@ -84,15 +78,11 @@ const LoginPage = () => {
           </FormGroup>
           <ButtonGroup>
             <Button primary type="submit" fullWidth>
-              {localizedStrings &&
-                (localizedStrings['login_page-cta_btn_txt'] ||
-                  'login_page-cta_btn_txt')}
+              {getLocalizedString('login_page-cta_btn_txt')}
             </Button>
             {/* <Link to="/">I foI do not have an account yet!rgot my password!</Link> */}
             <Link to="/register">
-              {localizedStrings &&
-                (localizedStrings['login_page-no_account_txt'] ||
-                  'login_page-no_account_txt')}
+              {getLocalizedString('login_page-no_account_txt')}
             </Link>
           </ButtonGroup>
         </Form>

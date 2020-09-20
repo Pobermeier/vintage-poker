@@ -9,27 +9,21 @@ import useScrollToTopOnPageLoad from '../hooks/useScrollToTopOnPageLoad';
 import contentContext from '../context/content/contentContext';
 
 const NotFoundPage = () => {
-  const { localizedStrings } = useContext(contentContext);
+  const { getLocalizedString } = useContext(contentContext);
   useScrollToTopOnPageLoad();
 
   return (
     <Container fullHeight contentCenteredMobile padding="4rem 2rem 2rem 2rem">
       <CenteredBlock>
         <Heading as="h2" headingClass="h1" textCenteredOnMobile>
-          {localizedStrings &&
-            (localizedStrings['notfound-heading_txt'] ||
-              'notfound-heading_txt')}
+          {getLocalizedString('notfound-heading_txt')}
         </Heading>
         <Heading as="h3" headingClass="h5" textCenteredOnMobile>
-          {localizedStrings &&
-            (localizedStrings['notfound-content_txt'] ||
-              'notfound-content_txt')}
+          {getLocalizedString('notfound-content_txt')}
         </Heading>
         <Wrapper>
           <Button as={Link} to="/" large primary fullWidthOnMobile autoFocus>
-            {localizedStrings &&
-              (localizedStrings['static_page-back_btn_txt'] ||
-                'static_page-back_btn_txt')}
+            {getLocalizedString('static_page-back_btn_txt')}
           </Button>
         </Wrapper>
       </CenteredBlock>

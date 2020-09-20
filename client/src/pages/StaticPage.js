@@ -8,7 +8,7 @@ import useScrollToTopOnPageLoad from '../hooks/useScrollToTopOnPageLoad';
 import contentContext from '../context/content/contentContext';
 
 const StaticPage = ({ title, content }) => {
-  const { localizedStrings } = useContext(contentContext);
+  const { getLocalizedString } = useContext(contentContext);
   useScrollToTopOnPageLoad();
 
   return (
@@ -29,9 +29,7 @@ const StaticPage = ({ title, content }) => {
         margin="2rem auto"
       >
         <Button as={Link} to="/" secondary small>
-          {localizedStrings &&
-            (localizedStrings['static_page-back_btn_txt'] ||
-              'static_page-back_btn_txt')}
+          {getLocalizedString('static_page-back_btn_txt')}
         </Button>
       </Container>
     </>

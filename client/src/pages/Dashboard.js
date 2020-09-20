@@ -50,7 +50,7 @@ const Wrapper = styled.div`
 // `;
 
 const Dashboard = () => {
-  const { localizedStrings } = useContext(contentContext);
+  const { getLocalizedString } = useContext(contentContext);
   const { userName, email } = useContext(globalContext);
 
   return (
@@ -70,41 +70,25 @@ const Dashboard = () => {
           </HeadingWithLogo>
           <Wrapper>
             <FormGroup>
-              <Label>
-                {localizedStrings &&
-                  (localizedStrings['dashboard-nickname_lbl_txt'] ||
-                    'dashboard-nickname_lbl_txt')}
-              </Label>
+              <Label>{getLocalizedString('dashboard-nickname_lbl_txt')}</Label>
               <Input value={userName} />
               <Button primary>
-                {localizedStrings &&
-                  (localizedStrings['dashboard-nickname_btn_txt'] ||
-                    'dashboard-nickname_btn_txt')}
+                {getLocalizedString('dashboard-nickname_btn_txt')}
               </Button>
             </FormGroup>
             <FormGroup>
-              <Label>
-                {localizedStrings &&
-                  (localizedStrings['dashboard-email_lbl_txt'] ||
-                    'dashboard-email_lbl_txt')}
-              </Label>
+              <Label>{getLocalizedString('dashboard-email_lbl_txt')}</Label>
               <Input type="email" value={email} />
               <Button primary>
-                {localizedStrings &&
-                  (localizedStrings['dashboard-email_btn_txt'] ||
-                    'dashboard-email_btn_txt')}
+                {getLocalizedString('dashboard-email_btn_txt')}
               </Button>
             </FormGroup>
             <FormGroup style={{ gridColumnStart: '1', gridColumnEnd: '3' }}>
               <Button primary>
-                {localizedStrings &&
-                  (localizedStrings['dashboard-reset_pw_btn_text'] ||
-                    'dashboard-reset_pw_btn_text')}
+                {getLocalizedString('dashboard-reset_pw_btn_text')}
               </Button>
               <Button>
-                {localizedStrings &&
-                  (localizedStrings['dashboard-delete_acct_btn_text'] ||
-                    'dashboard-delete_acct_btn_text')}
+                {getLocalizedString('dashboard-delete_acct_btn_text')}
               </Button>
             </FormGroup>
             <Button
@@ -113,9 +97,7 @@ const Dashboard = () => {
               secondary
               style={{ gridColumnStart: '1', gridColumnEnd: '3' }}
             >
-              {localizedStrings &&
-                (localizedStrings['static_page-back_btn_txt'] ||
-                  'static_page-back_btn_txt')}
+              {getLocalizedString('static_page-back_btn_txt')}
             </Button>
           </Wrapper>
         </Form>

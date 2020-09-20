@@ -19,7 +19,7 @@ const MarketingHeadline = styled(Heading)`
 `;
 
 const Landing = () => {
-  const { localizedStrings } = useContext(contentContext);
+  const { getLocalizedString } = useContext(contentContext);
   useScrollToTopOnPageLoad();
 
   return (
@@ -34,10 +34,7 @@ const Landing = () => {
             headingClass="h1"
             textCenteredOnMobile
             dangerouslySetInnerHTML={{
-              __html:
-                localizedStrings &&
-                (localizedStrings['landing-primary_headline'] ||
-                  'landing-primary_headline'),
+              __html: getLocalizedString('landing-primary_headline'),
             }}
           />
         </Markdown>
@@ -48,10 +45,7 @@ const Landing = () => {
             headingClass="h6"
             textCenteredOnMobile
             dangerouslySetInnerHTML={{
-              __html:
-                localizedStrings &&
-                (localizedStrings['landing-secondary_headline'] ||
-                  'landing-secondary_headline'),
+              __html: getLocalizedString('landing-secondary_headline'),
             }}
           />
         </Markdown>
@@ -64,13 +58,10 @@ const Landing = () => {
             fullWidthOnMobile
             autoFocus
           >
-            {localizedStrings &&
-              (localizedStrings['navbar-register_btn'] ||
-                'navbar-register_btn')}
+            {getLocalizedString('navbar-register_btn')}
           </Button>
           <Button as={Link} to="/login" large secondary fullWidthOnMobile>
-            {localizedStrings &&
-              (localizedStrings['navbar-login_btn'] || 'navbar-login_btn')}
+            {getLocalizedString('navbar-login_btn')}
           </Button>
         </Wrapper>
       </CenteredBlock>

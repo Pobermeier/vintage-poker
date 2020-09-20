@@ -7,23 +7,17 @@ import contentContext from '../content/contentContext';
 
 const OfflineProvider = ({ children }) => {
   const { openModal } = useContext(modalContext);
-  const { localizedStrings } = useContext(contentContext);
+  const { getLocalizedString } = useContext(contentContext);
 
-  const [updateServiceWorker] = useServiceWorker(() => {
-    onUpdateServiceWorker();
-  });
+  const [updateServiceWorker] = useServiceWorker(() => onUpdateServiceWorker());
 
   const onUpdateServiceWorker = () => {
     openModal(
       () => (
-        <Text>
-          {localizedStrings &&
-            (localizedStrings['service_worker-update_available'] ||
-              'service_worker-update_available')}
-        </Text>
+        <Text>{getLocalizedString('service_worker-update_available')}</Text>
       ),
-      'Update Available',
-      'Update Now & Refresh',
+      getLocalizedString('service_worker-update_headline'),
+      getLocalizedString('service_worker-update_confirm_btn_txt'),
       updateServiceWorker,
     );
   };

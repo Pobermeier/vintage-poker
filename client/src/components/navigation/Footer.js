@@ -13,15 +13,12 @@ const StyledFooter = styled.footer`
 `;
 
 const Footer = ({ className, setLang, staticPages }) => {
-  const { localizedStrings } = useContext(contentContext);
+  const { getLocalizedString } = useContext(contentContext);
 
   return (
     <StyledFooter className={className}>
       <Text textAlign="center" fontSize="0.9rem">
-        {localizedStrings &&
-          (localizedStrings['footer-lang_selection_txt'] ||
-            'footer-lang_selection_txt')}
-        :{'  '}
+        {getLocalizedString('footer-lang_selection_txt')}:{'  '}
         <a
           href="!"
           onClick={(e) => {
@@ -61,11 +58,7 @@ const Footer = ({ className, setLang, staticPages }) => {
           })}
       </Text>
       <Text textAlign="center" fontSize="0.9rem">
-        <ColoredText>
-          {localizedStrings &&
-            (localizedStrings['footer-copyright_txt'] ||
-              'footer-copyright_txt')}
-        </ColoredText>
+        <ColoredText>{getLocalizedString('footer-copyright_txt')}</ColoredText>
       </Text>
     </StyledFooter>
   );
