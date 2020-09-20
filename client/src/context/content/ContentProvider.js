@@ -48,9 +48,12 @@ const ContentProvider = ({ children }) => {
       });
   };
 
+  const getLocalizedString = (key) =>
+    localizedStrings && localizedStrings[key] ? localizedStrings[key] : key;
+
   return (
     <ContentContext.Provider
-      value={{ isLoading, staticPages, localizedStrings }}
+      value={{ isLoading, staticPages, getLocalizedString }}
     >
       {children}
     </ContentContext.Provider>
