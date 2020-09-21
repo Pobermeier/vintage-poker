@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
-import Navbar from '../navigation/Navbar';
-import Footer from '../navigation/Footer';
-import WatermarkWrapper from '../decoration/WatermarkWrapper';
-import NavMenu from '../navigation/NavMenu';
-import CookieBanner from '../cookies/CookieBanner';
+import Navbar from '../components/navigation/Navbar';
+import Footer from '../components/navigation/Footer';
+import WatermarkWrapper from '../components/decoration/WatermarkWrapper';
+import NavMenu from '../components/navigation/NavMenu';
+import CookieBanner from '../components/cookies/CookieBanner';
 import { withRouter } from 'react-router-dom';
-import useNavMenu from '../../hooks/useNavMenu';
-import useCookie from '../../hooks/useCookie';
-import globalContext from '../../context/global/globalContext';
-import authContext from '../../context/auth/authContext';
-import locaContext from '../../context/localization/locaContext';
-import contentContext from '../../context/content/contentContext';
-import modalContext from '../../context/modal/modalContext';
+import useNavMenu from '../hooks/useNavMenu';
+import useCookie from '../hooks/useCookie';
+import globalContext from '../context/global/globalContext';
+import authContext from '../context/auth/authContext';
+import locaContext from '../context/localization/locaContext';
+import contentContext from '../context/content/contentContext';
+import modalContext from '../context/modal/modalContext';
 
 const MainLayout = ({ children, location }) => {
   const { chipsAmount, userName } = useContext(globalContext);
