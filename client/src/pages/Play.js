@@ -1,51 +1,17 @@
-import React, { useContext, useEffect, useState, memo } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Container from '../components/layout/Container';
-import table from '../assets/game/table.svg';
-import styled from 'styled-components';
 import Button from '../components/buttons/Button';
-import Text from '../components/typography/Text';
-import rotateGif from '../assets/game/rotate.gif';
 import gameContext from '../context/game/gameContext';
 import socketContext from '../context/websocket/socketContext';
-
-const Wrapper = styled.div`
-  display: none;
-  position: fixed;
-  z-index: 105;
-  background-color: hsl(202, 49%, 18%);
-  padding: 2rem;
-  width: 100%;
-  height: 100%;
-
-  & ${Text} {
-    color: ${(props) => props.theme.colors.fontColorLight};
-  }
-
-  @media screen and (orientation: portrait) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-`;
-
-const UIWrapper = styled.div`
-  @media screen and (max-width: 1024px) {
-    transform: scale(0.75);
-    transform-origin: bottom right;
-  }
-`;
-
-const PokerTable = styled.img`
-  display: block;
-  pointer-events: none;
-  width: 90vw;
-  margin: 0 auto;
-
-  /* @media screen and (orientation: portrait) {
-    transform: rotate(90deg) scale(1.7);
-  } */
-`;
+import PokerTable from '../components/game/PokerTable';
+import { RotateDevicePrompt } from '../components/game/RotateDevicePrompt';
+import { BetSlider } from '../components/game/BetSliderWrapper';
+import { UIWrapper } from '../components/game/UIWrapper';
+import { CenteredAnchor } from '../components/game/CenteredAnchor';
+import { PositionedUISlot } from '../components/game/PositionedUISlot';
+import { PokerTableWrapper } from '../components/game/PokerTableWrapper';
+import { Seat } from '../components/game/Seat';
+import Text from '../components/typography/Text';
 
 const Play = () => {
   const { socket } = useContext(socketContext);
@@ -58,7 +24,6 @@ const Play = () => {
     leaveTable,
     sitDown,
     standUp,
-    addMessage,
     fold,
     check,
     call,
@@ -69,149 +34,146 @@ const Play = () => {
 
   useEffect(() => {
     socket && joinTable(1);
+    return () => leaveTable();
     // eslint-disable-next-line
   }, [socket]);
 
-  // useEffect(() => {
-  //   currentTable && currentTable.callAmount && setBet(currentTable.callAmount);
-  // }, [currentTable]);
-  console.log('render');
   return (
     <>
-      <Wrapper>
-        <img
-          src={rotateGif}
-          width="140"
-          style={{ width: '140px' }}
-          alt="Rotate your device into landscape mode"
-        />
-        <br />
-        <Text textAlign="center">
-          Please turn your phone into landscape mode to play!
-        </Text>
-      </Wrapper>
-      <Container fullHeight padding="1rem 0 3rem" style={{ height: '100vh' }}>
-        <div style={{ position: 'relative', width: '100%' }}>
-          <PokerTable src={table} alt="Poker Table" />
-          <span
-            style={{
-              display: 'inline-block',
-              width: '5vmax',
-              height: '5vmax',
-              backgroundColor: 'red',
-              position: 'absolute',
-              top: 'calc(50% - 2.5vmax)',
-              left: 'calc(50% - 2.5vmax)',
-            }}
-          >
-            <span
-              style={{
-                display: 'inline-block',
-                width: '5vmax',
-                height: '5vmax',
-                backgroundColor: 'red',
-                position: 'absolute',
-                top: '-35vh',
-                left: '-25vw',
-              }}
-            ></span>
-            <span
-              style={{
-                display: 'inline-block',
-                width: '5vmax',
-                height: '5vmax',
-                backgroundColor: 'red',
-                position: 'absolute',
-                top: '-35vh',
-                left: '0',
-              }}
-            ></span>
-            <span
-              style={{
-                display: 'inline-block',
-                width: '5vmax',
-                height: '5vmax',
-                backgroundColor: 'red',
-                position: 'absolute',
-                top: '-35vh',
-                left: '25vw',
-              }}
-            ></span>
-            <span
-              style={{
-                display: 'inline-block',
-                width: '5vmax',
-                height: '5vmax',
-                backgroundColor: 'red',
-                position: 'absolute',
-                top: '20vh',
-                left: '40vw',
-              }}
-            ></span>
-            <span
-              style={{
-                display: 'inline-block',
-                width: '5vmax',
-                height: '5vmax',
-                backgroundColor: 'red',
-                position: 'absolute',
-                top: '20vh',
-                left: '-40vw',
-              }}
-            ></span>
-          </span>
-        </div>
-        {isPlayerSeated && seatId && (
-          <UIWrapper
-            style={{
-              position: 'fixed',
-              bottom: '1vh',
-              right: '1vh',
-              display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
-              gridGap: '0.5rem',
-              backgroundColor: 'hsla(49, 63%, 92%, 60%)',
-              borderRadius: '2rem',
-              padding: '1rem',
-            }}
-          >
-            {currentTable && currentTable.callAmount && (
+      <RotateDevicePrompt />
+      <Container fullHeight>
+        {currentTable && !isPlayerSeated && (
+          <>
+            <PositionedUISlot
+              bottom="2vh"
+              left="1.5rem"
+              style={{ zIndex: '50' }}
+            >
+              <Button small secondary onClick={leaveTable}>
+                Leave Table
+              </Button>
+            </PositionedUISlot>
+            <PositionedUISlot
+              bottom="1.5vh"
+              right="1.5rem"
+              style={{ pointerEvents: 'none' }}
+              origin="bottom right"
+            >
+              <Text textAlign="right">
+                <strong>{currentTable.name}</strong> | <strong>Limit: </strong>
+                {currentTable.limit} | <strong>Small Blind: </strong>
+                {currentTable.minBet} | <strong>Big Blind: </strong>
+                {currentTable.minRaise}
+              </Text>
+            </PositionedUISlot>
+          </>
+        )}
+        <PokerTableWrapper>
+          <PokerTable />
+          <CenteredAnchor>
+            {currentTable && (
               <>
-                <div
-                  style={{
-                    gridColumn: '1 / 4',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-                    borderRadius: '2rem',
-                    padding: '0.5rem 1rem',
-                  }}
-                >
-                  <input
-                    type="range"
-                    style={{ width: '100%' }}
-                    min={currentTable.callAmount}
-                    max={currentTable.seats[seatId].stack}
-                    value={bet}
-                    onChange={(e) => setBet(e.target.value)}
+                <PositionedUISlot top="-35vh" left="-35vw">
+                  <Seat
+                    seatNumber={0}
+                    currentTable={currentTable}
+                    isPlayerSeated={isPlayerSeated}
+                    sitDown={sitDown}
                   />
-                </div>
-                <Button small>Bet {bet}</Button>
-                <Button small secondary onClick={fold}>
-                  Fold
-                </Button>
-                <Button small secondary onClick={check}>
-                  Check
-                </Button>
-
-                <Button small onClick={call}>
-                  Call {currentTable.callAmount}
-                </Button>
-
-                <Button small>All In</Button>
+                </PositionedUISlot>
+                <PositionedUISlot top="-35vh" left="-5vw">
+                  <Seat
+                    seatNumber={1}
+                    currentTable={currentTable}
+                    isPlayerSeated={isPlayerSeated}
+                    sitDown={sitDown}
+                  />
+                </PositionedUISlot>
+                <PositionedUISlot top="-35vh" left="25vw">
+                  <Seat
+                    seatNumber={2}
+                    currentTable={currentTable}
+                    isPlayerSeated={isPlayerSeated}
+                    sitDown={sitDown}
+                  />
+                </PositionedUISlot>
+                <PositionedUISlot top="0" left="35vw">
+                  <Seat
+                    seatNumber={3}
+                    currentTable={currentTable}
+                    isPlayerSeated={isPlayerSeated}
+                    sitDown={sitDown}
+                  />
+                </PositionedUISlot>
+                <PositionedUISlot top="0" left="-45vw">
+                  <Seat
+                    seatNumber={4}
+                    currentTable={currentTable}
+                    isPlayerSeated={isPlayerSeated}
+                    sitDown={sitDown}
+                  />
+                </PositionedUISlot>
               </>
             )}
+
+            {currentTable && (
+              <ul>
+                {currentTable.mainPot && (
+                  <li>
+                    <strong>Main Pot: </strong>
+                    {currentTable.mainPot}
+                  </li>
+                )}
+                {currentTable.players.length <= 1 ? (
+                  <li>Waiting for more players</li>
+                ) : (
+                  <li>
+                    <strong>Turn: </strong>
+                    {currentTable.board.length === 0 && 'Pre-Flop'}
+                    {currentTable.board.length === 3 && 'Flop'}
+                    {currentTable.board.length === 4 && 'Turn'}
+                    {currentTable.board.length === 5 && 'River'}
+                    {currentTable.wentToShowdown && 'Showdown'}
+                  </li>
+                )}
+                {currentTable.board && currentTable.board.length > 0 && (
+                  <li>
+                    {currentTable.board.map(
+                      (card) => `${card.suit}${card.rank} `,
+                    )}
+                  </li>
+                )}
+              </ul>
+            )}
+          </CenteredAnchor>
+        </PokerTableWrapper>
+
+        {currentTable && isPlayerSeated && (
+          <UIWrapper>
+            <BetSlider
+              currentTable={currentTable}
+              seatId={seatId}
+              bet={bet}
+              setBet={setBet}
+            />
+            <Button small onClick={() => raise(bet)}>
+              Bet {bet}
+            </Button>
+            <Button small secondary onClick={leaveTable}>
+              Leave Table
+            </Button>
+            <Button small secondary onClick={standUp}>
+              Stand Up
+            </Button>
+            <Button small secondary onClick={fold}>
+              Fold
+            </Button>
+            <Button small secondary onClick={check}>
+              Check
+            </Button>
+            <Button small onClick={call}>
+              Call {currentTable.callAmount ? currentTable.callAmount : ''}
+            </Button>
           </UIWrapper>
         )}
       </Container>
@@ -219,4 +181,4 @@ const Play = () => {
   );
 };
 
-export default memo(Play);
+export default Play;
