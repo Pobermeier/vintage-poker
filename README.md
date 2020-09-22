@@ -4,30 +4,47 @@ Vintage Poker is a full-stack poker platform built with the MERN-stack, where a 
 
 The server part of the application is a Node- / Express-Backend. The Frontend is a React application. Non Real-Time communication between front- & backend is handled via a REST-API. In-game logic-related communications & chat is handled via web sockets / Socket.io.
 
-This project is currently work-in-progress.
+## Technologies Used
 
-## In-depth Project Documentation
+### Frontend:
 
-The more detailed project documentation can be found [here](https://www.notion.so/Vintage-Poker-Working-Title-2fa245a71d374bf787a13cf39e3e08dd).
+- **React Ecosystem:**
+  - Project was bootstrapped with **create-react-app**
+  - UI-Layer was created with **React**
+  - **React router** was used to implement client-side routing
+  - State Management is handled with the **Context-API** (built into React core-library)
+  - **Styled Components** were used to create all of the custom CSS
+- Communication with the Backend is handled with **Axios** (REST-API) & **Socket.io** (Game logic)
+- All localized strings and static page content (e.g. privacy policy) is stored in **Contentful** (cloud-based Headless-CMS) and retrieved via their Content Delivery API
 
-## Design Mock-ups
+### Backend:
 
-You can find the Figma-files with the design mock-ups for this app [here](https://www.figma.com/file/Vh4zssZy2ZhMxLGkcNJA7a/Vintage-Poker-Design-Copy?node-id=0%3A1).
+- **Node.js** & **Express.js**
+- **mongoDb** is used as the database & **mongoose** as ORM
+- Authentication is implemented with **JSON Web Tokens**
+  - Passwords are encrypted with **bcrypt**
+- The client-server communication for the game-logic is implemented with **Socket.io**
+- Uses **nodemailer** to send out transactional mails via Mailjet SMTP
+- Security-packages included to make the application more robust are: **helmet**, **hpp**, **express-rate-limit** & **express-mongo-sanitize**
 
-## Planned Features
+## Features
 
-These features are a must-have for the Minimal Viable Product (MVP) of this app:
-
-- Frontend implemented with a client-side framework like React
-- Backend implemented with Node & Express.js
-- Functional Database Layer - MongoDB & Mongoose
 - User can register & login into the frontend application
   - Password is stored encrypted in DB (!)
   - Authentication is handled via JWT-webtokens to secure API-transactions & private routes
 - Basic form of Virtual Gaming Currency
   - User gets a specific amount of VGC after registration, they can use this amount to play on any open table. Should their balance drop to zero they get the same starting amount again for free.
-- Basic app screens: Landing Page, Lobby (choose table etc.), Login Screen / Modal, Registration Screen / Modal, User Dashboard, Game UI
+- App screens: Landing Page, Lobby (choose table etc.), Login Screen / Modal, Registration Screen / Modal, User Dashboard, Game UI
 - User can join a table and play poker ⇒ full game-loop + In-game chat implemented, Functional animations to support visual gameplay experience
+- Localization for two languages implemented (DE, EN)
+
+## Design Mock-ups
+
+You can find the Figma-files with the design mock-ups for this app [here](https://www.figma.com/file/Vh4zssZy2ZhMxLGkcNJA7a/Vintage-Poker-Design-Copy?node-id=0%3A1).
+
+## In-depth Project Documentation
+
+The more detailed project documentation can be found [here](https://www.notion.so/Vintage-Poker-Working-Title-2fa245a71d374bf787a13cf39e3e08dd).
 
 ## Quick Start
 
