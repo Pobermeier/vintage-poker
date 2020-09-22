@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import {
   CALL,
   CHECK,
@@ -15,13 +16,19 @@ import {
 import socketContext from '../websocket/socketContext';
 import GameContext from './gameContext';
 
-const GameState = ({ children }) => {
+const GameState = ({ history, children }) => {
   const { socket } = useContext(socketContext);
 
   const [messages, setMessages] = useState([]);
   const [currentTable, setCurrentTable] = useState(null);
   const [isPlayerSeated, setIsPlayerSeated] = useState(false);
   const [seatId, setSeatId] = useState(null);
+
+  const currentTableRef = React.useRef(currentTable);
+
+  React.useEffect(() => {
+    currentTableRef.current = currentTable;
+  }, [currentTable]);
 
   useEffect(() => {
     if (socket) {
@@ -42,6 +49,7 @@ const GameState = ({ children }) => {
       socket.on(TABLE_LEFT, ({ tables, tableId }) => {
         console.log(TABLE_LEFT, tables, tableId);
         setCurrentTable(null);
+        setMessages([]);
       });
     }
     return () => socket && leaveTable;
@@ -54,10 +62,12 @@ const GameState = ({ children }) => {
   };
 
   const leaveTable = () => {
+    currentTableRef &&
+      currentTableRef.current &&
+      currentTableRef.current.id &&
+      socket.emit(LEAVE_TABLE, currentTableRef.current.id);
     isPlayerSeated && standUp();
-    setCurrentTable(null);
-    setMessages(null);
-    socket.emit(LEAVE_TABLE, currentTable.id);
+    history.push('/');
   };
 
   const sitDown = (tableId, seatId, amount) => {
@@ -67,29 +77,30 @@ const GameState = ({ children }) => {
   };
 
   const standUp = () => {
-    socket.emit(STAND_UP, currentTable.id);
+    socket.emit(STAND_UP, currentTableRef.current.id);
     setIsPlayerSeated(false);
     setSeatId(null);
   };
 
   const addMessage = (message) => {
     setMessages((prevMessages) => [...prevMessages, message]);
+    console.log(message);
   };
 
   const fold = () => {
-    socket.emit(FOLD, currentTable.id);
+    socket.emit(FOLD, currentTableRef.current.id);
   };
 
   const check = () => {
-    socket.emit(CHECK, currentTable.id);
+    socket.emit(CHECK, currentTableRef.current.id);
   };
 
   const call = () => {
-    socket.emit(CALL, currentTable.id);
+    socket.emit(CALL, currentTableRef.current.id);
   };
 
   const raise = (amount) => {
-    socket.emit(RAISE, { tableId: currentTable.id, amount });
+    socket.emit(RAISE, { tableId: currentTableRef.current.id, amount });
   };
 
   return (
@@ -115,4 +126,4 @@ const GameState = ({ children }) => {
   );
 };
 
-export default GameState;
+export default withRouter(GameState);
