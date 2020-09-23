@@ -28,7 +28,7 @@ const WebSocketProvider = ({ children }) => {
   }
 
   function connect() {
-    const socket = io('http://localhost:5000/', {
+    const socket = io(`http://${window.location.hostname}:5000/`, {
       transports: ['websocket'],
       upgrade: false,
     });
