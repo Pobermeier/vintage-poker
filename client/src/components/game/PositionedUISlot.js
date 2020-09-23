@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
-export const PositionedUISlot = styled.span`
-  display: inline-block;
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
+export const PositionedUISlot = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: ${({ width }) => width || 'auto'};
+  height: ${({ height }) => height || 'auto'};
   position: absolute;
   top: ${({ top }) => top};
   right: ${({ right }) => right};
@@ -11,7 +14,7 @@ export const PositionedUISlot = styled.span`
   left: ${({ left }) => left};
   transform-origin: ${({ origin }) => origin || 'top left'};
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 868px) {
     transform: scale(0.65);
   }
 `;
