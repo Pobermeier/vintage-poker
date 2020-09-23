@@ -27,14 +27,19 @@ const Button = styled.button`
 
   &:hover,
   &:active {
-    background-color: ${(props) => props.theme.colors.goldenColorDarker};  
+    background-color: ${(props) => props.theme.colors.goldenColorDarker};
     color: ${(props) => props.theme.colors.fontColorDark};
   }
 
-  &:focus{
+  &:focus {
     outline: none;
     border: 2px solid ${(props) => props.theme.colors.primaryCtaDarker};
     color: ${(props) => props.theme.colors.fontColorDark};
+  }
+
+  &:disabled {
+    background-color: grey;
+    border-color: 2px solid grey;
   }
 
   ${(props) =>
@@ -63,8 +68,14 @@ const Button = styled.button`
       &:focus {
         color: ${(props) => props.theme.colors.fontColorLight};
       }
+
+      &:disabled {
+        background-color: grey;
+        border-color: grey;
+        color: ${(props) => props.theme.colors.fontColorDark};
+      }
     `}
-  
+
   ${(props) =>
     props.secondary &&
     css`
@@ -88,6 +99,12 @@ const Button = styled.button`
         outline: none;
         border: 2px solid ${(props) => props.theme.colors.primaryCtaDarker};
         color: ${(props) => props.theme.colors.primaryCtaDarker};
+      }
+
+      &:disabled {
+        border: 2px solid grey;
+        background-color: grey;
+        color: ${(props) => props.theme.colors.fontColorDark};
       }
     `}
   
@@ -115,22 +132,22 @@ const Button = styled.button`
       width: 100%;
     `}
 
-    @media screen and (max-width: 1024px){
-      ${(props) =>
-        props.large &&
-        css`
-          font-size: 1.4rem;
-          line-height: 1.4rem;
-          min-width: 250px;
-          padding: 0.75rem 1.5rem;
-        `}
+    @media screen and (max-width: 1024px) {
+    ${(props) =>
+      props.large &&
+      css`
+        font-size: 1.4rem;
+        line-height: 1.4rem;
+        min-width: 250px;
+        padding: 0.75rem 1.5rem;
+      `}
 
-      ${(props) =>
-        (props.fullWidthOnMobile || props.fullWidth) &&
-        css`
-          width: 100%;
-        `}
-    }
+    ${(props) =>
+      (props.fullWidthOnMobile || props.fullWidth) &&
+      css`
+        width: 100%;
+      `}
+  }
 `;
 
 Button.propTypes = {
