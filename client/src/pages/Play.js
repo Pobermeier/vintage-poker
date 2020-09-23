@@ -143,8 +143,8 @@ const Play = ({ history }) => {
                       {currentTable.mainPot}
                     </li>
                   )}
-                  {currentTable.players.length <= 1 ? (
-                    <li>Waiting for more players</li>
+                  {currentTable.players.length <= 1 || currentTable.handOver ? (
+                    <li>Waiting...</li>
                   ) : (
                     <li>
                       <strong>Turn: </strong>
@@ -168,34 +168,37 @@ const Play = ({ history }) => {
           </CenteredAnchor>
         </PokerTableWrapper>
 
-        {currentTable && isPlayerSeated && (
-          <UIWrapper>
-            <BetSlider
-              currentTable={currentTable}
-              seatId={seatId}
-              bet={bet}
-              setBet={setBet}
-            />
-            <Button small onClick={() => raise(bet)}>
-              Bet {bet}
-            </Button>
-            <Button small secondary onClick={leaveTable}>
-              Leave Table
-            </Button>
-            <Button small secondary onClick={standUp}>
-              Stand Up
-            </Button>
-            <Button small secondary onClick={fold}>
-              Fold
-            </Button>
-            <Button small secondary onClick={check}>
-              Check
-            </Button>
-            <Button small onClick={call}>
-              Call {currentTable.callAmount ? currentTable.callAmount : ''}
-            </Button>
-          </UIWrapper>
-        )}
+        {currentTable &&
+          isPlayerSeated &&
+          currentTable.seats[seatId] &&
+          currentTable.seats[seatId].turn && (
+            <UIWrapper>
+              <BetSlider
+                currentTable={currentTable}
+                seatId={seatId}
+                bet={bet}
+                setBet={setBet}
+              />
+              <Button small onClick={() => raise(bet)}>
+                Bet {bet}
+              </Button>
+              <Button small secondary onClick={leaveTable}>
+                Leave Table
+              </Button>
+              <Button small secondary onClick={standUp}>
+                Stand Up
+              </Button>
+              <Button small secondary onClick={fold}>
+                Fold
+              </Button>
+              <Button small secondary onClick={check}>
+                Check
+              </Button>
+              <Button small onClick={call}>
+                Call {currentTable.callAmount ? currentTable.callAmount : ''}
+              </Button>
+            </UIWrapper>
+          )}
       </Container>
     </>
   );
