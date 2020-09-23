@@ -8,7 +8,6 @@ const Container = styled.div`
   justify-content: ${(props) => props.justifyContent};
   align-items: ${(props) => props.alignItems};
   max-width: 1440px;
-  overflow: hidden;
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
 
