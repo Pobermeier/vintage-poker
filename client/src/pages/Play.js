@@ -191,11 +191,42 @@ const Play = ({ history }) => {
               <Button small secondary onClick={fold}>
                 Fold
               </Button>
-              <Button small secondary onClick={check}>
+              <Button
+                small
+                secondary
+                disabled={
+                  currentTable.callAmount !== currentTable.seats[seatId].bet &&
+                  currentTable.callAmount > 0
+                }
+                onClick={check}
+              >
                 Check
               </Button>
-              <Button small onClick={call}>
-                Call {currentTable.callAmount ? currentTable.callAmount : ''}
+              <Button
+                small
+                disabled={
+                  currentTable.callAmount === 0 ||
+                  currentTable.seats[seatId].bet >= currentTable.callAmount
+                }
+                onClick={call}
+              >
+                Call{' '}
+                {currentTable.callAmount &&
+                currentTable.seats[seatId].bet < currentTable.callAmount &&
+                currentTable.callAmount <= currentTable.seats[seatId].stack
+                  ? currentTable.callAmount - currentTable.seats[seatId].bet
+                  : ''}
+              </Button>
+              <Button
+                small
+                onClick={() =>
+                  raise(
+                    currentTable.seats[seatId].stack +
+                      currentTable.seats[seatId].bet,
+                  )
+                }
+              >
+                All-in ({currentTable.seats[seatId].stack})
               </Button>
             </UIWrapper>
           )}
