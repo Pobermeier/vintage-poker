@@ -13,6 +13,8 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
   const { chipsAmount } = useContext(globalContext);
 
   const seat = currentTable.seats[seatNumber];
+  const maxBuyin = currentTable.limit;
+  const minBuyIn = currentTable.minBet * 2 * 10;
 
   return (
     <>
@@ -24,46 +26,44 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
               onClick={() => {
                 openModal(
                   () => (
-                    <>
-                      <Form
-                        onSubmit={(e) => {
-                          e.preventDefault();
+                    <Form
+                      onSubmit={(e) => {
+                        e.preventDefault();
 
-                          const amount = +document.getElementById('amount')
-                            .value;
+                        const amount = +document.getElementById('amount').value;
 
-                          if (
-                            amount &&
-                            amount >= 100 &&
-                            amount <= chipsAmount
-                          ) {
-                            sitDown(
-                              currentTable.id,
-                              seatNumber + 1,
-                              parseInt(amount),
-                            );
-                            closeModal();
-                          }
-                        }}
-                      >
-                        <FormGroup>
-                          <Input
-                            id="amount"
-                            type="number"
-                            min={100}
-                            max={chipsAmount}
-                            defaultValue={100}
-                          />
-                        </FormGroup>
-                        <ButtonGroup>
-                          <Button primary type="submit" fullWidth>
-                            Deposit Amount
-                          </Button>
-                        </ButtonGroup>
-                      </Form>
-                    </>
+                        if (
+                          amount &&
+                          amount >= minBuyIn &&
+                          amount <= chipsAmount &&
+                          amount <= maxBuyin
+                        ) {
+                          sitDown(
+                            currentTable.id,
+                            seatNumber + 1,
+                            parseInt(amount),
+                          );
+                          closeModal();
+                        }
+                      }}
+                    >
+                      <FormGroup>
+                        <Input
+                          id="amount"
+                          type="number"
+                          min={minBuyIn}
+                          max={chipsAmount <= maxBuyin ? chipsAmount : maxBuyin}
+                          defaultValue={minBuyIn}
+                        />
+                      </FormGroup>
+                      <ButtonGroup>
+                        <Button primary type="submit" fullWidth>
+                          Buy into game
+                        </Button>
+                      </ButtonGroup>
+                    </Form>
                   ),
-                  'Buy-in',
+                  'Buy Into Game',
                   'No thanks!',
                 );
               }}

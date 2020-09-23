@@ -79,9 +79,8 @@ const Play = ({ history }) => {
                 <Text textAlign="right">
                   <strong>{currentTable.name}</strong> |{' '}
                   <strong>Limit: </strong>
-                  {currentTable.limit} | <strong>Small Blind: </strong>
-                  {currentTable.minBet} | <strong>Big Blind: </strong>
-                  {currentTable.minRaise}
+                  {currentTable.limit} | <strong>Blinds: </strong>
+                  {currentTable.minBet} / {currentTable.minRaise}
                 </Text>
               </TableInfoWrapper>
             </PositionedUISlot>
