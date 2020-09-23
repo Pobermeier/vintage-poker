@@ -12,9 +12,13 @@ import { PositionedUISlot } from '../components/game/PositionedUISlot';
 import { PokerTableWrapper } from '../components/game/PokerTableWrapper';
 import { Seat } from '../components/game/Seat';
 import Text from '../components/typography/Text';
+import modalContext from '../context/modal/modalContext';
+import { withRouter } from 'react-router-dom';
+import { TableInfoWrapper } from '../components/game/TableInfoWrapper';
 
-const Play = () => {
+const Play = ({ history }) => {
   const { socket } = useContext(socketContext);
+  const { openModal } = useContext(modalContext);
   const {
     messages,
     currentTable,
@@ -33,6 +37,18 @@ const Play = () => {
   const [bet, setBet] = useState(0);
 
   useEffect(() => {
+    !socket &&
+      openModal(
+        () => (
+          <Text>
+            Could not connect / lost connection to game server! Please try again
+            later!
+          </Text>
+        ),
+        'No connection',
+        'Close',
+        () => history.push('/'),
+      );
     socket && joinTable(1);
     return () => leaveTable();
     // eslint-disable-next-line
@@ -56,15 +72,18 @@ const Play = () => {
             <PositionedUISlot
               bottom="1.5vh"
               right="1.5rem"
-              style={{ pointerEvents: 'none' }}
+              style={{ pointerEvents: 'none', zIndex: '50' }}
               origin="bottom right"
             >
-              <Text textAlign="right">
-                <strong>{currentTable.name}</strong> | <strong>Limit: </strong>
-                {currentTable.limit} | <strong>Small Blind: </strong>
-                {currentTable.minBet} | <strong>Big Blind: </strong>
-                {currentTable.minRaise}
-              </Text>
+              <TableInfoWrapper>
+                <Text textAlign="right">
+                  <strong>{currentTable.name}</strong> |{' '}
+                  <strong>Limit: </strong>
+                  {currentTable.limit} | <strong>Small Blind: </strong>
+                  {currentTable.minBet} | <strong>Big Blind: </strong>
+                  {currentTable.minRaise}
+                </Text>
+              </TableInfoWrapper>
             </PositionedUISlot>
           </>
         )}
@@ -89,7 +108,7 @@ const Play = () => {
                     sitDown={sitDown}
                   />
                 </PositionedUISlot>
-                <PositionedUISlot top="-35vh" left="25vw">
+                <PositionedUISlot top="-35vh" left="30vw">
                   <Seat
                     seatNumber={2}
                     currentTable={currentTable}
@@ -105,7 +124,7 @@ const Play = () => {
                     sitDown={sitDown}
                   />
                 </PositionedUISlot>
-                <PositionedUISlot top="0" left="-45vw">
+                <PositionedUISlot top="0" left="-40vw">
                   <Seat
                     seatNumber={4}
                     currentTable={currentTable}
@@ -117,33 +136,35 @@ const Play = () => {
             )}
 
             {currentTable && (
-              <ul>
-                {currentTable.mainPot && (
-                  <li>
-                    <strong>Main Pot: </strong>
-                    {currentTable.mainPot}
-                  </li>
-                )}
-                {currentTable.players.length <= 1 ? (
-                  <li>Waiting for more players</li>
-                ) : (
-                  <li>
-                    <strong>Turn: </strong>
-                    {currentTable.board.length === 0 && 'Pre-Flop'}
-                    {currentTable.board.length === 3 && 'Flop'}
-                    {currentTable.board.length === 4 && 'Turn'}
-                    {currentTable.board.length === 5 && 'River'}
-                    {currentTable.wentToShowdown && 'Showdown'}
-                  </li>
-                )}
-                {currentTable.board && currentTable.board.length > 0 && (
-                  <li>
-                    {currentTable.board.map(
-                      (card) => `${card.suit}${card.rank} `,
-                    )}
-                  </li>
-                )}
-              </ul>
+              <PositionedUISlot>
+                <ul>
+                  {currentTable.mainPot && (
+                    <li>
+                      <strong>Main Pot: </strong>
+                      {currentTable.mainPot}
+                    </li>
+                  )}
+                  {currentTable.players.length <= 1 ? (
+                    <li>Waiting for more players</li>
+                  ) : (
+                    <li>
+                      <strong>Turn: </strong>
+                      {currentTable.board.length === 0 && 'Pre-Flop'}
+                      {currentTable.board.length === 3 && 'Flop'}
+                      {currentTable.board.length === 4 && 'Turn'}
+                      {currentTable.board.length === 5 && 'River'}
+                      {currentTable.wentToShowdown && 'Showdown'}
+                    </li>
+                  )}
+                  {currentTable.board && currentTable.board.length > 0 && (
+                    <li>
+                      {currentTable.board.map(
+                        (card) => `${card.suit}${card.rank} `,
+                      )}
+                    </li>
+                  )}
+                </ul>
+              </PositionedUISlot>
             )}
           </CenteredAnchor>
         </PokerTableWrapper>
@@ -181,4 +202,4 @@ const Play = () => {
   );
 };
 
-export default Play;
+export default withRouter(Play);
