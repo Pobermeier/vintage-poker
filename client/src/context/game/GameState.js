@@ -7,6 +7,7 @@ import {
   JOIN_TABLE,
   LEAVE_TABLE,
   RAISE,
+  REBUY,
   SIT_DOWN,
   STAND_UP,
   TABLE_JOINED,
@@ -74,6 +75,10 @@ const GameState = ({ history, children }) => {
     socket.emit(SIT_DOWN, { tableId, seatId, amount });
     setIsPlayerSeated(true);
     setSeatId(seatId);
+  };
+
+  const rebuy = (tableId, seatId, amount) => {
+    socket.emit(REBUY, { tableId, seatId, amount });
   };
 
   const standUp = () => {
