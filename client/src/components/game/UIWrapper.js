@@ -11,8 +11,8 @@ export const UIWrapper = styled.div`
   border-radius: 2rem;
   padding: 1rem;
 
-  @media screen and (max-width: 1024px) {
-    transform: scale(0.65);
+  @media screen and (max-width: 868px) {
+    transform: scale(0.6);
     transform-origin: bottom right;
   }
 `;
