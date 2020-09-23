@@ -21,7 +21,6 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
           {!isPlayerSeated ? (
             <Button
               small
-              primary
               onClick={() => {
                 openModal(
                   () => (
