@@ -7,6 +7,24 @@ import { ButtonGroup } from '../forms/ButtonGroup';
 import { Form } from '../forms/Form';
 import { FormGroup } from '../forms/FormGroup';
 import { Input } from '../forms/Input';
+import styled from 'styled-components';
+
+const EmptySeat = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 10vw;
+  min-width: 100px;
+  max-width: 120px;
+  height: 10vw;
+  min-height: 100px;
+  max-height: 120px;
+  padding: 1rem;
+  border-radius: 100%;
+  background: rgba(247, 242, 220, 0.8);
+  border: 5px solid #6297b5;
+`;
 
 export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
   const { openModal, closeModal } = useContext(modalContext);
@@ -71,7 +89,11 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
               Sit Down
             </Button>
           ) : (
-            <Text>Empty Seat</Text>
+            <EmptySeat>
+              Empty
+              <br />
+              Seat
+            </EmptySeat>
           )}
         </>
       ) : (
