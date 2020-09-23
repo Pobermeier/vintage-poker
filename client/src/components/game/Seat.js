@@ -63,7 +63,7 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
                       </ButtonGroup>
                     </Form>
                   ),
-                  'Buy Into Game',
+                  'Buy In',
                   'No thanks!',
                 );
               }}
