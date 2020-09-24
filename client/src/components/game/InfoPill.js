@@ -8,7 +8,7 @@ export const InfoPill = styled.div`
   padding: 0.5rem 2rem;
   text-align: center;
   background: #282215;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
   opacity: 0.75;
   color: #fffefc;
   border-radius: 40px;
