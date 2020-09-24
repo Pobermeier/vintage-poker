@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react';
 import Button from '../buttons/Button';
-import Text from '../typography/Text';
 import modalContext from '../../context/modal/modalContext';
 import globalContext from '../../context/global/globalContext';
 import { ButtonGroup } from '../forms/ButtonGroup';
@@ -9,6 +8,12 @@ import { FormGroup } from '../forms/FormGroup';
 import { Input } from '../forms/Input';
 import styled from 'styled-components';
 import gameContext from '../../context/game/gameContext';
+import userImages from './userImages';
+import { PositionedUISlot } from './PositionedUISlot';
+import { InfoPill } from './InfoPill';
+import PokerCard from './PokerCard';
+import Text from '../typography/Text';
+import ChipsAmountPill from './ChipsAmountPill';
 
 const EmptySeat = styled.div`
   display: flex;
@@ -25,6 +30,16 @@ const EmptySeat = styled.div`
   border-radius: 100%;
   background: rgba(247, 242, 220, 0.8);
   border: 5px solid #6297b5;
+`;
+
+const OccupiedSeat = styled(EmptySeat)`
+  background-image: ${({ seatNumber }) => `url(${userImages[seatNumber]})`};
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0;
+  border: ${({ hasTurn }) =>
+    hasTurn ? `8px solid #219653` : `5px solid #6297b5`};
 `;
 
 export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
@@ -162,48 +177,34 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
           )}
         </>
       ) : (
-        <>
-          <Text>{seat.player.name}</Text>
-          <ul>
-            <li>
-              <strong>Hand:</strong>{' '}
-              {seat.hand &&
-                seat.hand !== [] &&
-                seat.hand[0] &&
-                seat.hand[0].suit}
-              {seat.hand &&
-                seat.hand !== [] &&
-                seat.hand[0] &&
-                seat.hand[0].rank}{' '}
-              {seat.hand &&
-                seat.hand !== [] &&
-                seat.hand[1] &&
-                seat.hand[1].suit}
-              {seat.hand &&
-                seat.hand !== [] &&
-                seat.hand[1] &&
-                seat.hand[1].rank}
-            </li>
-            <li>
-              <strong>Bet:</strong> {seat.bet}
-            </li>
-            <li>
-              <strong>Stack:</strong> {seat.stack}
-            </li>
-            <li>
-              <strong>Turn:</strong> {seat.turn.toString()}
-            </li>
-            <li>
-              <strong>Checked:</strong> {seat.checked.toString()}
-            </li>
-            <li>
-              <strong>Folded:</strong> {seat.folded.toString()}
-            </li>
-            <li>
-              <strong>Sitting Out:</strong> {seat.sittingOut.toString()}
-            </li>
-          </ul>
-        </>
+        <PositionedUISlot>
+          <PositionedUISlot top="-9vh" style={{ minWidth: '150px' }}>
+            <Text>{seat.player.name}</Text>
+          </PositionedUISlot>
+          <PositionedUISlot>
+            <OccupiedSeat seatNumber={seatNumber} hasTurn={seat.turn} />
+          </PositionedUISlot>
+          <PositionedUISlot left="2vh" style={{ scale: '0.65' }}>
+            {seat.hand &&
+              seat.hand.map((card, index) => (
+                <PokerCard key={index} card={card} />
+              ))}
+          </PositionedUISlot>
+          <PositionedUISlot top="3vh" style={{ minWidth: '150px' }}>
+            <div>
+              {seat.stack && <ChipsAmountPill chipsAmount={seat.stack} />}
+              {!currentTable.handOver && seat.checked && (
+                <InfoPill>CHECK</InfoPill>
+              )}
+              {!currentTable.handOver && seat.folded && (
+                <InfoPill>FOLD</InfoPill>
+              )}
+              {!currentTable.handOver && seat.sittingOut && (
+                <InfoPill>SITTING OUT</InfoPill>
+              )}
+            </div>
+          </PositionedUISlot>
+        </PositionedUISlot>
       )}
     </>
   );
