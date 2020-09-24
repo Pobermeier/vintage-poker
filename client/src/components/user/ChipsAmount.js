@@ -36,7 +36,9 @@ const ChipsAmount = ({ chipsAmount, clickHandler }) => {
         disabled
         type="text"
         size={10}
-        value={new Intl.NumberFormat('en-EN').format(chipsAmount)}
+        value={new Intl.NumberFormat(document.documentElement.lang).format(
+          chipsAmount,
+        )}
         name="chipsAmount"
       />
     </Wrapper>
@@ -46,10 +48,6 @@ const ChipsAmount = ({ chipsAmount, clickHandler }) => {
 ChipsAmount.propTypes = {
   chipsAmount: PropTypes.number,
   clickHandler: PropTypes.func,
-};
-
-ChipsAmount.defaultProps = {
-  chipsAmount: 30000,
 };
 
 export default ChipsAmount;
