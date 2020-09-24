@@ -105,7 +105,13 @@ const Play = ({ history }) => {
                       document.documentElement.lang,
                     ).format(currentTable.limit)}{' '}
                     | <strong>Blinds: </strong>
-                    {currentTable.minBet} / {currentTable.minRaise}
+                    {new Intl.NumberFormat(
+                      document.documentElement.lang,
+                    ).format(currentTable.minBet)}{' '}
+                    /{' '}
+                    {new Intl.NumberFormat(
+                      document.documentElement.lang,
+                    ).format(currentTable.minBet * 2)}
                   </Text>
                 </TableInfoWrapper>
               </PositionedUISlot>
