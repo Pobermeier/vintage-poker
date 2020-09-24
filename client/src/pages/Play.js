@@ -64,17 +64,6 @@ const Play = ({ history }) => {
         : setBet(currentTable.minBet));
   }, [currentTable]);
 
-  // useEffect(() => {
-  //   if (
-  //     currentTable &&
-  //     seatId &&
-  //     currentTable.seats[seatId] &&
-  //     currentTable.seats[seatId].turn
-  //   )
-  //     const timeout = setTimeout(() => {}, 5000);
-  //   return () => clearTimeout(timeout)
-  // }, [currentTable]);
-
   return (
     <>
       <RotateDevicePrompt />
