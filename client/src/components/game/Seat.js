@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Button from '../buttons/Button';
 import Text from '../typography/Text';
 import modalContext from '../../context/modal/modalContext';
@@ -8,6 +8,7 @@ import { Form } from '../forms/Form';
 import { FormGroup } from '../forms/FormGroup';
 import { Input } from '../forms/Input';
 import styled from 'styled-components';
+import gameContext from '../../context/game/gameContext';
 
 const EmptySeat = styled.div`
   display: flex;
@@ -29,10 +30,74 @@ const EmptySeat = styled.div`
 export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
   const { openModal, closeModal } = useContext(modalContext);
   const { chipsAmount } = useContext(globalContext);
+  const { standUp, seatId, rebuy } = useContext(gameContext);
 
   const seat = currentTable.seats[seatNumber];
   const maxBuyin = currentTable.limit;
   const minBuyIn = currentTable.minBet * 2 * 10;
+
+  useEffect(() => {
+    if (
+      currentTable &&
+      isPlayerSeated &&
+      seat &&
+      seat.id === seatId &&
+      seat.stack === 0 &&
+      seat.sittingOut
+    ) {
+      if (chipsAmount <= minBuyIn || chipsAmount === 0) {
+        standUp();
+      } else {
+        openModal(
+          () => (
+            <Form
+              onSubmit={(e) => {
+                e.preventDefault();
+
+                const amount = +document.getElementById('amount').value;
+
+                if (
+                  amount &&
+                  amount >= minBuyIn &&
+                  amount <= chipsAmount &&
+                  amount <= maxBuyin
+                ) {
+                  rebuy(currentTable.id, seatNumber + 1, parseInt(amount));
+                  closeModal();
+                }
+              }}
+            >
+              <FormGroup>
+                <Input
+                  id="amount"
+                  type="number"
+                  min={minBuyIn}
+                  max={chipsAmount <= maxBuyin ? chipsAmount : maxBuyin}
+                  defaultValue={minBuyIn}
+                />
+              </FormGroup>
+              <ButtonGroup>
+                <Button primary type="submit" fullWidth>
+                  Buy into game
+                </Button>
+              </ButtonGroup>
+            </Form>
+          ),
+          'Rebuy',
+          'No thanks!',
+          () => {
+            standUp();
+            closeModal();
+          },
+          () => {
+            standUp();
+            closeModal();
+          },
+        );
+      }
+    }
+    // eslint-disable-next-line
+  }, [currentTable]);
 
   return (
     <>
