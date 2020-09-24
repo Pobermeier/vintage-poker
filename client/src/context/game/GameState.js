@@ -124,6 +124,7 @@ const GameState = ({ history, children }) => {
         check,
         call,
         raise,
+        rebuy,
       }}
     >
       {children}
