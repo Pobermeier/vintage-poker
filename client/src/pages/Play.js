@@ -16,6 +16,7 @@ import { TableInfoWrapper } from '../components/game/TableInfoWrapper';
 import { InfoPill } from '../components/game/InfoPill';
 import { GameUI } from '../components/game/GameUI';
 import { GameStateInfo } from '../components/game/GameStateInfo';
+import PokerCard from '../components/game/PokerCard';
 
 const Play = ({ history }) => {
   const { socket } = useContext(socketContext);
@@ -157,16 +158,20 @@ const Play = ({ history }) => {
 
             {currentTable && (
               <>
-                <PositionedUISlot top="10vh">
+                <PositionedUISlot width="100%" top="-20vh" origin="top center">
                   {currentTable.board && currentTable.board.length > 0 && (
-                    <li>
-                      {currentTable.board.map(
-                        (card) => `${card.suit}${card.rank} `,
-                      )}
-                    </li>
+                    <>
+                      {currentTable.board.map((card, index) => (
+                        <PokerCard key={index} card={card} />
+                      ))}
+                    </>
                   )}
                 </PositionedUISlot>
-                <PositionedUISlot width="100%" left="35px">
+                <PositionedUISlot
+                  width="100%"
+                  left="35px"
+                  origin="center center"
+                >
                   {messages && messages.length > 0 && (
                     <InfoPill style={{ minWidth: '400px' }}>
                       {messages[messages.length - 1]}
@@ -176,6 +181,7 @@ const Play = ({ history }) => {
                 <PositionedUISlot
                   top="17vh"
                   left="-35px"
+                  origin="top center"
                   style={{ minWidth: '150px' }}
                 >
                   <GameStateInfo currentTable={currentTable} />
