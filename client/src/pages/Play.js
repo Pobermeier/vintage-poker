@@ -15,6 +15,8 @@ import Text from '../components/typography/Text';
 import modalContext from '../context/modal/modalContext';
 import { withRouter } from 'react-router-dom';
 import { TableInfoWrapper } from '../components/game/TableInfoWrapper';
+import ChipsAmount from '../components/user/ChipsAmount';
+import { InfoPill } from '../components/game/InfoPill';
 
 const Play = ({ history }) => {
   const { socket } = useContext(socketContext);
@@ -54,11 +56,31 @@ const Play = ({ history }) => {
     // eslint-disable-next-line
   }, [socket]);
 
+  useEffect(() => {
+    currentTable &&
+      (currentTable.callAmount > currentTable.minBet
+        ? setBet(currentTable.callAmount)
+        : currentTable.pot > 0
+        ? setBet(currentTable.minRaise)
+        : setBet(currentTable.minBet));
+  }, [currentTable]);
+
+  // useEffect(() => {
+  //   if (
+  //     currentTable &&
+  //     seatId &&
+  //     currentTable.seats[seatId] &&
+  //     currentTable.seats[seatId].turn
+  //   )
+  //     const timeout = setTimeout(() => {}, 5000);
+  //   return () => clearTimeout(timeout)
+  // }, [currentTable]);
+
   return (
     <>
       <RotateDevicePrompt />
       <Container fullHeight>
-        {currentTable && !isPlayerSeated && (
+        {currentTable && (
           <>
             <PositionedUISlot
               bottom="2vh"
@@ -69,21 +91,26 @@ const Play = ({ history }) => {
                 Leave Table
               </Button>
             </PositionedUISlot>
-            <PositionedUISlot
-              bottom="1.5vh"
-              right="1.5rem"
-              style={{ pointerEvents: 'none', zIndex: '50' }}
-              origin="bottom right"
-            >
-              <TableInfoWrapper>
-                <Text textAlign="right">
-                  <strong>{currentTable.name}</strong> |{' '}
-                  <strong>Limit: </strong>
-                  {currentTable.limit} | <strong>Blinds: </strong>
-                  {currentTable.minBet} / {currentTable.minRaise}
-                </Text>
-              </TableInfoWrapper>
-            </PositionedUISlot>
+            {!isPlayerSeated && (
+              <PositionedUISlot
+                bottom="1.5vh"
+                right="1.5rem"
+                style={{ pointerEvents: 'none', zIndex: '50' }}
+                origin="bottom right"
+              >
+                <TableInfoWrapper>
+                  <Text textAlign="right">
+                    <strong>{currentTable.name}</strong> |{' '}
+                    <strong>Limit: </strong>
+                    {new Intl.NumberFormat(
+                      document.documentElement.lang,
+                    ).format(currentTable.limit)}{' '}
+                    | <strong>Blinds: </strong>
+                    {currentTable.minBet} / {currentTable.minRaise}
+                  </Text>
+                </TableInfoWrapper>
+              </PositionedUISlot>
+            )}
           </>
         )}
         <PokerTableWrapper>
@@ -135,26 +162,8 @@ const Play = ({ history }) => {
             )}
 
             {currentTable && (
-              <PositionedUISlot>
-                <ul>
-                  {currentTable.mainPot && (
-                    <li>
-                      <strong>Main Pot: </strong>
-                      {currentTable.mainPot}
-                    </li>
-                  )}
-                  {currentTable.players.length <= 1 || currentTable.handOver ? (
-                    <li>Waiting...</li>
-                  ) : (
-                    <li>
-                      <strong>Turn: </strong>
-                      {currentTable.board.length === 0 && 'Pre-Flop'}
-                      {currentTable.board.length === 3 && 'Flop'}
-                      {currentTable.board.length === 4 && 'Turn'}
-                      {currentTable.board.length === 5 && 'River'}
-                      {currentTable.wentToShowdown && 'Showdown'}
-                    </li>
-                  )}
+              <>
+                <PositionedUISlot top="10vh">
                   {currentTable.board && currentTable.board.length > 0 && (
                     <li>
                       {currentTable.board.map(
@@ -162,8 +171,39 @@ const Play = ({ history }) => {
                       )}
                     </li>
                   )}
-                </ul>
-              </PositionedUISlot>
+                </PositionedUISlot>
+                <PositionedUISlot width="100%" left="35px">
+                  {messages && messages.length > 0 && (
+                    <InfoPill style={{ minWidth: '400px' }}>
+                      {messages[messages.length - 1]}
+                    </InfoPill>
+                  )}
+                </PositionedUISlot>
+                <PositionedUISlot
+                  top="17vh"
+                  left="-35px"
+                  style={{ minWidth: '150px' }}
+                >
+                  <div>
+                    {currentTable.players.length <= 1 ||
+                    currentTable.handOver ? (
+                      <InfoPill>Waiting...</InfoPill>
+                    ) : (
+                      <InfoPill>
+                        {currentTable.board.length === 0 && 'Pre-Flop'}
+                        {currentTable.board.length === 3 && 'Flop'}
+                        {currentTable.board.length === 4 && 'Turn'}
+                        {currentTable.board.length === 5 && 'River'}
+                        {currentTable.wentToShowdown && 'Showdown'}
+                      </InfoPill>
+                    )}
+
+                    {!!currentTable.mainPot && (
+                      <ChipsAmount chipsAmount={currentTable.mainPot} />
+                    )}
+                  </div>
+                </PositionedUISlot>
+              </>
             )}
           </CenteredAnchor>
         </PokerTableWrapper>
@@ -179,11 +219,11 @@ const Play = ({ history }) => {
                 bet={bet}
                 setBet={setBet}
               />
-              <Button small onClick={() => raise(bet)}>
+              <Button
+                small
+                onClick={() => raise(bet + currentTable.seats[seatId].bet)}
+              >
                 Bet {bet}
-              </Button>
-              <Button small secondary onClick={leaveTable}>
-                Leave Table
               </Button>
               <Button small secondary onClick={standUp}>
                 Stand Up
