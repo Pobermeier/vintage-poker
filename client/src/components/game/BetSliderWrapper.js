@@ -15,14 +15,27 @@ const BetSliderInput = styled.input`
   width: 100%;
 `;
 
-export const BetSlider = (currentTable, seatId, bet, setBet) => (
+export const BetSlider = ({ currentTable, seatId, bet, setBet }) => (
   <BetSliderWrapper>
     <BetSliderInput
       type="range"
       style={{ width: '100%' }}
-      min={currentTable.callAmount}
+      step="10"
+      min={
+        currentTable.minBet >= currentTable.callAmount
+          ? currentTable.minBet
+          : currentTable.callAmount
+      }
+      max={
+        currentTable &&
+        currentTable.seats &&
+        currentTable.seats[seatId].stack &&
+        (currentTable.seats[seatId].stack < currentTable.limit
+          ? currentTable.seats[seatId].stack
+          : currentTable.limit)
+      }
       value={bet}
-      onChange={(e) => setBet(e.target.value)}
+      onChange={(e) => setBet(+e.target.value)}
     />
   </BetSliderWrapper>
 );
