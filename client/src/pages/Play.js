@@ -13,9 +13,9 @@ import Text from '../components/typography/Text';
 import modalContext from '../context/modal/modalContext';
 import { withRouter } from 'react-router-dom';
 import { TableInfoWrapper } from '../components/game/TableInfoWrapper';
-import ChipsAmount from '../components/user/ChipsAmount';
 import { InfoPill } from '../components/game/InfoPill';
 import { GameUI } from '../components/game/GameUI';
+import { GameStateInfo } from '../components/game/GameStateInfo';
 
 const Play = ({ history }) => {
   const { socket } = useContext(socketContext);
@@ -189,24 +189,7 @@ const Play = ({ history }) => {
                   left="-35px"
                   style={{ minWidth: '150px' }}
                 >
-                  <div>
-                    {currentTable.players.length <= 1 ||
-                    currentTable.handOver ? (
-                      <InfoPill>Waiting...</InfoPill>
-                    ) : (
-                      <InfoPill>
-                        {currentTable.board.length === 0 && 'Pre-Flop'}
-                        {currentTable.board.length === 3 && 'Flop'}
-                        {currentTable.board.length === 4 && 'Turn'}
-                        {currentTable.board.length === 5 && 'River'}
-                        {currentTable.wentToShowdown && 'Showdown'}
-                      </InfoPill>
-                    )}
-
-                    {!!currentTable.mainPot && (
-                      <ChipsAmount chipsAmount={currentTable.mainPot} />
-                    )}
-                  </div>
+                  <GameStateInfo currentTable={currentTable} />
                 </PositionedUISlot>
               </>
             )}
