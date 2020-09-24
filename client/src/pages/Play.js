@@ -5,8 +5,6 @@ import gameContext from '../context/game/gameContext';
 import socketContext from '../context/websocket/socketContext';
 import PokerTable from '../components/game/PokerTable';
 import { RotateDevicePrompt } from '../components/game/RotateDevicePrompt';
-import { BetSlider } from '../components/game/BetSliderWrapper';
-import { UIWrapper } from '../components/game/UIWrapper';
 import { CenteredAnchor } from '../components/game/CenteredAnchor';
 import { PositionedUISlot } from '../components/game/PositionedUISlot';
 import { PokerTableWrapper } from '../components/game/PokerTableWrapper';
@@ -17,6 +15,7 @@ import { withRouter } from 'react-router-dom';
 import { TableInfoWrapper } from '../components/game/TableInfoWrapper';
 import ChipsAmount from '../components/user/ChipsAmount';
 import { InfoPill } from '../components/game/InfoPill';
+import { GameUI } from '../components/game/GameUI';
 
 const Play = ({ history }) => {
   const { socket } = useContext(socketContext);
@@ -212,63 +211,17 @@ const Play = ({ history }) => {
           isPlayerSeated &&
           currentTable.seats[seatId] &&
           currentTable.seats[seatId].turn && (
-            <UIWrapper>
-              <BetSlider
-                currentTable={currentTable}
-                seatId={seatId}
-                bet={bet}
-                setBet={setBet}
-              />
-              <Button
-                small
-                onClick={() => raise(bet + currentTable.seats[seatId].bet)}
-              >
-                Bet {bet}
-              </Button>
-              <Button small secondary onClick={standUp}>
-                Stand Up
-              </Button>
-              <Button small secondary onClick={fold}>
-                Fold
-              </Button>
-              <Button
-                small
-                secondary
-                disabled={
-                  currentTable.callAmount !== currentTable.seats[seatId].bet &&
-                  currentTable.callAmount > 0
-                }
-                onClick={check}
-              >
-                Check
-              </Button>
-              <Button
-                small
-                disabled={
-                  currentTable.callAmount === 0 ||
-                  currentTable.seats[seatId].bet >= currentTable.callAmount
-                }
-                onClick={call}
-              >
-                Call{' '}
-                {currentTable.callAmount &&
-                currentTable.seats[seatId].bet < currentTable.callAmount &&
-                currentTable.callAmount <= currentTable.seats[seatId].stack
-                  ? currentTable.callAmount - currentTable.seats[seatId].bet
-                  : ''}
-              </Button>
-              <Button
-                small
-                onClick={() =>
-                  raise(
-                    currentTable.seats[seatId].stack +
-                      currentTable.seats[seatId].bet,
-                  )
-                }
-              >
-                All-in ({currentTable.seats[seatId].stack})
-              </Button>
-            </UIWrapper>
+            <GameUI
+              currentTable={currentTable}
+              seatId={seatId}
+              bet={bet}
+              setBet={setBet}
+              raise={raise}
+              standUp={standUp}
+              fold={fold}
+              check={check}
+              call={call}
+            />
           )}
       </Container>
     </>
