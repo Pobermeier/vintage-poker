@@ -1,5 +1,5 @@
 import React from 'react';
-import ChipsAmount from '../user/ChipsAmount';
+import ChipsAmountPill from './ChipsAmountPill';
 import { InfoPill } from './InfoPill';
 
 export const GameStateInfo = ({ currentTable }) => (
@@ -17,7 +17,7 @@ export const GameStateInfo = ({ currentTable }) => (
     )}
 
     {!!currentTable.mainPot && (
-      <ChipsAmount chipsAmount={currentTable.mainPot} />
+      <ChipsAmountPill chipsAmount={currentTable.mainPot} />
     )}
   </div>
 );
