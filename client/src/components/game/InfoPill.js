@@ -9,7 +9,7 @@ export const InfoPill = styled.div`
   text-align: center;
   background: #282215;
   margin: 0.5rem 0;
-  opacity: 0.75;
+  opacity: 0.85;
   color: #fffefc;
   border-radius: 40px;
 `;
