@@ -6,7 +6,7 @@ const StyledPokerTable = styled.img`
   display: block;
   pointer-events: none;
   width: 95%;
-  margin: auto;
+  margin: 0 auto;
 
   /* @media screen and (orientation: portrait) {
     transform: rotate(90deg) scale(1.7);

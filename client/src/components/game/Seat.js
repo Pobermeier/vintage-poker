@@ -42,6 +42,14 @@ const OccupiedSeat = styled(EmptySeat)`
     hasTurn ? `8px solid #219653` : `5px solid #6297b5`};
 `;
 
+const Hand = styled.div`
+  display: flex;
+
+  * ~ * {
+    margin-left: -1.25rem;
+  }
+`;
+
 export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
   const { openModal, closeModal } = useContext(modalContext);
   const { chipsAmount } = useContext(globalContext);
@@ -177,22 +185,57 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
           )}
         </>
       ) : (
-        <PositionedUISlot>
-          <PositionedUISlot top="-9vh" style={{ minWidth: '150px' }}>
-            <Text>{seat.player.name}</Text>
+        <PositionedUISlot
+          style={{
+            display: 'flex',
+            textAlign: 'center',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <PositionedUISlot top="-5.25rem" style={{ minWidth: '150px' }}>
+            <Text textAlign="center">
+              {seat.player.name}{' '}
+              {seat.stack && (
+                <>
+                  (
+                  {new Intl.NumberFormat(document.documentElement.lang).format(
+                    seat.stack,
+                  )}
+                  )
+                </>
+              )}
+            </Text>
           </PositionedUISlot>
           <PositionedUISlot>
             <OccupiedSeat seatNumber={seatNumber} hasTurn={seat.turn} />
           </PositionedUISlot>
-          <PositionedUISlot left="2vh" style={{ scale: '0.65' }}>
-            {seat.hand &&
-              seat.hand.map((card, index) => (
-                <PokerCard key={index} card={card} />
-              ))}
+          <PositionedUISlot
+            left="4vh"
+            style={{
+              display: 'flex',
+              textAlign: 'center',
+              justifyContent: 'center',
+              alignItems: 'center',
+              scale: '0.65',
+            }}
+          >
+            <Hand>
+              {seat.hand &&
+                seat.hand.map((card, index) => (
+                  <PokerCard
+                    key={index}
+                    card={card}
+                    width="5vw"
+                    maxWidth="60px"
+                    minWidth="30px"
+                  />
+                ))}
+            </Hand>
           </PositionedUISlot>
-          <PositionedUISlot top="3vh" style={{ minWidth: '150px' }}>
+          <PositionedUISlot top="5vh" style={{ minWidth: '150px' }}>
             <div>
-              {seat.stack && <ChipsAmountPill chipsAmount={seat.stack} />}
+              <ChipsAmountPill chipsAmount={seat.bet} />
               {!currentTable.handOver && seat.checked && (
                 <InfoPill>CHECK</InfoPill>
               )}

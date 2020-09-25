@@ -52,6 +52,7 @@ const Play = ({ history }) => {
         () => history.push('/'),
       );
     socket && joinTable(1);
+    return () => leaveTable();
     // eslint-disable-next-line
   }, [socket]);
 
@@ -73,6 +74,7 @@ const Play = ({ history }) => {
             <PositionedUISlot
               bottom="2vh"
               left="1.5rem"
+              scale="0.65"
               style={{ zIndex: '50' }}
             >
               <Button small secondary onClick={leaveTable}>
@@ -83,6 +85,7 @@ const Play = ({ history }) => {
               <PositionedUISlot
                 bottom="1.5vh"
                 right="1.5rem"
+                scale="0.65"
                 style={{ pointerEvents: 'none', zIndex: '50' }}
                 origin="bottom right"
               >
@@ -112,7 +115,12 @@ const Play = ({ history }) => {
           <CenteredAnchor>
             {currentTable && (
               <>
-                <PositionedUISlot top="-35vh" left="-35vw">
+                <PositionedUISlot
+                  top="-35vh"
+                  left="-25vw"
+                  scale="0.65"
+                  origin="top left"
+                >
                   <Seat
                     seatNumber={0}
                     currentTable={currentTable}
@@ -120,7 +128,7 @@ const Play = ({ history }) => {
                     sitDown={sitDown}
                   />
                 </PositionedUISlot>
-                <PositionedUISlot top="-35vh" left="-5vw">
+                <PositionedUISlot top="-35vh" scale="0.65" origin="top center">
                   <Seat
                     seatNumber={1}
                     currentTable={currentTable}
@@ -128,7 +136,12 @@ const Play = ({ history }) => {
                     sitDown={sitDown}
                   />
                 </PositionedUISlot>
-                <PositionedUISlot top="-35vh" left="30vw">
+                <PositionedUISlot
+                  top="-35vh"
+                  left="25vw"
+                  scale="0.65"
+                  origin="top right"
+                >
                   <Seat
                     seatNumber={2}
                     currentTable={currentTable}
@@ -136,7 +149,12 @@ const Play = ({ history }) => {
                     sitDown={sitDown}
                   />
                 </PositionedUISlot>
-                <PositionedUISlot top="0" left="35vw">
+                <PositionedUISlot
+                  top="0"
+                  left="35vw"
+                  scale="0.65"
+                  origin="center left"
+                >
                   <Seat
                     seatNumber={3}
                     currentTable={currentTable}
@@ -144,7 +162,12 @@ const Play = ({ history }) => {
                     sitDown={sitDown}
                   />
                 </PositionedUISlot>
-                <PositionedUISlot top="0" left="-40vw">
+                <PositionedUISlot
+                  top="0"
+                  left="-35vw"
+                  scale="0.65"
+                  origin="center left"
+                >
                   <Seat
                     seatNumber={4}
                     currentTable={currentTable}
@@ -157,7 +180,18 @@ const Play = ({ history }) => {
 
             {currentTable && (
               <>
-                <PositionedUISlot width="100%" top="-20vh" origin="top center">
+                <PositionedUISlot
+                  width="100%"
+                  top="-20vh"
+                  origin="top center"
+                  scale="0.65"
+                  style={{
+                    display: 'flex',
+                    textAlign: 'center',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
                   {currentTable.board && currentTable.board.length > 0 && (
                     <>
                       {currentTable.board.map((card, index) => (
@@ -167,19 +201,31 @@ const Play = ({ history }) => {
                   )}
                 </PositionedUISlot>
                 <PositionedUISlot
-                  width="100%"
-                  left="35px"
+                  left="-175px"
+                  scale="0.65"
                   origin="center center"
                 >
                   {messages && messages.length > 0 && (
-                    <InfoPill style={{ minWidth: '400px' }}>
-                      {messages[messages.length - 1]}
-                    </InfoPill>
+                    <>
+                      <InfoPill style={{ minWidth: '400px' }}>
+                        {messages[messages.length - 1]}
+                      </InfoPill>
+                      {currentTable.winMessages.length > 0 && (
+                        <InfoPill style={{ minWidth: '400px' }}>
+                          {
+                            currentTable.winMessages[
+                              currentTable.winMessages.length - 1
+                            ]
+                          }
+                        </InfoPill>
+                      )}
+                    </>
                   )}
                 </PositionedUISlot>
                 <PositionedUISlot
                   top="17vh"
                   left="-35px"
+                  scale="0.65"
                   origin="top center"
                   style={{ minWidth: '150px' }}
                 >

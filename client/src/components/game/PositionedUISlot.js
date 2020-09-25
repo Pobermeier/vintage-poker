@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const PositionedUISlot = styled.div`
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: center; */
   width: ${({ width }) => width || 'auto'};
   height: ${({ height }) => height || 'auto'};
   position: absolute;
@@ -15,6 +15,6 @@ export const PositionedUISlot = styled.div`
   transform-origin: ${({ origin }) => origin || 'top left'};
 
   @media screen and (max-width: 868px) {
-    transform: scale(0.65);
+    transform: ${({ scale }) => `scale(${scale})` || '1'};
   }
 `;
