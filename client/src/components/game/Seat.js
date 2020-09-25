@@ -52,6 +52,20 @@ const Hand = styled.div`
   }
 `;
 
+const NameTag = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-width: 150px;
+  padding: 0.15rem 2rem;
+  position: absolute;
+  background: #f7f2dc;
+  opacity: 0.85;
+  border-radius: 40px;
+  z-index: 55;
+`;
+
 export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
   const { openModal, closeModal } = useContext(modalContext);
   const { chipsAmount } = useContext(globalContext);
@@ -195,19 +209,22 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
             alignItems: 'center',
           }}
         >
-          <PositionedUISlot top="-5.25rem" style={{ minWidth: '150px' }}>
-            <ColoredText primary textAlign="center">
-              {seat.player.name}{' '}
-              {seat.stack && (
-                <ColoredText secondary>
-                  (<PokerChip width="15" height="15" />{' '}
-                  {new Intl.NumberFormat(document.documentElement.lang).format(
-                    seat.stack,
-                  )}
-                  )
-                </ColoredText>
-              )}
-            </ColoredText>
+          <PositionedUISlot top="-6rem" left="-75px">
+            <NameTag>
+              <ColoredText primary textAlign="center">
+                {seat.player.name}
+                <br />
+                {seat.stack && (
+                  <ColoredText secondary>
+                    (<PokerChip width="15" height="15" />{' '}
+                    {new Intl.NumberFormat(
+                      document.documentElement.lang,
+                    ).format(seat.stack)}
+                    )
+                  </ColoredText>
+                )}
+              </ColoredText>
+            </NameTag>
           </PositionedUISlot>
           <PositionedUISlot>
             <OccupiedSeat seatNumber={seatNumber} hasTurn={seat.turn} />
