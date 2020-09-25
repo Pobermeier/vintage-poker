@@ -6,64 +6,17 @@ import { ButtonGroup } from '../forms/ButtonGroup';
 import { Form } from '../forms/Form';
 import { FormGroup } from '../forms/FormGroup';
 import { Input } from '../forms/Input';
-import styled from 'styled-components';
 import gameContext from '../../context/game/gameContext';
-import userImages from './userImages';
 import { PositionedUISlot } from './PositionedUISlot';
 import { InfoPill } from './InfoPill';
 import PokerCard from './PokerCard';
 import ChipsAmountPill from './ChipsAmountPill';
 import ColoredText from '../typography/ColoredText';
 import PokerChip from '../icons/PokerChip';
-
-const EmptySeat = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 10vw;
-  min-width: 100px;
-  max-width: 120px;
-  height: 10vw;
-  min-height: 100px;
-  max-height: 120px;
-  padding: 1rem;
-  border-radius: 100%;
-  background: rgba(247, 242, 220, 0.8);
-  border: 5px solid #6297b5;
-`;
-
-const OccupiedSeat = styled(EmptySeat)`
-  background-image: ${({ seatNumber }) => `url(${userImages[seatNumber]})`};
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 0;
-  border: ${({ hasTurn }) =>
-    hasTurn ? `8px solid #219653` : `5px solid #6297b5`};
-`;
-
-const Hand = styled.div`
-  display: flex;
-
-  * ~ * {
-    margin-left: -1.25rem;
-  }
-`;
-
-const NameTag = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-width: 150px;
-  padding: 0.15rem 2rem;
-  position: absolute;
-  background: #f7f2dc;
-  opacity: 0.85;
-  border-radius: 40px;
-  z-index: 55;
-`;
+import { EmptySeat } from './EmptySeat';
+import { OccupiedSeat } from './OccupiedSeat';
+import { Hand } from './Hand';
+import { NameTag } from './NameTag';
 
 export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
   const { openModal, closeModal } = useContext(modalContext);
