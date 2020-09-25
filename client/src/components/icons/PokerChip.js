@@ -1,12 +1,13 @@
 import React from 'react';
 import theme from '../../styles/theme';
+import PropTypes from 'prop-types';
 
-const PokerChip = () => {
+const PokerChip = ({ width, height }) => {
   return (
     <>
       <svg
-        width="40"
-        height="40"
+        width={width}
+        height={height}
         viewBox="0 0 38 38"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -25,6 +26,16 @@ const PokerChip = () => {
       </svg>
     </>
   );
+};
+
+PokerChip.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string,
+};
+
+PokerChip.defaultProps = {
+  width: '40',
+  height: '40',
 };
 
 export default PokerChip;
