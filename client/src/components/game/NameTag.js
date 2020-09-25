@@ -9,7 +9,7 @@ export const NameTag = styled.div`
   padding: 0.15rem 2rem;
   position: absolute;
   background: #f7f2dc;
-  opacity: 0.85;
-  border-radius: 40px;
+  opacity: 0.9;
+  border-radius: 10px;
   z-index: 55;
 `;

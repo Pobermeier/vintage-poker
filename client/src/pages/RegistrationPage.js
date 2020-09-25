@@ -48,7 +48,8 @@ const RegistrationPage = () => {
               name &&
               email &&
               password &&
-              name.length > 0 &&
+              name.length >= 5 &&
+              name.length <= 12 &&
               email.length >= 0 &&
               password.length >= 6
             ) {
@@ -75,6 +76,7 @@ const RegistrationPage = () => {
               autoComplete="off"
               ref={nicknameRef}
               minLength="5"
+              maxLength="12"
               required
             />
           </FormGroup>
