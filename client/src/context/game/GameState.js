@@ -33,8 +33,8 @@ const GameState = ({ history, children }) => {
 
   useEffect(() => {
     if (socket) {
-      window.onunload = leaveTable;
-      window.onunload = leaveTable;
+      window.addEventListener('unload', leaveTable);
+      window.addEventListener('close', leaveTable);
 
       socket.on(TABLE_UPDATED, ({ table, message, from }) => {
         console.log(TABLE_UPDATED, table, message, from);
@@ -53,7 +53,7 @@ const GameState = ({ history, children }) => {
         setMessages([]);
       });
     }
-    return () => socket && leaveTable;
+    return () => leaveTable();
     // eslint-disable-next-line
   }, [socket]);
 

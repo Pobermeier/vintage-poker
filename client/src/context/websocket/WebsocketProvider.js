@@ -18,6 +18,26 @@ const WebSocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   const [socketId, setSocketId] = useState(null);
 
+  useEffect(() => {
+    window.addEventListener('unload', cleanUp);
+    window.addEventListener('close', cleanUp);
+    return () => cleanUp();
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      const token = localStorage.token;
+      const webSocket = socket || connect();
+
+      token && webSocket && webSocket.emit(FETCH_LOBBY_INFO, token);
+    } else {
+      cleanUp();
+    }
+    return () => cleanUp();
+    // eslint-disable-next-line
+  }, [isLoggedIn]);
+
   function cleanUp() {
     socket && socket.emit(DISCONNECT);
     socket && socket.close();
@@ -55,19 +75,6 @@ const WebSocketProvider = ({ children }) => {
       setTables(tables);
     });
   }
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      const token = localStorage.token;
-      const webSocket = socket || connect();
-
-      token && webSocket && webSocket.emit(FETCH_LOBBY_INFO, token);
-    } else {
-      cleanUp();
-    }
-    return () => cleanUp();
-    // eslint-disable-next-line
-  }, [isLoggedIn]);
 
   return (
     <SocketContext.Provider value={{ socket, socketId, cleanUp }}>

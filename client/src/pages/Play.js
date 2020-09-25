@@ -52,7 +52,6 @@ const Play = ({ history }) => {
         () => history.push('/'),
       );
     socket && joinTable(1);
-    return () => leaveTable();
     // eslint-disable-next-line
   }, [socket]);
 
