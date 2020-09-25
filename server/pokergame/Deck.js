@@ -29,7 +29,9 @@ class Deck {
       });
     });
 
-    cards = lodash.shuffle(cards);
+    for (let i = 0; i <= 7; i++) {
+      cards = lodash.shuffle(cards);
+    }
 
     return cards;
   }
