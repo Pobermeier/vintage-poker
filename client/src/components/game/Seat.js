@@ -12,7 +12,6 @@ import userImages from './userImages';
 import { PositionedUISlot } from './PositionedUISlot';
 import { InfoPill } from './InfoPill';
 import PokerCard from './PokerCard';
-import Text from '../typography/Text';
 import ChipsAmountPill from './ChipsAmountPill';
 import ColoredText from '../typography/ColoredText';
 import PokerChip from '../icons/PokerChip';
