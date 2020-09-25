@@ -99,7 +99,7 @@ const useAuth = () => {
     setChipsAmount(null);
   };
 
-  return [isLoggedIn, login, logout, register];
+  return [isLoggedIn, login, logout, register, loadUser];
 };
 
 export default useAuth;

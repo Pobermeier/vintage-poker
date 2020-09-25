@@ -14,11 +14,13 @@ import {
   TABLE_LEFT,
   TABLE_UPDATED,
 } from '../../pokergame/actions';
+import authContext from '../auth/authContext';
 import socketContext from '../websocket/socketContext';
 import GameContext from './gameContext';
 
 const GameState = ({ history, children }) => {
   const { socket } = useContext(socketContext);
+  const { loadUser } = useContext(authContext);
 
   const [messages, setMessages] = useState([]);
   const [currentTable, setCurrentTable] = useState(null);
@@ -68,6 +70,7 @@ const GameState = ({ history, children }) => {
       currentTableRef.current.id &&
       socket.emit(LEAVE_TABLE, currentTableRef.current.id);
     isPlayerSeated && standUp();
+    loadUser(localStorage.token);
     history.push('/');
   };
 
