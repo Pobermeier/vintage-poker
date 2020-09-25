@@ -10,6 +10,7 @@ const StyledPokerCardWrapper = styled.div`
     width: ${({ width }) => width || '7vw'};
     max-width: ${({ maxWidth }) => maxWidth || '80px'};
     min-width: ${({ minWidth }) => minWidth || '50px'};
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
   }
 `;
 
