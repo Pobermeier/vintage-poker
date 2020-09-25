@@ -161,18 +161,17 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
             alignItems: 'center',
           }}
         >
-          <PositionedUISlot top="-6rem" left="-75px">
+          <PositionedUISlot top="-6.25rem" left="-75px">
             <NameTag>
               <ColoredText primary textAlign="center">
                 {seat.player.name}
                 <br />
                 {seat.stack && (
                   <ColoredText secondary>
-                    (<PokerChip width="15" height="15" />{' '}
+                    <PokerChip width="15" height="15" />{' '}
                     {new Intl.NumberFormat(
                       document.documentElement.lang,
                     ).format(seat.stack)}
-                    )
                   </ColoredText>
                 )}
               </ColoredText>
