@@ -19,8 +19,8 @@ const WebSocketProvider = ({ children }) => {
   const [socketId, setSocketId] = useState(null);
 
   useEffect(() => {
-    window.addEventListener('unload', cleanUp);
-    window.addEventListener('close', cleanUp);
+    window.addEventListener('beforeunload', cleanUp);
+    window.addEventListener('beforeclose', cleanUp);
     return () => cleanUp();
     // eslint-disable-next-line
   }, []);
@@ -39,8 +39,8 @@ const WebSocketProvider = ({ children }) => {
   }, [isLoggedIn]);
 
   function cleanUp() {
-    socket && socket.emit(DISCONNECT);
-    socket && socket.close();
+    window.socket && window.socket.emit(DISCONNECT);
+    window.socket && window.socket.close();
     setSocket(null);
     setSocketId(null);
     setPlayers(null);
@@ -54,6 +54,7 @@ const WebSocketProvider = ({ children }) => {
     });
     registerCallbacks(socket);
     setSocket(socket);
+    window.socket = socket;
     return socket;
   }
 
