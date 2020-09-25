@@ -265,23 +265,6 @@ const init = (socket, io) => {
     io.to(socket.id).emit(PLAYERS_UPDATED, getCurrentPlayers());
   }
 
-  // async function saveHandHistory(table) {
-  //   const seats = Object.keys(table.seats).map((seatId) => table.seats[seatId]);
-  //   const players = seats
-  //     .filter((seat) => seat != null)
-  //     .map((seat) => seat.player);
-
-  //   const hand = await db.Hand.create({
-  //     history: JSON.stringify(table.history),
-  //   });
-  //   await db.UserHand.bulkCreate(
-  //     players.map((player) => ({
-  //       user_id: player.id,
-  //       hand_id: hand.id,
-  //     })),
-  //   );
-  // }
-
   function findSeatBySocketId(socketId) {
     let foundSeat = null;
     Object.values(tables).forEach((table) => {
@@ -318,7 +301,6 @@ const init = (socket, io) => {
       broadcastToTable(table);
 
       if (table.handOver) {
-        // saveHandHistory(table);
         initNewHand(table);
       }
     }, 1000);
@@ -336,8 +318,6 @@ const init = (socket, io) => {
   }
 
   function clearForOnePlayer(table) {
-    // saveHandHistory(table);
-
     table.clearWinMessages();
     setTimeout(() => {
       table.clearSeatHands();
