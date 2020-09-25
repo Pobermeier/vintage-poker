@@ -10,4 +10,5 @@ export const OccupiedSeat = styled(EmptySeat)`
   padding: 0;
   border: ${({ hasTurn }) =>
     hasTurn ? `8px solid #219653` : `5px solid #6297b5`};
+  transform: ${({ hasTurn }) => (hasTurn ? `scale(1.2)` : `scale(1)`)};
 `;

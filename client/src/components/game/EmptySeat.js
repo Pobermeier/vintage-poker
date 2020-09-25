@@ -15,4 +15,5 @@ export const EmptySeat = styled.div`
   border-radius: 100%;
   background: rgba(247, 242, 220, 0.8);
   border: 5px solid #6297b5;
+  transition: all 0.1s;
 `;
