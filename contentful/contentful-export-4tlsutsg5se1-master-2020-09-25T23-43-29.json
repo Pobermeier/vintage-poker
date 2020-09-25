@@ -7500,6 +7500,2932 @@
           "en": "Update Now & Refresh"
         }
       }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "5LxbcOlyGg5sdT13LKqLlL",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:29:52.792Z",
+        "updatedAt": "2020-09-25T21:40:31.648Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:40:31.648Z",
+        "firstPublishedAt": "2020-09-25T21:40:31.648Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_leave-table-btn"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "5rfnrGhZeTwX9R1M99qSdT"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "5rfnrGhZeTwX9R1M99qSdT",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:30:01.158Z",
+        "updatedAt": "2020-09-25T21:30:11.611Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:30:11.611Z",
+        "firstPublishedAt": "2020-09-25T21:30:11.611Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_leave-table-btn"
+        },
+        "value": {
+          "de": "Tisch verlassen",
+          "en": "Leave Table"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "7zbVvFQgK6GOuJ3u83HjjP",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:30:17.882Z",
+        "updatedAt": "2020-09-25T21:40:30.758Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:40:30.757Z",
+        "firstPublishedAt": "2020-09-25T21:40:30.757Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_info_limit-lbl"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "4tyx8HjA3Z8lRClFvAbH4"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "4tyx8HjA3Z8lRClFvAbH4",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:30:36.978Z",
+        "updatedAt": "2020-09-25T21:30:45.768Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:30:45.768Z",
+        "firstPublishedAt": "2020-09-25T21:30:45.768Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_info_limit-lbl"
+        },
+        "value": {
+          "de": "Limit",
+          "en": "Limit"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "p3o4b1ia0use0KGR5ueyD",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:31:00.818Z",
+        "updatedAt": "2020-09-25T21:40:30.528Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:40:30.528Z",
+        "firstPublishedAt": "2020-09-25T21:40:30.528Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_info_blinds-lbl"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "2O8zezxfoRZsVa7tWpYgpS"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "2O8zezxfoRZsVa7tWpYgpS",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:31:06.877Z",
+        "updatedAt": "2020-09-25T21:31:18.835Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:31:18.835Z",
+        "firstPublishedAt": "2020-09-25T21:31:18.835Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_info_blinds-lbl"
+        },
+        "value": {
+          "de": "Einsätze",
+          "en": "Blinds"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "50YbEFk1SBQOQHRjcRpNRL",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:31:23.921Z",
+        "updatedAt": "2020-09-25T21:40:30.531Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:40:30.531Z",
+        "firstPublishedAt": "2020-09-25T21:40:30.531Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_sitdown-btn"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "6gFG4vYghbPkfFavpDc9JB"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "6gFG4vYghbPkfFavpDc9JB",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:31:33.289Z",
+        "updatedAt": "2020-09-25T21:31:42.615Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:31:42.615Z",
+        "firstPublishedAt": "2020-09-25T21:31:42.615Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_sitdown-btn"
+        },
+        "value": {
+          "de": "Hinsetzen",
+          "en": "Sit Down"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "E8tPsoFqL7PSaPUgZU2r6",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:31:55.664Z",
+        "updatedAt": "2020-09-25T21:40:30.571Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:40:30.571Z",
+        "firstPublishedAt": "2020-09-25T21:40:30.571Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_buyin-modal_header"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "7pjNFtPWXgurBrYQT4Inqn"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "7pjNFtPWXgurBrYQT4Inqn",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:32:01.125Z",
+        "updatedAt": "2020-09-25T21:32:11.793Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:32:11.793Z",
+        "firstPublishedAt": "2020-09-25T21:32:11.793Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_buyin-modal_header"
+        },
+        "value": {
+          "de": "Einkauf",
+          "en": "Buy In"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "4EtrUQaZB8m0ivDPixoymZ",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:32:15.317Z",
+        "updatedAt": "2020-09-25T21:40:30.520Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:40:30.520Z",
+        "firstPublishedAt": "2020-09-25T21:40:30.520Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_buyin-modal_confirm"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "7AgiQRJO8pAZRUDVbUdEC3"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "7AgiQRJO8pAZRUDVbUdEC3",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:32:26.166Z",
+        "updatedAt": "2020-09-25T21:32:38.297Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:32:38.297Z",
+        "firstPublishedAt": "2020-09-25T21:32:38.297Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_buyin-modal_confirm"
+        },
+        "value": {
+          "de": "Ins Spiel einkaufen",
+          "en": "Buy into game"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "4drXiYGYVuOTn72mfUYn9c",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:32:43.868Z",
+        "updatedAt": "2020-09-25T21:40:30.526Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:40:30.526Z",
+        "firstPublishedAt": "2020-09-25T21:40:30.526Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_buyin-modal_cancel"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "3A1kk01U6S2lqedG50ALxF"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "3A1kk01U6S2lqedG50ALxF",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:32:51.419Z",
+        "updatedAt": "2020-09-25T21:33:01.775Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:33:01.775Z",
+        "firstPublishedAt": "2020-09-25T21:33:01.775Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_buyin-modal_cancel"
+        },
+        "value": {
+          "de": "Nein danke!",
+          "en": "No thanks!"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "5kZUMyDv6EVLacrIvfJBpa",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:33:06.477Z",
+        "updatedAt": "2020-09-25T21:40:31.648Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:40:31.648Z",
+        "firstPublishedAt": "2020-09-25T21:40:31.648Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_rebuy-modal_header"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "4SHjsIgNBjMA8Mbf6rJHRP"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "4SHjsIgNBjMA8Mbf6rJHRP",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:33:15.847Z",
+        "updatedAt": "2020-09-25T21:33:24.059Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:33:24.059Z",
+        "firstPublishedAt": "2020-09-25T21:33:24.059Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_rebuy-modal_header"
+        },
+        "value": {
+          "de": "Wiedereinkauf",
+          "en": "Rebuy"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "1phmbfQMPKzR7d3c5Ukcn6",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:33:34.776Z",
+        "updatedAt": "2020-09-25T21:40:32.724Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:40:32.724Z",
+        "firstPublishedAt": "2020-09-25T21:40:32.724Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_rebuy-modal_confirm"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "JJ5CxUU19h18wA7F1K4A6"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "JJ5CxUU19h18wA7F1K4A6",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:33:38.985Z",
+        "updatedAt": "2020-09-25T21:33:47.333Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:33:47.333Z",
+        "firstPublishedAt": "2020-09-25T21:33:47.333Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_rebuy-modal_confirm"
+        },
+        "value": {
+          "de": "Ins Spiel zurückkaufen",
+          "en": "Rebuy into game"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "6jDQ2sxTHAcg0RDxTIGQ5T",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:33:51.191Z",
+        "updatedAt": "2020-09-25T21:40:30.285Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:40:30.285Z",
+        "firstPublishedAt": "2020-09-25T21:40:30.285Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_rebuy-modal_cancel"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "1YtcLmwnUqe8p4p6Wx9mkU"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "1YtcLmwnUqe8p4p6Wx9mkU",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:34:08.785Z",
+        "updatedAt": "2020-09-25T21:34:17.804Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:34:17.804Z",
+        "firstPublishedAt": "2020-09-25T21:34:17.804Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_rebuy-modal_cancel"
+        },
+        "value": {
+          "de": "Nein danke!",
+          "en": "No thanks!"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "1mJn4sB4Aii2CxUn5TqHah",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:34:22.556Z",
+        "updatedAt": "2020-09-25T21:40:31.114Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:40:31.114Z",
+        "firstPublishedAt": "2020-09-25T21:40:31.114Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_table_empty-seat"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "1y7i6FEt5iwoOQYTU1Rxuj"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "1y7i6FEt5iwoOQYTU1Rxuj",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:34:35.834Z",
+        "updatedAt": "2020-09-25T21:34:53.487Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2020-09-25T21:34:53.487Z",
+        "firstPublishedAt": "2020-09-25T21:34:53.487Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "stringLong"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_table_empty-seat"
+        },
+        "value": {
+          "de": "Leerer<br/>Sitz",
+          "en": "Empty<br />Seat"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "582JTUsxDuYLSTw0SPtMwg",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:35:03.169Z",
+        "updatedAt": "2020-09-25T21:40:31.239Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:40:31.239Z",
+        "firstPublishedAt": "2020-09-25T21:40:31.239Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_ui_stand-up"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "6OHbP7mL2XoTnSpNNcNqZg"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "6OHbP7mL2XoTnSpNNcNqZg",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:35:08.939Z",
+        "updatedAt": "2020-09-25T21:35:18.862Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:35:18.862Z",
+        "firstPublishedAt": "2020-09-25T21:35:18.862Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_ui_stand-up"
+        },
+        "value": {
+          "de": "Aufstehen",
+          "en": "Stand Up"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "fPHFDwyLjs0L37gLrDVLF",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:35:32.602Z",
+        "updatedAt": "2020-09-25T21:40:29.552Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:40:29.552Z",
+        "firstPublishedAt": "2020-09-25T21:40:29.552Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_ui_fold"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "3ABsfXix4VpeCzg1JbeJqD"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "3ABsfXix4VpeCzg1JbeJqD",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:35:36.483Z",
+        "updatedAt": "2020-09-25T21:35:46.620Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:35:46.620Z",
+        "firstPublishedAt": "2020-09-25T21:35:46.620Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_ui_fold"
+        },
+        "value": {
+          "de": "Passen",
+          "en": "Fold"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "31PC4xIRAjsfYIrfVQS9AI",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:35:50.926Z",
+        "updatedAt": "2020-09-25T21:40:29.548Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:40:29.548Z",
+        "firstPublishedAt": "2020-09-25T21:40:29.548Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_ui_check"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "3CuCD1OQX91uDNCNpoteuN"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "3CuCD1OQX91uDNCNpoteuN",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:36:03.303Z",
+        "updatedAt": "2020-09-25T21:36:11.846Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:36:11.846Z",
+        "firstPublishedAt": "2020-09-25T21:36:11.846Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_ui_check"
+        },
+        "value": {
+          "de": "Checken",
+          "en": "Check"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "5ZpEUyuc0vdq7FaaCn1PF4",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:36:20.591Z",
+        "updatedAt": "2020-09-25T21:40:29.060Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:40:29.060Z",
+        "firstPublishedAt": "2020-09-25T21:40:29.060Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_ui_call"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "4ZLpptJhbdlWtn7JpQBpcz"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "4ZLpptJhbdlWtn7JpQBpcz",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:36:24.449Z",
+        "updatedAt": "2020-09-25T21:36:33.306Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:36:33.306Z",
+        "firstPublishedAt": "2020-09-25T21:36:33.306Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_ui_call"
+        },
+        "value": {
+          "de": "Mitgehen",
+          "en": "Call"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "1m8sTBTWALQWYExVVD7jew",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:36:44.132Z",
+        "updatedAt": "2020-09-25T21:40:29.098Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:40:29.098Z",
+        "firstPublishedAt": "2020-09-25T21:40:29.098Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_ui_all-in"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "3wVSwb1KiX08fO7E3SD0bk"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "3wVSwb1KiX08fO7E3SD0bk",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:36:47.570Z",
+        "updatedAt": "2020-09-25T21:36:58.397Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:36:58.397Z",
+        "firstPublishedAt": "2020-09-25T21:36:58.397Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_ui_all-in"
+        },
+        "value": {
+          "de": "All In",
+          "en": "All In"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "1xykeVd6o7BEJQN2mhlRIN",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:37:08.295Z",
+        "updatedAt": "2020-09-25T21:40:29.241Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:40:29.241Z",
+        "firstPublishedAt": "2020-09-25T21:40:29.241Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_ui_bet"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "5zqOA2VFHmFmLUQT0kCYla"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "5zqOA2VFHmFmLUQT0kCYla",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:37:15.074Z",
+        "updatedAt": "2020-09-25T21:37:22.899Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:37:22.899Z",
+        "firstPublishedAt": "2020-09-25T21:37:22.899Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_ui_bet"
+        },
+        "value": {
+          "de": "Einsatz",
+          "en": "Bet"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "4n8xMjg4obn23pk6X7YIL1",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:37:33.124Z",
+        "updatedAt": "2020-09-25T21:40:29.078Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:40:29.078Z",
+        "firstPublishedAt": "2020-09-25T21:40:29.078Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_state-info_wait"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "LdAIcvL5hzTtbh85PWhDf"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "LdAIcvL5hzTtbh85PWhDf",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:37:42.659Z",
+        "updatedAt": "2020-09-25T21:37:57.491Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:37:57.491Z",
+        "firstPublishedAt": "2020-09-25T21:37:57.491Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_state-info_wait"
+        },
+        "value": {
+          "de": "Warte…",
+          "en": "Waiting…"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "7CyCXNjdY0uatflhUsRHKP",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:38:01.474Z",
+        "updatedAt": "2020-09-25T21:40:29.112Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:40:29.112Z",
+        "firstPublishedAt": "2020-09-25T21:40:29.112Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_rotate-device-prompt"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "1vyxI771BNKlGExeRQxEAb"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "1vyxI771BNKlGExeRQxEAb",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:38:10.358Z",
+        "updatedAt": "2020-09-25T21:38:22.849Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:38:22.849Z",
+        "firstPublishedAt": "2020-09-25T21:38:22.849Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_rotate-device-prompt"
+        },
+        "value": {
+          "de": "Bitte schalten Sie Ihr Telefon zum Spielen in den Querformatmodus!",
+          "en": "Please turn your phone into landscape mode to play!"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "7BITW9qx0eMVjFbcBeAdvn",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:38:28.288Z",
+        "updatedAt": "2020-09-25T21:40:28.914Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:40:28.914Z",
+        "firstPublishedAt": "2020-09-25T21:40:28.914Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_lost-connection-modal_header"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "3BVHd8YXTM5U8mMbG8r4yl"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "3BVHd8YXTM5U8mMbG8r4yl",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:38:37.323Z",
+        "updatedAt": "2020-09-25T21:38:48.093Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:38:48.093Z",
+        "firstPublishedAt": "2020-09-25T21:38:48.093Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_lost-connection-modal_header"
+        },
+        "value": {
+          "de": "Keine Verbindung!",
+          "en": "No connection!"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "a4Gb8F2GFMFWJI0TXEt8z",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:39:01.029Z",
+        "updatedAt": "2020-09-25T21:40:29.147Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:40:29.147Z",
+        "firstPublishedAt": "2020-09-25T21:40:29.147Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_lost-connection-modal_text"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "3UoXXZ4I2JSpnQDVQYfLLj"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "3UoXXZ4I2JSpnQDVQYfLLj",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:39:04.513Z",
+        "updatedAt": "2020-09-25T21:39:12.369Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:39:12.369Z",
+        "firstPublishedAt": "2020-09-25T21:39:12.369Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_lost-connection-modal_text"
+        },
+        "value": {
+          "de": "Schließen",
+          "en": "Close"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "7IsgjF2hSCeyWAZkJ6jL6R",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:39:23.773Z",
+        "updatedAt": "2020-09-25T21:39:43.068Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-25T21:39:43.068Z",
+        "firstPublishedAt": "2020-09-25T21:39:43.068Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "game_lost-connection-modal_btn-txt"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "27dzDArNkfLMjOx5XRFmtT"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "27dzDArNkfLMjOx5XRFmtT",
+        "type": "Entry",
+        "createdAt": "2020-09-25T21:39:28.083Z",
+        "updatedAt": "2020-09-25T21:39:38.393Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-25T21:39:38.393Z",
+        "firstPublishedAt": "2020-09-25T21:39:38.393Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "game_lost-connection-modal_btn-txt"
+        },
+        "value": {
+          "de": "Verbindung zum Spieleserver konnte nicht hergestellt werden / Verbindung unterbrochen! Bitte versuchen Sie es später noch einmal!",
+          "en": "Could not connect / lost connection to game server! Please try again  later!"
+        }
+      }
     }
   ],
   "assets": [
