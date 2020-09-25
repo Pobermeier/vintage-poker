@@ -17,6 +17,7 @@ import { InfoPill } from '../components/game/InfoPill';
 import { GameUI } from '../components/game/GameUI';
 import { GameStateInfo } from '../components/game/GameStateInfo';
 import PokerCard from '../components/game/PokerCard';
+import contentContext from '../context/content/contentContext';
 
 const Play = ({ history }) => {
   const { socket } = useContext(socketContext);
@@ -35,6 +36,7 @@ const Play = ({ history }) => {
     call,
     raise,
   } = useContext(gameContext);
+  const { getLocalizedString } = useContext(contentContext);
 
   const [bet, setBet] = useState(0);
 
@@ -42,13 +44,10 @@ const Play = ({ history }) => {
     !socket &&
       openModal(
         () => (
-          <Text>
-            Could not connect / lost connection to game server! Please try again
-            later!
-          </Text>
+          <Text>{getLocalizedString('game_lost-connection-modal_text')}</Text>
         ),
-        'No connection',
-        'Close',
+        getLocalizedString('game_lost-connection-modal_header'),
+        getLocalizedString('game_lost-connection-modal_btn-txt'),
         () => history.push('/'),
       );
     socket && joinTable(1);
@@ -78,7 +77,7 @@ const Play = ({ history }) => {
               style={{ zIndex: '50' }}
             >
               <Button small secondary onClick={leaveTable}>
-                Leave Table
+                {getLocalizedString('game_leave-table-btn')}
               </Button>
             </PositionedUISlot>
             {!isPlayerSeated && (
@@ -92,11 +91,16 @@ const Play = ({ history }) => {
                 <TableInfoWrapper>
                   <Text textAlign="right">
                     <strong>{currentTable.name}</strong> |{' '}
-                    <strong>Limit: </strong>
+                    <strong>
+                      {getLocalizedString('game_info_limit-lbl')}:{' '}
+                    </strong>
                     {new Intl.NumberFormat(
                       document.documentElement.lang,
                     ).format(currentTable.limit)}{' '}
-                    | <strong>Blinds: </strong>
+                    |{' '}
+                    <strong>
+                      {getLocalizedString('game_info_blinds-lbl')}:{' '}
+                    </strong>
                     {new Intl.NumberFormat(
                       document.documentElement.lang,
                     ).format(currentTable.minBet)}{' '}
