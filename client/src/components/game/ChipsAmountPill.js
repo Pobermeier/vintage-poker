@@ -22,15 +22,15 @@ const IconWrapper = styled.label`
   width: 30px;
   height: 30px;
   z-index: 5;
-  left: 0;
-  top: 0;
+  left: 5px;
+  top: 5px;
 `;
 
 const ChipsAmountPill = ({ chipsAmount }) => {
   return (
     <Wrapper>
       <IconWrapper htmlFor="chipsAmount">
-        <PokerChip />
+        <PokerChip width="30" height="30" />
       </IconWrapper>
       <Input
         disabled
