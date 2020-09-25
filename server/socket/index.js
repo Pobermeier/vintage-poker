@@ -255,12 +255,10 @@ const init = (socket, io) => {
   });
 
   async function updatePlayerBankroll(player, amount) {
-    // const user = await db.User.findById(player.id);
-    // await db.User.update(
-    //   { bankroll: user.bankroll + amount },
-    //   { where: { id: player.id } },
-    // );
-    // players[socket.id].bankroll = user.bankroll + amount;
+    const user = await User.findById(player.id);
+    user.chipsAmount += amount;
+    await user.save();
+
     players[socket.id].bankroll += amount;
     io.to(socket.id).emit(PLAYERS_UPDATED, getCurrentPlayers());
   }
