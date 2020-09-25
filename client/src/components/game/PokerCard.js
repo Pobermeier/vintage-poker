@@ -2,24 +2,28 @@ import React from 'react';
 import styled from 'styled-components';
 import cards from './cards';
 
-const StyledPokerCard = styled.div`
+const StyledPokerCardWrapper = styled.div`
   display: inline-block;
   margin: 1rem 0.5rem;
 
   img {
-    width: 7vw;
-    max-width: 80px;
-    min-width: 50px;
+    width: ${({ width }) => width || '7vw'};
+    max-width: ${({ maxWidth }) => maxWidth || '80px'};
+    min-width: ${({ minWidth }) => minWidth || '50px'};
   }
 `;
 
-const PokerCard = ({ card: { suit, rank } }) => {
+const PokerCard = ({ card: { suit, rank }, width, minWidth, maxWidth }) => {
   const concat = suit + rank;
 
   return (
-    <StyledPokerCard>
+    <StyledPokerCardWrapper
+      width={width}
+      minWidth={minWidth}
+      maxWidth={maxWidth}
+    >
       <img src={cards[concat]} alt={concat} />
-    </StyledPokerCard>
+    </StyledPokerCardWrapper>
   );
 };
 
