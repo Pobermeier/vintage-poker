@@ -14,6 +14,8 @@ import { InfoPill } from './InfoPill';
 import PokerCard from './PokerCard';
 import Text from '../typography/Text';
 import ChipsAmountPill from './ChipsAmountPill';
+import ColoredText from '../typography/ColoredText';
+import PokerChip from '../icons/PokerChip';
 
 const EmptySeat = styled.div`
   display: flex;
@@ -194,18 +196,18 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
           }}
         >
           <PositionedUISlot top="-5.25rem" style={{ minWidth: '150px' }}>
-            <Text textAlign="center">
+            <ColoredText primary textAlign="center">
               {seat.player.name}{' '}
               {seat.stack && (
-                <>
-                  (
+                <ColoredText secondary>
+                  (<PokerChip width="15" height="15" />{' '}
                   {new Intl.NumberFormat(document.documentElement.lang).format(
                     seat.stack,
                   )}
                   )
-                </>
+                </ColoredText>
               )}
-            </Text>
+            </ColoredText>
           </PositionedUISlot>
           <PositionedUISlot>
             <OccupiedSeat seatNumber={seatNumber} hasTurn={seat.turn} />
@@ -234,18 +236,10 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
             </Hand>
           </PositionedUISlot>
           <PositionedUISlot top="5vh" style={{ minWidth: '150px' }}>
-            <div>
-              <ChipsAmountPill chipsAmount={seat.bet} />
-              {!currentTable.handOver && seat.checked && (
-                <InfoPill>CHECK</InfoPill>
-              )}
-              {!currentTable.handOver && seat.folded && (
-                <InfoPill>FOLD</InfoPill>
-              )}
-              {!currentTable.handOver && seat.sittingOut && (
-                <InfoPill>SITTING OUT</InfoPill>
-              )}
-            </div>
+            <ChipsAmountPill chipsAmount={seat.bet} />
+            {!currentTable.handOver && seat.lastAction && (
+              <InfoPill>{seat.lastAction}</InfoPill>
+            )}
           </PositionedUISlot>
         </PositionedUISlot>
       )}
