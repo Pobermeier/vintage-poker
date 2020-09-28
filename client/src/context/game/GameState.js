@@ -41,7 +41,6 @@ const GameState = ({ history, children }) => {
       socket.on(TABLE_UPDATED, ({ table, message, from }) => {
         console.log(TABLE_UPDATED, table, message, from);
         setCurrentTable(table);
-        loadUser(localStorage.token);
         message && addMessage(message);
       });
 
