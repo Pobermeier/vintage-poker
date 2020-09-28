@@ -85,7 +85,7 @@ const MobileIllustration = styled.img`
 const DesktopIllustration = styled.img`
   position: relative;
   margin-left: 2rem;
-  right: -30px;
+  right: 2rem;
   max-width: 400px;
   transform: scale(1.25);
   opacity: 0;
