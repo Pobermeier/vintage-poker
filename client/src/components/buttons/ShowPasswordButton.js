@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 const StyledShowPasswordButton = styled.div`
   position: absolute;
+  z-index: 40;
   right: 15px;
   bottom: 3px;
   cursor: pointer;
