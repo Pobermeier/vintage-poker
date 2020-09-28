@@ -42,7 +42,7 @@
     }
   ],
   "start_url": ".",
-  "display": "standalone",
+  "display": "fullscreen",
   "theme_color": "#eae1cd",
   "background_color": "#6297b5"
 }
