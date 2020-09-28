@@ -24,7 +24,7 @@ const Landing = () => {
 
   return (
     <Container fullHeight contentCenteredMobile padding="4rem 2rem 2rem 2rem">
-      <CenteredBlock>
+      <CenteredBlockWithAnimation>
         <Hider hideOnDesktop>
           <MobileIllustration src={illustrationMobile} alt="Vintage Poker" />
         </Hider>
@@ -64,13 +64,47 @@ const Landing = () => {
             {getLocalizedString('navbar-login_btn')}
           </Button>
         </Wrapper>
-      </CenteredBlock>
+      </CenteredBlockWithAnimation>
       <Hider hideOnMobile>
         <DesktopIllustration src={illustrationDesktop} alt="Vintage Poker" />
       </Hider>
     </Container>
   );
 };
+
+const CenteredBlockWithAnimation = styled(CenteredBlock)`
+  opacity: 0;
+  animation-duration: 0.3s;
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-delay: 0.3s;
+  -webkit-animation-fill-mode: both;
+  animation-name: fadeInLeft;
+  -webkit-animation-name: fadeInLeft;
+
+  @keyframes fadeInLeft {
+    from {
+      transform: translate3d(-40px, 0, 0);
+    }
+
+    to {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes fadeInLeft {
+    from {
+      transform: translate3d(-40px, 0, 0);
+    }
+
+    to {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+`;
 
 const MobileIllustration = styled.img`
   margin: 1rem auto;
@@ -90,10 +124,10 @@ const DesktopIllustration = styled.img`
   transform: scale(1.25);
   opacity: 0;
   animation-duration: 0.3s;
-  animation-delay: 0.3s;
+  animation-delay: 0.6s;
   animation-fill-mode: both;
   -webkit-animation-duration: 0.3s;
-  -webkit-animation-delay: 0.3s;
+  -webkit-animation-delay: 0.6s;
   -webkit-animation-fill-mode: both;
   animation-name: fadeInRight;
   -webkit-animation-name: fadeInRight;
