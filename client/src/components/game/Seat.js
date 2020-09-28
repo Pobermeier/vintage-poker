@@ -20,6 +20,7 @@ import { NameTag } from './NameTag';
 import contentContext from '../../context/content/contentContext';
 import Markdown from 'react-remarkable';
 import styled from 'styled-components';
+import DealerButton from '../icons/DealerButton';
 
 const StyledSeat = styled.div`
   width: 200px;
@@ -202,7 +203,6 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
               textAlign: 'center',
               justifyContent: 'center',
               alignItems: 'center',
-              scale: '0.65',
             }}
           >
             <Hand>
@@ -218,6 +218,13 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
                 ))}
             </Hand>
           </PositionedUISlot>
+
+          {currentTable.button === seatNumber && (
+            <PositionedUISlot right="35px">
+              <DealerButton />
+            </PositionedUISlot>
+          )}
+
           <PositionedUISlot top="5vh" style={{ minWidth: '150px' }}>
             <ChipsAmountPill chipsAmount={seat.bet} />
             {!currentTable.handOver && seat.lastAction && (
