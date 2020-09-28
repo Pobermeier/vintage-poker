@@ -87,6 +87,39 @@ const DesktopIllustration = styled.img`
   margin-left: 2rem;
   right: -30px;
   max-width: 400px;
+  transform: scale(1.25);
+  opacity: 0;
+  animation-duration: 1s;
+  animation-delay: 0.4s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-delay: 0.4s;
+  -webkit-animation-fill-mode: both;
+  animation-name: fadeInRight;
+  -webkit-animation-name: fadeInRight;
+  transition: all 0.5s;
+
+  @keyframes fadeInRight {
+    from {
+      transform: translate3d(40px, 0, 0);
+    }
+
+    to {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes fadeInRight {
+    from {
+      transform: translate3d(40px, 0, 0);
+    }
+
+    to {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
 `;
 
 const Wrapper = styled.div`
