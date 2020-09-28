@@ -116,72 +116,66 @@ const Play = ({ history }) => {
         )}
         <PokerTableWrapper>
           <PokerTable />
+          {currentTable && (
+            <>
+              <PositionedUISlot top="0" left="0" scale="0.55" origin="top left">
+                <Seat
+                  seatNumber={0}
+                  currentTable={currentTable}
+                  isPlayerSeated={isPlayerSeated}
+                  sitDown={sitDown}
+                />
+              </PositionedUISlot>
+              <PositionedUISlot top="0" scale="0.55" origin="top center">
+                <Seat
+                  seatNumber={1}
+                  currentTable={currentTable}
+                  isPlayerSeated={isPlayerSeated}
+                  sitDown={sitDown}
+                />
+              </PositionedUISlot>
+              <PositionedUISlot
+                top="0"
+                right="2%"
+                scale="0.55"
+                origin="top right"
+              >
+                <Seat
+                  seatNumber={2}
+                  currentTable={currentTable}
+                  isPlayerSeated={isPlayerSeated}
+                  sitDown={sitDown}
+                />
+              </PositionedUISlot>
+              <PositionedUISlot
+                bottom="15%"
+                right="2%"
+                scale="0.55"
+                origin="bottom right"
+              >
+                <Seat
+                  seatNumber={3}
+                  currentTable={currentTable}
+                  isPlayerSeated={isPlayerSeated}
+                  sitDown={sitDown}
+                />
+              </PositionedUISlot>
+              <PositionedUISlot
+                bottom="15%"
+                left="0"
+                scale="0.55"
+                origin="bottom left"
+              >
+                <Seat
+                  seatNumber={4}
+                  currentTable={currentTable}
+                  isPlayerSeated={isPlayerSeated}
+                  sitDown={sitDown}
+                />
+              </PositionedUISlot>
+            </>
+          )}
           <CenteredAnchor>
-            {currentTable && (
-              <>
-                <PositionedUISlot
-                  top="-35vh"
-                  left="-25vw"
-                  scale="0.65"
-                  origin="top left"
-                >
-                  <Seat
-                    seatNumber={0}
-                    currentTable={currentTable}
-                    isPlayerSeated={isPlayerSeated}
-                    sitDown={sitDown}
-                  />
-                </PositionedUISlot>
-                <PositionedUISlot top="-35vh" scale="0.65" origin="top center">
-                  <Seat
-                    seatNumber={1}
-                    currentTable={currentTable}
-                    isPlayerSeated={isPlayerSeated}
-                    sitDown={sitDown}
-                  />
-                </PositionedUISlot>
-                <PositionedUISlot
-                  top="-35vh"
-                  left="25vw"
-                  scale="0.65"
-                  origin="top right"
-                >
-                  <Seat
-                    seatNumber={2}
-                    currentTable={currentTable}
-                    isPlayerSeated={isPlayerSeated}
-                    sitDown={sitDown}
-                  />
-                </PositionedUISlot>
-                <PositionedUISlot
-                  top="0"
-                  left="35vw"
-                  scale="0.65"
-                  origin="center left"
-                >
-                  <Seat
-                    seatNumber={3}
-                    currentTable={currentTable}
-                    isPlayerSeated={isPlayerSeated}
-                    sitDown={sitDown}
-                  />
-                </PositionedUISlot>
-                <PositionedUISlot
-                  top="0"
-                  left="-35vw"
-                  scale="0.65"
-                  origin="center left"
-                >
-                  <Seat
-                    seatNumber={4}
-                    currentTable={currentTable}
-                    isPlayerSeated={isPlayerSeated}
-                    sitDown={sitDown}
-                  />
-                </PositionedUISlot>
-              </>
-            )}
-
             {currentTable && (
               <>
                 <PositionedUISlot

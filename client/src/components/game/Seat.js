@@ -19,6 +19,16 @@ import { Hand } from './Hand';
 import { NameTag } from './NameTag';
 import contentContext from '../../context/content/contentContext';
 import Markdown from 'react-remarkable';
+import styled from 'styled-components';
+
+const StyledSeat = styled.div`
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+`;
 
 export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
   const { openModal, closeModal } = useContext(modalContext);
@@ -94,7 +104,7 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
   }, [currentTable]);
 
   return (
-    <>
+    <StyledSeat>
       {!seat ? (
         <>
           {!isPlayerSeated ? (
@@ -216,6 +226,6 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
           </PositionedUISlot>
         </PositionedUISlot>
       )}
-    </>
+    </StyledSeat>
   );
 };
