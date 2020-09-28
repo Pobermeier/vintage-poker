@@ -48,6 +48,10 @@ The more detailed project documentation can be found [here](https://www.notion.s
 
 ## Quick Start
 
+### Set-up MongoDB
+
+Set-up either a local mongoDB instance or create a [cloud-hosted instance](https://www.mongodb.com/). Save your db username + passsword and the mongoDb connection-string as you will need it for the next step.
+
 ### Add a "local.env" file in the "/server/config" folder with the following entries
 
 ```
@@ -61,7 +65,13 @@ The more detailed project documentation can be found [here](https://www.notion.s
   SMTP_PW=<YOUR_SMTP_PASSWORD>
 ```
 
-### Add a "env.local" file in the "/client" folder with the following entries
+### Set-up Contentful
+
+Create a free community [Contentful-Account](https://www.contentful.com/get-started/) and create a new Space. Add two locales (en, de) with "en" being the fallback for the german-locale. Create a Content Delivery API Key and copy your space token and Contentful Delivery API access-token to the clipboard, as you will need it for the next step.
+
+You can use the [Contentful CLI](https://www.npmjs.com/package/contentful-cli) to import the space backup from the "contentful"-folder into your own Contentful space. This backup includes all localized key-value pairs and the content of the static pages.
+
+### Add a ".env.local" file in the "/client" folder with the following entries
 
 ```
   REACT_APP_CONTENTFUL_SPACE_ID=<YOUR_CONTENTFUL_SPACE_ID>
