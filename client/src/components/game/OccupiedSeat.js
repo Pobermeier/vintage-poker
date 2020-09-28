@@ -10,5 +10,32 @@ export const OccupiedSeat = styled(EmptySeat)`
   padding: 0;
   border: ${({ hasTurn }) =>
     hasTurn ? `8px solid #219653` : `5px solid #6297b5`};
-  transform: ${({ hasTurn }) => (hasTurn ? `scale(1.2)` : `scale(1)`)};
+  /* transform: ${({ hasTurn }) => (hasTurn ? `scale(1.2)` : `scale(1)`)}; */
+  transition: all 0.3s;
+
+  &.hasTurn {
+    animation: double-pulse 0.5s forwards;
+  }
+
+  @keyframes double-pulse {
+    0% {
+      transform: scale(1);
+    }
+
+    25% {
+      transform: scale(1.5);
+    }
+
+    50% {
+      transform: scale(1);
+    }
+
+    75% {
+      transform: scale(1.5);
+    }
+
+    100% {
+      transform: scale(1.25);
+    }
+  }
 `;

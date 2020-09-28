@@ -179,7 +179,11 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
             </NameTag>
           </PositionedUISlot>
           <PositionedUISlot>
-            <OccupiedSeat seatNumber={seatNumber} hasTurn={seat.turn} />
+            <OccupiedSeat
+              seatNumber={seatNumber}
+              hasTurn={seat.turn}
+              className={seat.turn ? 'hasTurn' : ''}
+            />
           </PositionedUISlot>
           <PositionedUISlot
             left="4vh"
