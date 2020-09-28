@@ -6,7 +6,7 @@ import Text from '../typography/Text';
 import ColoredText from '../typography/ColoredText';
 import ChipsAmount from '../user/ChipsAmount';
 import { Link } from 'react-router-dom';
-import { Select } from '../forms/Select';
+// import { Select } from '../forms/Select';
 import lobbyIcon from '../../assets/icons/lobby-icon.svg';
 import newsIcon from '../../assets/icons/news-icon.svg';
 import userIcon from '../../assets/icons/user-icon.svg';
@@ -122,8 +122,8 @@ const NavMenu = ({
   userName,
   chipsAmount,
   openModal,
-  lang,
-  setLang,
+  // lang,
+  // setLang,
 }) => {
   const { players } = useContext(globalContext);
   const { getLocalizedString } = useContext(contentContext);
@@ -175,12 +175,12 @@ const NavMenu = ({
               {getLocalizedString('shop-coming_soon-modal_heading')}
             </Button>
           </HorizontalWrapper>
-          <HorizontalWrapper>
+          {/* <HorizontalWrapper>
             <Select value={lang} onChange={(e) => setLang(e.target.value)}>
               <option value="en">English</option>
               <option value="de">Deutsch</option>
             </Select>
-          </HorizontalWrapper>
+          </HorizontalWrapper> */}
         </MenuHeader>
         <MenuBody>
           <MenuItem
