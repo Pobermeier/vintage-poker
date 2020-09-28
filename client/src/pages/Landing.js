@@ -89,11 +89,11 @@ const DesktopIllustration = styled.img`
   max-width: 400px;
   transform: scale(1.25);
   opacity: 0;
-  animation-duration: 1s;
-  animation-delay: 0.4s;
+  animation-duration: 0.3s;
+  animation-delay: 0.3s;
   animation-fill-mode: both;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-delay: 0.4s;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-delay: 0.3s;
   -webkit-animation-fill-mode: both;
   animation-name: fadeInRight;
   -webkit-animation-name: fadeInRight;
