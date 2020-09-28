@@ -13,6 +13,7 @@ import ShowPasswordButton from '../components/buttons/ShowPasswordButton';
 import useScrollToTopOnPageLoad from '../hooks/useScrollToTopOnPageLoad';
 import authContext from '../context/auth/authContext';
 import contentContext from '../context/content/contentContext';
+import { TiledBackgroundImage } from '../components/decoration/TiledBackgroundImage';
 
 const LoginPage = () => {
   const { getLocalizedString } = useContext(contentContext);
@@ -26,7 +27,7 @@ const LoginPage = () => {
   if (isLoggedIn) return <Redirect to="/" />;
   return (
     <RelativeWrapper>
-      {/* <TiledBackgroundImage /> */}
+      <TiledBackgroundImage />
       <Container
         fullHeight
         flexDirection="column"
