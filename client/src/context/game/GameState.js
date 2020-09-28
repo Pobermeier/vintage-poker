@@ -41,6 +41,7 @@ const GameState = ({ history, children }) => {
       socket.on(TABLE_UPDATED, ({ table, message, from }) => {
         console.log(TABLE_UPDATED, table, message, from);
         setCurrentTable(table);
+        loadUser(localStorage.token);
         message && addMessage(message);
       });
 
@@ -52,6 +53,7 @@ const GameState = ({ history, children }) => {
       socket.on(TABLE_LEFT, ({ tables, tableId }) => {
         console.log(TABLE_LEFT, tables, tableId);
         setCurrentTable(null);
+        loadUser(localStorage.token);
         setMessages([]);
       });
     }
@@ -70,7 +72,6 @@ const GameState = ({ history, children }) => {
       currentTableRef.current.id &&
       socket.emit(LEAVE_TABLE, currentTableRef.current.id);
     isPlayerSeated && standUp();
-    loadUser(localStorage.token);
     history.push('/');
   };
 
