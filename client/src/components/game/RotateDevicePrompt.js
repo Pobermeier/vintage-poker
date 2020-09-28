@@ -15,6 +15,7 @@ const Wrapper = styled.div`
 
   & ${Text} {
     color: ${(props) => props.theme.colors.fontColorLight};
+    word-break: break-all;
   }
 
   @media screen and (orientation: portrait) {
