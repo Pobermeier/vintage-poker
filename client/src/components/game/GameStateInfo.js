@@ -5,15 +5,13 @@ import ChipsAmountPill from './ChipsAmountPill';
 import { InfoPill } from './InfoPill';
 
 const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: repeat(4, auto);
+  justify-content: center;
+  justify-items: center;
   align-items: center;
   width: 100%;
-
-  ${InfoPill} {
-    width: auto;
-    margin-right: 1rem;
-  }
 `;
 
 export const GameStateInfo = ({ currentTable }) => {
@@ -36,9 +34,17 @@ export const GameStateInfo = ({ currentTable }) => {
       {!!currentTable.mainPot && (
         <ChipsAmountPill
           chipsAmount={currentTable.mainPot}
-          style={{ minWidth: '150px', marginLeft: '1rem' }}
+          style={{ minWidth: '150px' }}
         />
       )}
+
+      {currentTable.sidePots > 0 &&
+        currentTable.sidePots.map((sidePot) => (
+          <ChipsAmountPill
+            chipsAmount={sidePot.amount}
+            style={{ minWidth: '150px' }}
+          />
+        ))}
     </Wrapper>
   );
 };
