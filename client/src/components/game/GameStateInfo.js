@@ -1,13 +1,31 @@
 import React, { useContext } from 'react';
+import styled from 'styled-components';
 import contentContext from '../../context/content/contentContext';
 import ChipsAmountPill from './ChipsAmountPill';
 import { InfoPill } from './InfoPill';
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  ${InfoPill} {
+    width: auto;
+    margin-right: 1rem;
+  }
+
+  ${ChipsAmountPill} {
+    min-width: 150px;
+    margin-left: 1rem;
+  }
+`;
 
 export const GameStateInfo = ({ currentTable }) => {
   const { getLocalizedString } = useContext(contentContext);
 
   return (
-    <div>
+    <Wrapper>
       {currentTable.players.length <= 1 || currentTable.handOver ? (
         <InfoPill>{getLocalizedString('game_state-info_wait')}</InfoPill>
       ) : (
@@ -21,8 +39,11 @@ export const GameStateInfo = ({ currentTable }) => {
       )}
 
       {!!currentTable.mainPot && (
-        <ChipsAmountPill chipsAmount={currentTable.mainPot} />
+        <ChipsAmountPill
+          chipsAmount={currentTable.mainPot}
+          style={{ minWidth: '150px', marginLeft: '1rem' }}
+        />
       )}
-    </div>
+    </Wrapper>
   );
 };
