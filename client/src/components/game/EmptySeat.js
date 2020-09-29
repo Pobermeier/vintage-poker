@@ -5,12 +5,8 @@ export const EmptySeat = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 10vw;
-  min-width: 100px;
-  max-width: 120px;
-  height: 10vw;
-  min-height: 100px;
-  max-height: 120px;
+  width: 120px;
+  height: 120px;
   padding: 1rem;
   border-radius: 100%;
   background: rgba(247, 242, 220, 0.8);
