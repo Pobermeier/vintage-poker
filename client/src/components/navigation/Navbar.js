@@ -34,11 +34,11 @@ const Navbar = ({
   const openShopModal = () =>
     openModal(
       () => (
-        <Text textAlign="center">
-          <Markdown>
+        <Markdown>
+          <Text textAlign="center">
             {getLocalizedString('shop-coming_soon-modal_text')}
-          </Markdown>
-        </Text>
+          </Text>
+        </Markdown>
       ),
       getLocalizedString('shop-coming_soon-modal_heading'),
       getLocalizedString('shop-coming_soon-modal_btn_text'),

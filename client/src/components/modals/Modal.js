@@ -49,10 +49,6 @@ const ModalContent = styled.div`
   justify-content: center;
   align-items: center;
 
-  & ${HeadingWithLogo} h2 {
-    margin-bottom: 0;
-  }
-
   & > *:not(:last-child) {
     margin-bottom: 2rem;
   }
