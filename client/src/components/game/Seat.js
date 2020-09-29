@@ -181,11 +181,7 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
             </NameTag>
           </PositionedUISlot>
           <PositionedUISlot>
-            <OccupiedSeat
-              seatNumber={seatNumber}
-              hasTurn={seat.turn}
-              className={seat.turn ? 'hasTurn' : ''}
-            />
+            <OccupiedSeat seatNumber={seatNumber} hasTurn={seat.turn} />
           </PositionedUISlot>
           <PositionedUISlot
             left="4vh"
@@ -212,14 +208,18 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
           </PositionedUISlot>
 
           {currentTable.button === seatNumber && (
-            <PositionedUISlot right="35px" origin="center left">
+            <PositionedUISlot
+              right="35px"
+              origin="center left"
+              style={{ zIndex: '55' }}
+            >
               <DealerButton />
             </PositionedUISlot>
           )}
 
           <PositionedUISlot
             top="6vh"
-            style={{ minWidth: '150px' }}
+            style={{ minWidth: '150px', zIndex: '55' }}
             origin="bottom center"
           >
             <ChipsAmountPill chipsAmount={seat.bet} />
