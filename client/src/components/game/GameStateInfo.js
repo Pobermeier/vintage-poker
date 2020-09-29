@@ -14,11 +14,6 @@ const Wrapper = styled.div`
     width: auto;
     margin-right: 1rem;
   }
-
-  ${ChipsAmountPill} {
-    min-width: 150px;
-    margin-left: 1rem;
-  }
 `;
 
 export const GameStateInfo = ({ currentTable }) => {

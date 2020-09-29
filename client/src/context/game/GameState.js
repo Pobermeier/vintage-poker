@@ -26,12 +26,32 @@ const GameState = ({ history, children }) => {
   const [currentTable, setCurrentTable] = useState(null);
   const [isPlayerSeated, setIsPlayerSeated] = useState(false);
   const [seatId, setSeatId] = useState(null);
+  const [turn, setTurn] = useState(false);
+  const [turnTimeOutHandle, setHandle] = useState(null);
 
   const currentTableRef = React.useRef(currentTable);
 
-  React.useEffect(() => {
+  useEffect(() => {
     currentTableRef.current = currentTable;
+
+    isPlayerSeated &&
+      seatId &&
+      currentTable.seats[seatId] &&
+      turn !== currentTable.seats[seatId].turn &&
+      setTurn(currentTable.seats[seatId].turn);
+    // eslint-disable-next-line
   }, [currentTable]);
+
+  useEffect(() => {
+    if (turn && !turnTimeOutHandle) {
+      const handle = setTimeout(fold, 15000);
+      setHandle(handle);
+    } else {
+      turnTimeOutHandle && clearTimeout(turnTimeOutHandle);
+      turnTimeOutHandle && setHandle(null);
+    }
+    // eslint-disable-next-line
+  }, [turn]);
 
   useEffect(() => {
     if (socket) {
