@@ -19,17 +19,8 @@ import { Hand } from './Hand';
 import { NameTag } from './NameTag';
 import contentContext from '../../context/content/contentContext';
 import Markdown from 'react-remarkable';
-import styled from 'styled-components';
 import DealerButton from '../icons/DealerButton';
-
-const StyledSeat = styled.div`
-  width: 200px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: red;
-`;
+import { StyledSeat } from './StyledSeat';
 
 export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
   const { openModal, closeModal } = useContext(modalContext);
@@ -173,7 +164,7 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
             alignItems: 'center',
           }}
         >
-          <PositionedUISlot top="-6.25rem" left="-75px">
+          <PositionedUISlot top="-6.25rem" left="-75px" origin="top center">
             <NameTag>
               <ColoredText primary textAlign="center">
                 {seat.player.name}
@@ -204,6 +195,7 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
               justifyContent: 'center',
               alignItems: 'center',
             }}
+            origin="center right"
           >
             <Hand>
               {seat.hand &&
@@ -220,12 +212,16 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
           </PositionedUISlot>
 
           {currentTable.button === seatNumber && (
-            <PositionedUISlot right="35px">
+            <PositionedUISlot right="35px" origin="center left">
               <DealerButton />
             </PositionedUISlot>
           )}
 
-          <PositionedUISlot top="5vh" style={{ minWidth: '150px' }}>
+          <PositionedUISlot
+            top="6vh"
+            style={{ minWidth: '150px' }}
+            origin="bottom center"
+          >
             <ChipsAmountPill chipsAmount={seat.bet} />
             {!currentTable.handOver && seat.lastAction && (
               <InfoPill>{seat.lastAction}</InfoPill>

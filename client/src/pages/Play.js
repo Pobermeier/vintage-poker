@@ -5,7 +5,6 @@ import gameContext from '../context/game/gameContext';
 import socketContext from '../context/websocket/socketContext';
 import PokerTable from '../components/game/PokerTable';
 import { RotateDevicePrompt } from '../components/game/RotateDevicePrompt';
-import { CenteredAnchor } from '../components/game/CenteredAnchor';
 import { PositionedUISlot } from '../components/game/PositionedUISlot';
 import { PokerTableWrapper } from '../components/game/PokerTableWrapper';
 import { Seat } from '../components/game/Seat';
@@ -118,7 +117,12 @@ const Play = ({ history }) => {
           <PokerTable />
           {currentTable && (
             <>
-              <PositionedUISlot top="0" left="0" scale="0.55" origin="top left">
+              <PositionedUISlot
+                top="-5%"
+                left="0"
+                scale="0.55"
+                origin="top left"
+              >
                 <Seat
                   seatNumber={0}
                   currentTable={currentTable}
@@ -126,7 +130,7 @@ const Play = ({ history }) => {
                   sitDown={sitDown}
                 />
               </PositionedUISlot>
-              <PositionedUISlot top="0" scale="0.55" origin="top center">
+              <PositionedUISlot top="-5%" scale="0.55" origin="top center">
                 <Seat
                   seatNumber={1}
                   currentTable={currentTable}
@@ -135,7 +139,7 @@ const Play = ({ history }) => {
                 />
               </PositionedUISlot>
               <PositionedUISlot
-                top="0"
+                top="-5%"
                 right="2%"
                 scale="0.55"
                 origin="top right"
@@ -173,65 +177,56 @@ const Play = ({ history }) => {
                   sitDown={sitDown}
                 />
               </PositionedUISlot>
+              <PositionedUISlot
+                width="100%"
+                origin="center center"
+                scale="0.60"
+                style={{
+                  display: 'flex',
+                  textAlign: 'center',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                {currentTable.board && currentTable.board.length > 0 && (
+                  <>
+                    {currentTable.board.map((card, index) => (
+                      <PokerCard key={index} card={card} />
+                    ))}
+                  </>
+                )}
+              </PositionedUISlot>
+              <PositionedUISlot
+                bottom="15%"
+                scale="0.60"
+                origin="bottom center"
+              >
+                {messages && messages.length > 0 && (
+                  <>
+                    <InfoPill>{messages[messages.length - 1]}</InfoPill>
+                    {currentTable.winMessages.length > 0 && (
+                      <InfoPill>
+                        {
+                          currentTable.winMessages[
+                            currentTable.winMessages.length - 1
+                          ]
+                        }
+                      </InfoPill>
+                    )}
+                  </>
+                )}
+              </PositionedUISlot>
+              <PositionedUISlot
+                bottom="25%"
+                scale="0.60"
+                origin="bottom center"
+              >
+                {currentTable.winMessages.length === 0 && (
+                  <GameStateInfo currentTable={currentTable} />
+                )}
+              </PositionedUISlot>
             </>
           )}
-          <CenteredAnchor>
-            {currentTable && (
-              <>
-                <PositionedUISlot
-                  width="100%"
-                  top="-20vh"
-                  origin="top center"
-                  scale="0.65"
-                  style={{
-                    display: 'flex',
-                    textAlign: 'center',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}
-                >
-                  {currentTable.board && currentTable.board.length > 0 && (
-                    <>
-                      {currentTable.board.map((card, index) => (
-                        <PokerCard key={index} card={card} />
-                      ))}
-                    </>
-                  )}
-                </PositionedUISlot>
-                <PositionedUISlot
-                  left="-175px"
-                  scale="0.65"
-                  origin="center center"
-                >
-                  {messages && messages.length > 0 && (
-                    <>
-                      <InfoPill style={{ minWidth: '400px' }}>
-                        {messages[messages.length - 1]}
-                      </InfoPill>
-                      {currentTable.winMessages.length > 0 && (
-                        <InfoPill style={{ minWidth: '400px' }}>
-                          {
-                            currentTable.winMessages[
-                              currentTable.winMessages.length - 1
-                            ]
-                          }
-                        </InfoPill>
-                      )}
-                    </>
-                  )}
-                </PositionedUISlot>
-                <PositionedUISlot
-                  top="17vh"
-                  left="-35px"
-                  scale="0.65"
-                  origin="top center"
-                  style={{ minWidth: '150px' }}
-                >
-                  <GameStateInfo currentTable={currentTable} />
-                </PositionedUISlot>
-              </>
-            )}
-          </CenteredAnchor>
         </PokerTableWrapper>
 
         {currentTable &&
