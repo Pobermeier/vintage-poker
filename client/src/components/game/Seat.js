@@ -58,7 +58,7 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
                   amount <= chipsAmount &&
                   amount <= maxBuyin
                 ) {
-                  rebuy(currentTable.id, seatNumber + 1, parseInt(amount));
+                  rebuy(currentTable.id, seatNumber, parseInt(amount));
                   closeModal();
                 }
               }}
@@ -119,7 +119,7 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
                         ) {
                           sitDown(
                             currentTable.id,
-                            seatNumber + 1,
+                            seatNumber,
                             parseInt(amount),
                           );
                           closeModal();

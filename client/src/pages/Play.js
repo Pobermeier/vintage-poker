@@ -124,7 +124,7 @@ const Play = ({ history }) => {
                 origin="top left"
               >
                 <Seat
-                  seatNumber={0}
+                  seatNumber={1}
                   currentTable={currentTable}
                   isPlayerSeated={isPlayerSeated}
                   sitDown={sitDown}
@@ -132,7 +132,7 @@ const Play = ({ history }) => {
               </PositionedUISlot>
               <PositionedUISlot top="-5%" scale="0.55" origin="top center">
                 <Seat
-                  seatNumber={1}
+                  seatNumber={2}
                   currentTable={currentTable}
                   isPlayerSeated={isPlayerSeated}
                   sitDown={sitDown}
@@ -145,7 +145,7 @@ const Play = ({ history }) => {
                 origin="top right"
               >
                 <Seat
-                  seatNumber={2}
+                  seatNumber={3}
                   currentTable={currentTable}
                   isPlayerSeated={isPlayerSeated}
                   sitDown={sitDown}
@@ -158,7 +158,7 @@ const Play = ({ history }) => {
                 origin="bottom right"
               >
                 <Seat
-                  seatNumber={3}
+                  seatNumber={4}
                   currentTable={currentTable}
                   isPlayerSeated={isPlayerSeated}
                   sitDown={sitDown}
@@ -171,7 +171,7 @@ const Play = ({ history }) => {
                 origin="bottom left"
               >
                 <Seat
-                  seatNumber={4}
+                  seatNumber={5}
                   currentTable={currentTable}
                   isPlayerSeated={isPlayerSeated}
                   sitDown={sitDown}
