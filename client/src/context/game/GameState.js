@@ -105,7 +105,9 @@ const GameState = ({ history, children }) => {
   };
 
   const standUp = () => {
-    socket.emit(STAND_UP, currentTableRef.current.id);
+    currentTableRef &&
+      currentTableRef.current &&
+      socket.emit(STAND_UP, currentTableRef.current.id);
     setIsPlayerSeated(false);
     setSeatId(null);
   };
@@ -116,19 +118,27 @@ const GameState = ({ history, children }) => {
   };
 
   const fold = () => {
-    socket.emit(FOLD, currentTableRef.current.id);
+    currentTableRef &&
+      currentTableRef.current &&
+      socket.emit(FOLD, currentTableRef.current.id);
   };
 
   const check = () => {
-    socket.emit(CHECK, currentTableRef.current.id);
+    currentTableRef &&
+      currentTableRef.current &&
+      socket.emit(CHECK, currentTableRef.current.id);
   };
 
   const call = () => {
-    socket.emit(CALL, currentTableRef.current.id);
+    currentTableRef &&
+      currentTableRef.current &&
+      socket.emit(CALL, currentTableRef.current.id);
   };
 
   const raise = (amount) => {
-    socket.emit(RAISE, { tableId: currentTableRef.current.id, amount });
+    currentTableRef &&
+      currentTableRef.current &&
+      socket.emit(RAISE, { tableId: currentTableRef.current.id, amount });
   };
 
   return (
