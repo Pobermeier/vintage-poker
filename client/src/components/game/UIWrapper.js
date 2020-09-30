@@ -12,6 +12,8 @@ export const UIWrapper = styled.div`
   border-radius: 2rem;
   padding: 1rem;
   transform-origin: bottom right;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 
   @media screen and (max-width: 1068px) {
     transform: scale(0.8);

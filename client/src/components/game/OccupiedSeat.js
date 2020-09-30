@@ -13,6 +13,8 @@ const StyledOccupiedSeat = styled(EmptySeat)`
   border: ${({ hasTurn }) => (hasTurn ? `none` : `5px solid #6297b5`)};
   transition: all 0.3s;
   transform-origin: center center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 
   &.hasTurn {
     animation: double-pulse 0.5s forwards;
