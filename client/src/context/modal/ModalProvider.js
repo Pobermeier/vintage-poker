@@ -1,10 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ModalContext from './modalContext';
 import Modal, { initialModalData } from '../../components/modals/Modal';
 
 const ModalProvider = ({ children }) => {
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(initialModalData);
+
+  useEffect(() => {
+    const layoutWrapper = document.getElementById('layout-wrapper');
+
+    if (showModal) {
+      document.body.style.overflow = 'hidden';
+
+      if (layoutWrapper) {
+        layoutWrapper.style.filter = 'blur(4px)';
+        layoutWrapper.style.pointerEvents = 'none';
+        layoutWrapper.tabIndex = '-1';
+      }
+    } else {
+      document.body.style.overflow = 'initial';
+
+      if (layoutWrapper) {
+        layoutWrapper.style.filter = 'none';
+        layoutWrapper.style.pointerEvents = 'all';
+      }
+    }
+  }, [showModal]);
 
   const openModal = (
     children,
@@ -20,19 +41,11 @@ const ModalProvider = ({ children }) => {
       btnCallBack,
       onCloseCallBack,
     });
-    document.body.style.overflow = 'hidden';
-    document.getElementById('layout-wrapper').style.filter = 'blur(4px)';
-    document.getElementById('layout-wrapper').style.pointerEvents = 'none';
-    document.getElementById('layout-wrapper').tabIndex = '-1';
+
     setShowModal(true);
   };
 
-  const closeModal = () => {
-    document.body.style.overflow = 'initial';
-    document.getElementById('layout-wrapper').style.filter = 'none';
-    document.getElementById('layout-wrapper').style.pointerEvents = 'all';
-    setShowModal(false);
-  };
+  const closeModal = () => setShowModal(false);
 
   return (
     <ModalContext.Provider
@@ -43,8 +56,8 @@ const ModalProvider = ({ children }) => {
         <Modal
           headingText={modalData.headingText}
           btnText={modalData.btnText}
-          onClose={modalData.btnCallBack}
-          onBtnClicked={modalData.onCloseCallBack}
+          onClose={modalData.onCloseCallBack}
+          onBtnClicked={modalData.btnCallBack}
         >
           {modalData.children()}
         </Modal>
