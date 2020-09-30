@@ -10,6 +10,7 @@ import {
   TABLES_UPDATED,
 } from '../../pokergame/actions';
 import globalContext from '../global/globalContext';
+import config from '../../clientConfig';
 
 const WebSocketProvider = ({ children }) => {
   const { isLoggedIn } = useContext(authContext);
@@ -48,7 +49,7 @@ const WebSocketProvider = ({ children }) => {
   }
 
   function connect() {
-    const socket = io(`http://${window.location.hostname}:5000/`, {
+    const socket = io(config.socketURI, {
       transports: ['websocket'],
       upgrade: false,
     });
