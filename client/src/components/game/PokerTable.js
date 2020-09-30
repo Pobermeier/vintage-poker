@@ -7,14 +7,8 @@ const StyledPokerTable = styled.img`
   pointer-events: none;
   width: 95%;
   margin: 0 auto;
-
-  /* @media screen and (orientation: portrait) {
-    transform: rotate(90deg) scale(1.7);
-  } */
 `;
 
-const PokerTable = () => {
-  return <StyledPokerTable src={table} alt="Poker Table" />;
-};
+const PokerTable = () => <StyledPokerTable src={table} alt="Poker Table" />;
 
 export default PokerTable;
