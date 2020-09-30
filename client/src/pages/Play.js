@@ -196,14 +196,13 @@ const Play = ({ history }) => {
                   </>
                 )}
               </PositionedUISlot>
-              <PositionedUISlot
-                bottom="15%"
-                scale="0.60"
-                origin="bottom center"
-              >
+              <PositionedUISlot bottom="8%" scale="0.60" origin="bottom center">
                 {messages && messages.length > 0 && (
                   <>
                     <InfoPill>{messages[messages.length - 1]}</InfoPill>
+                    {!isPlayerSeated && (
+                      <InfoPill>Sit down to join the game!</InfoPill>
+                    )}
                     {currentTable.winMessages.length > 0 && (
                       <InfoPill>
                         {
@@ -219,7 +218,7 @@ const Play = ({ history }) => {
               <PositionedUISlot
                 bottom="25%"
                 scale="0.60"
-                origin="bottom center"
+                origin="center center"
               >
                 {currentTable.winMessages.length === 0 && (
                   <GameStateInfo currentTable={currentTable} />
