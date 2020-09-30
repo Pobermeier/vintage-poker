@@ -86,11 +86,11 @@ const GameState = ({ history, children }) => {
   };
 
   const leaveTable = () => {
+    isPlayerSeated && standUp();
     currentTableRef &&
       currentTableRef.current &&
       currentTableRef.current.id &&
       socket.emit(LEAVE_TABLE, currentTableRef.current.id);
-    isPlayerSeated && standUp();
     history.push('/');
   };
 
@@ -105,6 +105,7 @@ const GameState = ({ history, children }) => {
   };
 
   const standUp = () => {
+    fold();
     currentTableRef &&
       currentTableRef.current &&
       socket.emit(STAND_UP, currentTableRef.current.id);
