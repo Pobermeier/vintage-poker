@@ -337,8 +337,6 @@
       ]
     }
   ],
-  "tags": [
-  ],
   "editorInterfaces": [
     {
       "sys": {
@@ -8912,7 +8910,7 @@
         "id": "1y7i6FEt5iwoOQYTU1Rxuj",
         "type": "Entry",
         "createdAt": "2020-09-25T21:34:35.834Z",
-        "updatedAt": "2020-09-25T21:34:53.487Z",
+        "updatedAt": "2020-09-25T21:47:24.826Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -8920,8 +8918,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 4,
-        "publishedAt": "2020-09-25T21:34:53.487Z",
+        "publishedVersion": 8,
+        "publishedAt": "2020-09-25T21:47:24.826Z",
         "firstPublishedAt": "2020-09-25T21:34:53.487Z",
         "createdBy": {
           "sys": {
@@ -8937,8 +8935,8 @@
             "id": "1KdHI7Ef2v39J5JAl7fa0m"
           }
         },
-        "publishedCounter": 1,
-        "version": 5,
+        "publishedCounter": 2,
+        "version": 9,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -8959,8 +8957,8 @@
           "en": "game_table_empty-seat"
         },
         "value": {
-          "de": "Leerer<br/>Sitz",
-          "en": "Empty<br />Seat"
+          "de": "Leerer\nSitz",
+          "en": "Empty\nSeat"
         }
       }
     },
@@ -10424,6 +10422,405 @@
         "value": {
           "de": "Verbindung zum Spieleserver konnte nicht hergestellt werden / Verbindung unterbrochen! Bitte versuchen Sie es später noch einmal!",
           "en": "Could not connect / lost connection to game server! Please try again  later!"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "4BaUrQRgGX89OzxSp9pgWs",
+        "type": "Entry",
+        "createdAt": "2020-09-30T13:06:44.079Z",
+        "updatedAt": "2020-09-30T13:08:46.604Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-30T13:08:46.604Z",
+        "firstPublishedAt": "2020-09-30T13:08:46.604Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "global_get-free-chips-modal_header"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "2QLGUItxqQGUT4sy1bSFGe"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "2QLGUItxqQGUT4sy1bSFGe",
+        "type": "Entry",
+        "createdAt": "2020-09-30T13:07:00.975Z",
+        "updatedAt": "2020-09-30T13:07:41.723Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2020-09-30T13:07:41.723Z",
+        "firstPublishedAt": "2020-09-30T13:07:41.723Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "global_get-free-chips-modal_header"
+        },
+        "value": {
+          "de": "Auftanken",
+          "en": "Refuel"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "3BUs8n4FDYsGW0jnkygzpq",
+        "type": "Entry",
+        "createdAt": "2020-09-30T13:07:46.378Z",
+        "updatedAt": "2020-09-30T13:08:46.622Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-30T13:08:46.622Z",
+        "firstPublishedAt": "2020-09-30T13:08:46.622Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "global_get-free-chips-modal_content"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "4f8hyg8h7vqcYFABDwmuym"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "4f8hyg8h7vqcYFABDwmuym",
+        "type": "Entry",
+        "createdAt": "2020-09-30T13:07:54.176Z",
+        "updatedAt": "2020-09-30T13:08:07.085Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-30T13:08:07.085Z",
+        "firstPublishedAt": "2020-09-30T13:08:07.085Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "global_get-free-chips-modal_content"
+        },
+        "value": {
+          "de": "Oh nein, es scheint, als würden Ihnen die Chips ausgehen! Aber keine Sorge, hier ist eine neue Charge Chips für Sie, damit Sie weiterspielen können!",
+          "en": "Oh noes, it seems like you're running out of chips! But don't worry, here's a fresh batch of chips for you so you can continue playing!"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "RUsWrzHAIbojrmpfZgijI",
+        "type": "Entry",
+        "createdAt": "2020-09-30T13:08:10.306Z",
+        "updatedAt": "2020-09-30T13:08:46.638Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2020-09-30T13:08:46.638Z",
+        "firstPublishedAt": "2020-09-30T13:08:46.638Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "key"
+          }
+        }
+      },
+      "fields": {
+        "keyName": {
+          "en": "global_get-free-chips-modal_btn-txt"
+        },
+        "value": {
+          "en": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "4T3DdomHrnsAjgXgb99eSV"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "4tlsutsg5se1"
+          }
+        },
+        "id": "4T3DdomHrnsAjgXgb99eSV",
+        "type": "Entry",
+        "createdAt": "2020-09-30T13:08:15.622Z",
+        "updatedAt": "2020-09-30T13:08:26.421Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-09-30T13:08:26.421Z",
+        "firstPublishedAt": "2020-09-30T13:08:26.421Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1KdHI7Ef2v39J5JAl7fa0m"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "string"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en": "global_get-free-chips-modal_btn-txt"
+        },
+        "value": {
+          "de": "Gratis Chips Holen",
+          "en": "Get Your Free Chips"
         }
       }
     }
