@@ -35,6 +35,8 @@
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
-    "nodemon": "^2.0.4"
+    "core-js": "^3.6.5",
+    "nodemon": "^2.0.4",
+    "raf": "^3.4.1"
   }
 }
