@@ -105,7 +105,6 @@ const GameState = ({ history, children }) => {
   };
 
   const standUp = () => {
-    fold();
     currentTableRef &&
       currentTableRef.current &&
       socket.emit(STAND_UP, currentTableRef.current.id);

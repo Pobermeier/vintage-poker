@@ -120,7 +120,7 @@ const init = (socket, io) => {
       (seat) => seat && seat.player.socketId === socket.id,
     );
 
-    if (seat) {
+    if (seat && player) {
       updatePlayerBankroll(player, seat.stack);
     }
 
@@ -145,30 +145,30 @@ const init = (socket, io) => {
 
   socket.on(FOLD, (tableId) => {
     let table = tables[tableId];
-    let { seatId, message } = table.handleFold(socket.id);
-    broadcastToTable(table, message);
-    changeTurnAndBroadcast(table, seatId);
+    let res = table.handleFold(socket.id);
+    res && broadcastToTable(table, res.message);
+    res && changeTurnAndBroadcast(table, res.seatId);
   });
 
   socket.on(CHECK, (tableId) => {
     let table = tables[tableId];
-    let { seatId, message } = table.handleCheck(socket.id);
-    broadcastToTable(table, message);
-    changeTurnAndBroadcast(table, seatId);
+    let res = table.handleCheck(socket.id);
+    res && broadcastToTable(table, res.message);
+    res && changeTurnAndBroadcast(table, res.seatId);
   });
 
   socket.on(CALL, (tableId) => {
     let table = tables[tableId];
-    let { seatId, message } = table.handleCall(socket.id);
-    broadcastToTable(table, message);
-    changeTurnAndBroadcast(table, seatId);
+    let res = table.handleCall(socket.id);
+    res && broadcastToTable(table, res.message);
+    res && changeTurnAndBroadcast(table, res.seatId);
   });
 
   socket.on(RAISE, ({ tableId, amount }) => {
     let table = tables[tableId];
-    let { seatId, message } = table.handleRaise(socket.id, amount);
-    broadcastToTable(table, message);
-    changeTurnAndBroadcast(table, seatId);
+    let res = table.handleRaise(socket.id, amount);
+    res && broadcastToTable(table, res.message);
+    res && changeTurnAndBroadcast(table, res.seatId);
   });
 
   socket.on(TABLE_MESSAGE, ({ message, from, tableId }) => {
@@ -180,14 +180,16 @@ const init = (socket, io) => {
     const table = tables[tableId];
     const player = players[socket.id];
 
-    table.sitPlayer(player, seatId, amount);
-    let message = `${player.name} sat down in Seat ${seatId}`;
+    if (player) {
+      table.sitPlayer(player, seatId, amount);
+      let message = `${player.name} sat down in Seat ${seatId}`;
 
-    updatePlayerBankroll(player, -amount);
+      updatePlayerBankroll(player, -amount);
 
-    broadcastToTable(table, message);
-    if (table.activePlayers().length === 2) {
-      initNewHand(table);
+      broadcastToTable(table, message);
+      if (table.activePlayers().length === 2) {
+        initNewHand(table);
+      }
     }
   });
 

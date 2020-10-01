@@ -95,7 +95,7 @@ class Table {
         return this.seats[i];
       }
     }
-    throw new Error('seat not found!');
+    // throw new Error('seat not found!');
   }
   unfoldedPlayers() {
     return Object.values(this.seats).filter(
@@ -303,6 +303,7 @@ class Table {
   }
   allCheckedOrCalled() {
     if (
+      this.seats[this.bigBlind] &&
       this.seats[this.bigBlind].bet === this.limit / 100 &&
       !this.seats[this.bigBlind].checked &&
       this.board.length === 0
@@ -504,63 +505,82 @@ class Table {
   }
   handleFold(socketId) {
     let seat = this.findPlayerBySocketId(socketId);
-    seat.fold();
 
-    return {
-      seatId: seat.id,
-      message: `${seat.player.name} folds`,
-    };
+    if (seat) {
+      seat.fold();
+
+      return {
+        seatId: seat.id,
+        message: `${seat.player.name} folds`,
+      };
+    } else {
+      return null;
+    }
   }
   handleCall(socketId) {
     let seat = this.findPlayerBySocketId(socketId);
-    let addedToPot =
-      this.callAmount > seat.stack + seat.bet
-        ? seat.stack
-        : this.callAmount - seat.bet;
 
-    seat.callRaise(this.callAmount);
+    if (seat) {
+      let addedToPot =
+        this.callAmount > seat.stack + seat.bet
+          ? seat.stack
+          : this.callAmount - seat.bet;
 
-    if (this.sidePots.length > 0) {
-      this.sidePots[this.sidePots.length - 1].amount += addedToPot;
+      seat.callRaise(this.callAmount);
+
+      if (this.sidePots.length > 0) {
+        this.sidePots[this.sidePots.length - 1].amount += addedToPot;
+      } else {
+        this.pot += addedToPot;
+      }
+
+      return {
+        seatId: seat.id,
+        message: `${seat.player.name} calls $${addedToPot.toFixed(2)}`,
+      };
     } else {
-      this.pot += addedToPot;
+      return null;
     }
-
-    return {
-      seatId: seat.id,
-      message: `${seat.player.name} calls $${addedToPot.toFixed(2)}`,
-    };
   }
   handleCheck(socketId) {
     let seat = this.findPlayerBySocketId(socketId);
-    seat.check();
+    if (seat) {
+      seat.check();
 
-    return {
-      seatId: seat.id,
-      message: `${seat.player.name} checks`,
-    };
+      return {
+        seatId: seat.id,
+        message: `${seat.player.name} checks`,
+      };
+    } else {
+      return null;
+    }
   }
   handleRaise(socketId, amount) {
     let seat = this.findPlayerBySocketId(socketId);
-    let addedToPot = amount - seat.bet;
 
-    seat.raise(amount);
+    if (seat) {
+      let addedToPot = amount - seat.bet;
 
-    if (this.sidePots.length > 0) {
-      this.sidePots[this.sidePots.length - 1].amount += addedToPot;
+      seat.raise(amount);
+
+      if (this.sidePots.length > 0) {
+        this.sidePots[this.sidePots.length - 1].amount += addedToPot;
+      } else {
+        this.pot += addedToPot;
+      }
+
+      this.minRaise = this.callAmount
+        ? this.callAmount + (seat.bet - this.callAmount) * 2
+        : seat.bet * 2;
+      this.callAmount = amount;
+
+      return {
+        seatId: seat.id,
+        message: `${seat.player.name} raises to $${amount.toFixed(2)}`,
+      };
     } else {
-      this.pot += addedToPot;
+      return null;
     }
-
-    this.minRaise = this.callAmount
-      ? this.callAmount + (seat.bet - this.callAmount) * 2
-      : seat.bet * 2;
-    this.callAmount = amount;
-
-    return {
-      seatId: seat.id,
-      message: `${seat.player.name} raises to $${amount.toFixed(2)}`,
-    };
   }
 }
 
