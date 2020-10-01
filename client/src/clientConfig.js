@@ -4,7 +4,7 @@ const config = {
   googleAnalyticsTrackingId: process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID,
   socketURI:
     process.env.NODE_ENV === 'production'
-      ? 'https://vintage-poker-app.herokuapp.com:5000/'
+      ? process.env.REACT_APP_SERVER_URI
       : `http://${window.location.hostname}:5000/`,
 };
 
