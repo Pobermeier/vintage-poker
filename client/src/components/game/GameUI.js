@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import contentContext from '../../context/content/contentContext';
 import Button from '../buttons/Button';
-import { BetSlider } from './BetSliderWrapper';
+import { BetSlider } from './BetSlider';
 import { UIWrapper } from './UIWrapper';
 
 export const GameUI = ({
