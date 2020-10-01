@@ -10240,7 +10240,7 @@
         "id": "3UoXXZ4I2JSpnQDVQYfLLj",
         "type": "Entry",
         "createdAt": "2020-09-25T21:39:04.513Z",
-        "updatedAt": "2020-09-25T21:39:12.369Z",
+        "updatedAt": "2020-10-01T11:22:19.771Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -10248,8 +10248,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 2,
-        "publishedAt": "2020-09-25T21:39:12.369Z",
+        "publishedVersion": 4,
+        "publishedAt": "2020-10-01T11:22:19.771Z",
         "firstPublishedAt": "2020-09-25T21:39:12.369Z",
         "createdBy": {
           "sys": {
@@ -10265,8 +10265,8 @@
             "id": "1KdHI7Ef2v39J5JAl7fa0m"
           }
         },
-        "publishedCounter": 1,
-        "version": 3,
+        "publishedCounter": 2,
+        "version": 5,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -10287,8 +10287,8 @@
           "en": "game_lost-connection-modal_text"
         },
         "value": {
-          "de": "Schließen",
-          "en": "Close"
+          "de": "Verbindung zum Spieleserver konnte nicht hergestellt werden / Verbindung unterbrochen! Bitte versuchen Sie es später noch einmal!",
+          "en": "Could not connect / lost connection to game server! Please try again  later!"
         }
       }
     },
@@ -10373,7 +10373,7 @@
         "id": "27dzDArNkfLMjOx5XRFmtT",
         "type": "Entry",
         "createdAt": "2020-09-25T21:39:28.083Z",
-        "updatedAt": "2020-09-25T21:39:38.393Z",
+        "updatedAt": "2020-10-01T11:22:29.141Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -10381,8 +10381,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 3,
-        "publishedAt": "2020-09-25T21:39:38.393Z",
+        "publishedVersion": 5,
+        "publishedAt": "2020-10-01T11:22:29.141Z",
         "firstPublishedAt": "2020-09-25T21:39:38.393Z",
         "createdBy": {
           "sys": {
@@ -10398,8 +10398,8 @@
             "id": "1KdHI7Ef2v39J5JAl7fa0m"
           }
         },
-        "publishedCounter": 1,
-        "version": 4,
+        "publishedCounter": 2,
+        "version": 6,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -10420,8 +10420,8 @@
           "en": "game_lost-connection-modal_btn-txt"
         },
         "value": {
-          "de": "Verbindung zum Spieleserver konnte nicht hergestellt werden / Verbindung unterbrochen! Bitte versuchen Sie es später noch einmal!",
-          "en": "Could not connect / lost connection to game server! Please try again  later!"
+          "de": "Schließen",
+          "en": "Close"
         }
       }
     },
@@ -10437,7 +10437,7 @@
         "id": "4BaUrQRgGX89OzxSp9pgWs",
         "type": "Entry",
         "createdAt": "2020-09-30T13:06:44.079Z",
-        "updatedAt": "2020-09-30T13:08:46.604Z",
+        "updatedAt": "2020-09-30T13:19:04.781Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -10445,8 +10445,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 2,
-        "publishedAt": "2020-09-30T13:08:46.604Z",
+        "publishedVersion": 4,
+        "publishedAt": "2020-09-30T13:19:04.781Z",
         "firstPublishedAt": "2020-09-30T13:08:46.604Z",
         "createdBy": {
           "sys": {
@@ -10462,8 +10462,8 @@
             "id": "1KdHI7Ef2v39J5JAl7fa0m"
           }
         },
-        "publishedCounter": 1,
-        "version": 3,
+        "publishedCounter": 2,
+        "version": 5,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -10570,7 +10570,7 @@
         "id": "3BUs8n4FDYsGW0jnkygzpq",
         "type": "Entry",
         "createdAt": "2020-09-30T13:07:46.378Z",
-        "updatedAt": "2020-09-30T13:08:46.622Z",
+        "updatedAt": "2020-09-30T13:19:04.780Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -10578,8 +10578,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 2,
-        "publishedAt": "2020-09-30T13:08:46.622Z",
+        "publishedVersion": 4,
+        "publishedAt": "2020-09-30T13:19:04.780Z",
         "firstPublishedAt": "2020-09-30T13:08:46.622Z",
         "createdBy": {
           "sys": {
@@ -10595,8 +10595,8 @@
             "id": "1KdHI7Ef2v39J5JAl7fa0m"
           }
         },
-        "publishedCounter": 1,
-        "version": 3,
+        "publishedCounter": 2,
+        "version": 5,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -10703,7 +10703,7 @@
         "id": "RUsWrzHAIbojrmpfZgijI",
         "type": "Entry",
         "createdAt": "2020-09-30T13:08:10.306Z",
-        "updatedAt": "2020-09-30T13:08:46.638Z",
+        "updatedAt": "2020-09-30T13:19:04.776Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -10711,8 +10711,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 2,
-        "publishedAt": "2020-09-30T13:08:46.638Z",
+        "publishedVersion": 4,
+        "publishedAt": "2020-09-30T13:19:04.776Z",
         "firstPublishedAt": "2020-09-30T13:08:46.638Z",
         "createdBy": {
           "sys": {
@@ -10728,8 +10728,8 @@
             "id": "1KdHI7Ef2v39J5JAl7fa0m"
           }
         },
-        "publishedCounter": 1,
-        "version": 3,
+        "publishedCounter": 2,
+        "version": 5,
         "publishedBy": {
           "sys": {
             "type": "Link",
