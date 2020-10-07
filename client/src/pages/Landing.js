@@ -74,32 +74,35 @@ const Landing = () => {
 
 const CenteredBlockWithAnimation = styled(CenteredBlock)`
   opacity: 0;
-  animation-duration: 0.3s;
-  animation-delay: 0.3s;
-  animation-fill-mode: both;
   -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
   -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
   -webkit-animation-fill-mode: both;
-  animation-name: fadeInLeft;
+  animation-fill-mode: both;
   -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
 
-  @keyframes fadeInLeft {
+  @-webkit-keyframes fadeInLeft {
     from {
+      -webkit-transform: translate3d(-40px, 0, 0);
       transform: translate3d(-40px, 0, 0);
     }
 
     to {
+      -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
       opacity: 1;
     }
   }
-
-  @-webkit-keyframes fadeInLeft {
+  @keyframes fadeInLeft {
     from {
+      -webkit-transform: translate3d(-40px, 0, 0);
       transform: translate3d(-40px, 0, 0);
     }
 
     to {
+      -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
       opacity: 1;
     }
@@ -121,7 +124,9 @@ const DesktopIllustration = styled.img`
   margin-left: 2rem;
   right: 2rem;
   max-width: 400px;
+  -webkit-transform: scale(1.25);
   transform: scale(1.25);
+  transition: all 0.5s;
   opacity: 0;
   animation-duration: 0.3s;
   animation-delay: 0.6s;
@@ -131,14 +136,15 @@ const DesktopIllustration = styled.img`
   -webkit-animation-fill-mode: both;
   animation-name: fadeInRight;
   -webkit-animation-name: fadeInRight;
-  transition: all 0.5s;
 
   @keyframes fadeInRight {
     from {
+      -webkit-transform: translate3d(40px, 0, 0);
       transform: translate3d(40px, 0, 0);
     }
 
     to {
+      -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
       opacity: 1;
     }
@@ -146,10 +152,12 @@ const DesktopIllustration = styled.img`
 
   @-webkit-keyframes fadeInRight {
     from {
+      -webkit-transform: translate3d(40px, 0, 0);
       transform: translate3d(40px, 0, 0);
     }
 
     to {
+      -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
       opacity: 1;
     }
