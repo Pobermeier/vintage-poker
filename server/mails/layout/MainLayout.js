@@ -33,7 +33,14 @@ const MainLayout = (
 
     a {
       text-decoration: none !important;
+      outline: none;
       color: #245069;
+    }
+
+    a img {
+      outline: none;
+      border: none;
+      border: 0;
     }
 
     body {
@@ -45,7 +52,8 @@ const MainLayout = (
 
     table,
     td {
-      border-collapse: collapse;
+      border: 0 !important;
+      border-collapse: collapse !important;
       mso-table-lspace: 0pt;
       mso-table-rspace: 0pt;
     }
@@ -124,7 +132,7 @@ const MainLayout = (
     ${MainWrapper(`
       ${Salutation(username)}
       ${content}
-      ${Signation}`)}
+      ${Signation()}`)}
     ${Footer()}
   </div>
 </body>
