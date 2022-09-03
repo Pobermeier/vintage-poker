@@ -1,2 +1,2 @@
-/api/* https://vintage-poker-app.herokuapp.com/api/:splat 200
+/api/* https://vintage-poker-production.up.railway.app/api/:splat 200
 /*    /index.html   200
