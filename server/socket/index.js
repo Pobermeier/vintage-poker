@@ -28,7 +28,7 @@ const {
 const config = require('../config');
 
 const tables = {
-  1: new Table(1, 'Table 1', 10000),
+  '1': new Table('1', 'Table 1', 10000),
 };
 const players = {};
 

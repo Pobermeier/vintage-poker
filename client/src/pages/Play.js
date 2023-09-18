@@ -49,7 +49,7 @@ const Play = ({ history }) => {
         getLocalizedString('game_lost-connection-modal_btn-txt'),
         () => history.push('/'),
       );
-    socket && joinTable(1);
+    socket && joinTable('1');
     return () => leaveTable();
     // eslint-disable-next-line
   }, [socket]);
