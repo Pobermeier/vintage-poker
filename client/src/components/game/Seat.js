@@ -137,7 +137,7 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
           <PositionedUISlot top="-6.25rem" left="-75px" origin="top center">
             <NameTag>
               <ColoredText primary textAlign="center">
-                {seat.player.name}
+                {seat.player?.name}
                 <br />
                 {seat.stack && (
                   <ColoredText secondary>
