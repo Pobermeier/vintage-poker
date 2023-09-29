@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Button from '../buttons/Button';
 import modalContext from '../../context/modal/modalContext';
 import globalContext from '../../context/global/globalContext';
@@ -32,6 +32,46 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
   const maxBuyin = currentTable.limit;
   const minBuyIn = currentTable.minBet * 2 * 10;
 
+  const buyinSubmit = (e, isRebuy) => {
+    e.preventDefault();
+    const amount = +document.getElementById('amount').value;
+    if (amount &&
+      amount >= minBuyIn &&
+      amount <= chipsAmount &&
+      amount <= maxBuyin
+    ) {
+      if (!isRebuy) {
+        sitDown(currentTable.id, seatNumber, parseInt(amount));
+      } else {
+        rebuy(currentTable.id, seatNumber, parseInt(amount));
+      }
+      closeModal();
+    }
+  };
+
+  const buyinView = (isRebuy = false) => (
+    <Form onSubmit={(e) => (buyinSubmit(e, isRebuy))}>
+      <FormGroup>
+        <Input
+          id="amount"
+          type="number"
+          min={minBuyIn}
+          max={chipsAmount <= maxBuyin ? chipsAmount : maxBuyin}
+          defaultValue={minBuyIn}
+        />
+      </FormGroup>
+      <ButtonGroup>
+        <Button primary type="submit" fullWidth>
+          {!isRebuy ? (
+            getLocalizedString('game_buyin-modal_confirm')
+          ) : (
+            getLocalizedString('game_rebuy-modal_confirm')
+          )}
+        </Button>
+      </ButtonGroup>
+    </Form>
+  );
+
   useEffect(() => {
     if (
       currentTable &&
@@ -45,40 +85,7 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
         standUp();
       } else {
         openModal(
-          () => (
-            <Form
-              onSubmit={(e) => {
-                e.preventDefault();
-
-                const amount = +document.getElementById('amount').value;
-
-                if (
-                  amount &&
-                  amount >= minBuyIn &&
-                  amount <= chipsAmount &&
-                  amount <= maxBuyin
-                ) {
-                  rebuy(currentTable.id, seatNumber, parseInt(amount));
-                  closeModal();
-                }
-              }}
-            >
-              <FormGroup>
-                <Input
-                  id="amount"
-                  type="number"
-                  min={minBuyIn}
-                  max={chipsAmount <= maxBuyin ? chipsAmount : maxBuyin}
-                  defaultValue={minBuyIn}
-                />
-              </FormGroup>
-              <ButtonGroup>
-                <Button primary type="submit" fullWidth>
-                  {getLocalizedString('game_rebuy-modal_confirm')}
-                </Button>
-              </ButtonGroup>
-            </Form>
-          ),
+          () => (buyinView(true)),
           getLocalizedString('game_rebuy-modal_header'),
           getLocalizedString('game_rebuy-modal_cancel'),
           () => {
@@ -104,44 +111,7 @@ export const Seat = ({ currentTable, seatNumber, isPlayerSeated, sitDown }) => {
               small
               onClick={() => {
                 openModal(
-                  () => (
-                    <Form
-                      onSubmit={(e) => {
-                        e.preventDefault();
-
-                        const amount = +document.getElementById('amount').value;
-
-                        if (
-                          amount &&
-                          amount >= minBuyIn &&
-                          amount <= chipsAmount &&
-                          amount <= maxBuyin
-                        ) {
-                          sitDown(
-                            currentTable.id,
-                            seatNumber,
-                            parseInt(amount),
-                          );
-                          closeModal();
-                        }
-                      }}
-                    >
-                      <FormGroup>
-                        <Input
-                          id="amount"
-                          type="number"
-                          min={minBuyIn}
-                          max={chipsAmount <= maxBuyin ? chipsAmount : maxBuyin}
-                          defaultValue={minBuyIn}
-                        />
-                      </FormGroup>
-                      <ButtonGroup>
-                        <Button primary type="submit" fullWidth>
-                          {getLocalizedString('game_buyin-modal_confirm')}
-                        </Button>
-                      </ButtonGroup>
-                    </Form>
-                  ),
+                  () => (buyinView(false)),
                   getLocalizedString('game_buyin-modal_header'),
                   getLocalizedString('game_buyin-modal_cancel'),
                 );
