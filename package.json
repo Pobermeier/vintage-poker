@@ -10,7 +10,7 @@
     "start:client": "npm start --prefix client",
     "dev": "concurrently \"npm run dev:server\" \"npm run start:client\""
   },
-  "author": "Patrick Obermeier <patrick.obermeier@outlook.com>",
+  "author": "Patrick Obermeier",
   "private": "true",
   "license": "MIT",
   "dependencies": {
