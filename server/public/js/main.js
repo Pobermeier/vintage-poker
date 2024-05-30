@@ -138,7 +138,7 @@ function Game({ setConnected }) {
 
     socket.emit(FETCH_LOBBY_INFO, user);
 
-    socket.emit(JOIN_TABLE, 1);
+    socket.emit(JOIN_TABLE, '1');
 
     return () => {
       cleanUp();
@@ -166,7 +166,7 @@ function Game({ setConnected }) {
   };
 
   const joinTable = () => {
-    socket.emit(JOIN_TABLE, 1);
+    socket.emit(JOIN_TABLE, '1');
   };
 
   const fold = () => {

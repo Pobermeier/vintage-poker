@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import contentContext from '../../context/content/contentContext';
 import ChipsAmountPill from './ChipsAmountPill';
@@ -17,16 +17,29 @@ const Wrapper = styled.div`
 export const GameStateInfo = ({ currentTable }) => {
   const { getLocalizedString } = useContext(contentContext);
 
+  const [roundName, setRound] = useState('');
+
+  useEffect(() => {
+    if (!currentTable.board) {
+      setRound('Pre-Flop')
+    } else if (currentTable.board.length === 0) {
+      setRound('Pre-Flop')
+    } else if (currentTable.board.length === 3) {
+      setRound('Flop')
+    } else if (currentTable.board.length === 4) {
+      setRound('Turn')
+    } else if (currentTable.board.length === 5) {
+      setRound('River')
+    }
+  }, [currentTable]);
+
   return (
     <Wrapper>
       {currentTable.players.length <= 1 || currentTable.handOver ? (
         <InfoPill>{getLocalizedString('game_state-info_wait')}</InfoPill>
       ) : (
         <InfoPill>
-          {currentTable.board.length === 0 && 'Pre-Flop'}
-          {currentTable.board.length === 3 && 'Flop'}
-          {currentTable.board.length === 4 && 'Turn'}
-          {currentTable.board.length === 5 && 'River'}
+          {roundName}
           {currentTable.wentToShowdown && 'Showdown'}
         </InfoPill>
       )}
@@ -38,7 +51,7 @@ export const GameStateInfo = ({ currentTable }) => {
         />
       )}
 
-      {currentTable.sidePots > 0 &&
+      {currentTable.sidePots &&
         currentTable.sidePots.map((sidePot) => (
           <ChipsAmountPill
             chipsAmount={sidePot.amount}
